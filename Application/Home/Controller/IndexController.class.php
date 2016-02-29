@@ -50,7 +50,7 @@ class IndexController extends Controller {
             }         
         }else{
             $this->assign("rows",M("News")->order("time DESC")->select());
-            $this->display(T('Home@index/index'));
+            $this->display(T('Home@Index/index'));
         }
     }
     //退出登录
