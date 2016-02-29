@@ -42,7 +42,7 @@ class RegisteController extends \Think\Controller{
                 shuffle($range);
                 $mes=$membersModel->where("id={$res}")->save(array("password"=>  md5($range)));
                 $mail=new \Think\SendMail();
-                $res=$mail->index($email, "7G传媒-找回密码".  date("Y-m-d H:i:s",time() ), "你的密码是".$range."!!请尽快更改密码");
+                $res=$mail->index($email, "渝网传媒-找回密码".  date("Y-m-d H:i:s",time() ), "你的密码是".$range."!!请尽快更改密码");
                 $mes=$res?"成功发送找回密码的邮件":"邮件暂未发送，请稍候重试";
                 $this->success("邮件默认会发送到--垃圾邮箱","/index/index.html");
             }else{

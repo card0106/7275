@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>7G传媒 你我同行,成就未来!</title>
+<title>渝网传媒 你我同行,成就未来!</title>
 <link type="text/css" href="/Public/css/base_1.css" rel="stylesheet" />
 <script type="text/javascript" src="/Public/js/jquery.js"></script>
 <!--[if lte IE 6]>

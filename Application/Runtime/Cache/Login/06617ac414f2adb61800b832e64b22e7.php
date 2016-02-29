@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>7G传媒</title>
-<meta name="description" content="7G传媒" />
-<meta name="keywords" content="7G传媒介绍" />
+<title>渝网传媒</title>
+<meta name="description" content="渝网传媒" />
+<meta name="keywords" content="渝网传媒介绍" />
 <script type="text/javascript" src="/Public/js/jquery.js"></script>
 <script type="text/javascript" src="/Public/js/jquery.reg.js"></script>
 <script type="text/javascript" src="/Public/js/formValidator_min.js"></script>
