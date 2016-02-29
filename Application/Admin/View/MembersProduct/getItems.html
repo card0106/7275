@@ -1,0 +1,132 @@
+<extend name="Common/base" />
+
+<!--左边导航部分-->
+<block name='left'>
+    <div class="left fl">
+            <div class="face"></div>
+        <div class="nav0">
+            <a href="{:U('Index/index')}" class="n1">基本信息</a>
+            <a href="{:U('Members/index')}" class="n2">用户信息</a>
+            <a href="{:U('Product/index')}" class="dr3">产品信息</a>
+            <a href="{:U('Invoicing/invoicing')}" class="n4">结算列表</a>
+            <a href="{:U('Cash/cash')}" class="n5">提现列表</a>
+            <a href="{:U('News/index')}" class="n6">新闻公告</a>
+            <a href="{:U('Question/index')}" class="n7">常见问题</a>            
+        </div>
+    </div>
+</block>    
+<!--左边导航部分-->
+<!--右边内容 部分-->
+<block name='right'>
+<style>
+.text{ color:#7c7c7c; background:#ffffff; border-radius:15px; border:1px solid #e6eff8; padding:0 10px;}
+.user{display:inline-block;width:13px;height:15px;background:url(__IMG__/ico2.png) no-repeat center;background-position:-18px 3px;}
+.product{display:inline-block;width:13px;height:15px;background:url(__IMG__/ico3.png) no-repeat center;background-position:-18px 3px;}
+</style>
+<div class="right">
+    <div class="mtit">
+        <div class="blue f20 fl">CMS联盟</div>
+        <div class="fr">
+                <div class="userout fl"><a href="#">{$_SESSION["userinfo"]["username"]}</a></div>
+                <div class="out fl"><a href="{:U('Login/Index/logout')}">退出</a></div>
+        </div>
+    </div>
+<!---列表主体部分---->
+    <div class="tit f20">已经审核{:count($rows)}个产品</div>
+    <div class="con">
+    	<table border="0" cellpadding="0" cellspacing="0" class="productTable">
+            <thead>
+                <tr>
+                	<th width="11%" colspan=2>用户名</th>
+                    <th width="15%">产品名称</th>
+                    <th width="10%">结算周期</th>
+                    <th width="10%">扣率</th>
+                    <th width="10%">1号数据下游价</th>
+                    <th width="10%">2号数据下游价</th>
+                    <th width="10%">3号数据下游价</th>
+                    <th width="15%">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <volist name='rows' id='row'>
+                <tr>
+                    <td style="text-align: right;">{$row.username}</td><td style="text-align: left;"><a class="user" href="{:U('Members/index','member_id='.$row['members_id'])}"></a>&nbsp;<a class="product" href="{:U('MembersProduct/getItems','member_id='.$row['members_id'])}"></a></td>
+                    <td>{$row.goods_name}</td>	
+                    <td>
+                        <if condition="$row['invoicing_cycle'] eq 0">每日
+                            <elseif condition="$row['invoicing_cycle'] eq 1"/>每周
+                            <elseif condition="$row['invoicing_cycle'] eq 2"/>双周
+                            <elseif condition="$row['invoicing_cycle'] eq 3"/>每月
+                        </if>
+                    <td><input name="discount" type="text" class="text" id="discount_{$row.id}" orgval="{$row.discount}" userid="{$row.id}" value="{$row.discount}"/>%</td>
+                    <td><input name="dprice1" type="text" class="text" id="dprice1_{$row.id}" orgval="{$row.dprice1}" userid="{$row.id}" value="{$row.dprice1}"/></td>
+                    <td><input name="dprice2" type="text" class="text" id="dprice2_{$row.id}" orgval="{$row.dprice2}" userid="{$row.id}" value="{$row.dprice2}"/></td>
+                    <td><input name="dprice3" type="text" class="text" id="dprice3_{$row.id}" orgval="{$row.dprice3}" userid="{$row.id}" value="{$row.dprice3}"/></td>
+                    <td><!--<a href="javascript:void(0);" class="sb5" onclick="" value="{$row.id}">删除</a>--></td>
+                </tr>
+                </volist>
+            </tbody>
+    	</table>
+        <!--分页工具条 开始---->
+        <div id="turn-page" class="page">
+            {$pageHTML}
+        </div> 
+        <!--分页工具条 结束---->        
+    </div>
+</div>
+</block>
+<block name='js'>
+<script>
+$(document).ready(function(){
+	$.formValidator.initConfig({alertMessage:false});
+	$("input[name='discount']").formValidator().FunctionValidator({fun:control});
+	$("input[name='dprice1']").formValidator().FunctionValidator({fun:control});
+	$("input[name='dprice2']").formValidator().FunctionValidator({fun:control});
+	$("input[name='dprice3']").formValidator().FunctionValidator({fun:control});
+
+	//.RegexValidator({regexp:"^[0-9]{1,2}+$",onerror:"用户名由数字、26个英文字母组成"});
+	//.AjaxValidator({addidvalue:false,type:"POST",url:"/Admin/MembersProduct/checkMemberProduct.html",data:"goods_id="+$("#goods_id").val(),buttons:$("#button"),success:function(data){if(data==-1)return "用户名不存在！";if(data==1)return "该会员已经拥有该产品！";return data==0;},error: function(jqXHR,textStatus,errorThrown){alert("服务器没有返回数据，可能服务器忙，请重试"+errorThrown);},onwait:"正在检测用户是否拥有该产品，请稍候..."});
+});
+function control(val,ele)
+{
+	var orgval = $(ele).attr('orgval');
+	var name = $(ele).attr('name');
+	var szTip='',type=0;
+	if(name == 'discount'){
+		type=1;
+		szTip = "你确定要将[扣率]:["+orgval+"%]修改为["+val+"%]吗？";
+	}else if(name == 'dprice1'){
+		type=2;
+		szTip = "你确定要将[1号数据下游价]:["+orgval+"%]修改为["+val+"]吗？";
+	}else if(name == 'dprice2'){
+		type=3;
+		szTip = "你确定要将[2号数据下游价]:["+orgval+"%]修改为["+val+"]吗？";
+	}else if(name == 'dprice3'){
+		type=4;
+		szTip = "你确定要将[3号数据下游价]:["+orgval+"%]修改为["+val+"]吗？";
+	}else 
+		return false;
+	if(type == 0 || orgval == val || !confirm(szTip))
+		return false;
+	var id=$(ele).attr('userid');
+    $.post(
+        "{:U('MembersProduct/control')}",
+        {id:id,type:type,val:val},
+        function(data){
+        	var mes='';
+        	if(data==1)
+        	{
+        		mes = '操作成功！';
+				$(ele).attr('orgval', val);
+        	}else
+        	{
+        		mes='操作失败！';
+				$(ele).val($(ele).attr('orgval'));
+        	}
+            alert(mes);
+        }
+    );
+    return true;
+}
+</script>
+</block>

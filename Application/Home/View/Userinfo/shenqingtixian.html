@@ -1,0 +1,66 @@
+<include file="./Application/Home/View/Public/header.html" menu='info'/>
+<script type="text/javascript" src="__JS__/jquery.min.js"></script>
+<script type="text/javascript" src="__JS__/formValidator_min.js"></script>
+<!--导航栏 结束-----> 
+<div id="menu" class="f14">
+	<div class="one">
+	<a href="{:U('/userinfo')}">概况</a>
+	<a href="{:U('/individual')}">个人信息</a>
+	<a href="{:U('/pass')}">修改密码</a>
+	<a href="{:U('/shenqingtixian')}" class="dr">申请提现</a>
+    </div>
+</div>
+<div id="main">
+<div id="content">
+    <h2 class="f20">申请提现</h2>
+    <div class="bok bheight240">
+    	<form id="form1" name="form1" method="post" action="{:U('/shenqingtixian')}" onsubmit="return jQuery.formValidator.PageIsValid('1')">
+    	  <div class="con">
+        	<dl>
+           	  <dt>可提现金额：</dt>
+                <dd><strong id="totalmoney">{$member["notpay"]}</strong>元</dd>
+            </dl>
+        	
+            <dl>
+                  <dt>申请金额：</dt>
+                    <dd><input name="money" type="text" id="jine" class="text" /><span id="jineTip"></span></dd>
+                </dl>
+                
+                <dl>
+                  <dt>提款人姓名：</dt>
+                    <dd>{$member["payee"]}</dd>
+                </dl>
+                
+                <dl>
+                  <dt>提款银行：</dt>
+                    <dd>{$member["bank_name"]}</dd>
+                </dl>
+                
+                <dl>
+                  <dt>银行卡号：</dt>
+                    <dd>{$member["bank_account"]}</dd>
+                </dl>
+                
+                <dl>
+                  <dt>开户行地址：</dt>
+                    <dd>{$member["bank_addr"]}</dd>
+                </dl>
+                
+        </div>
+    	  
+		<div class="button"><input type="submit" id="button" value="申请提现" class="ibutton" />
+		  <input type="reset" id="button2" value="取消" class="qbutton"  />
+		</div>
+        </form>
+    </div>
+<include file="./Application/Home/View/Public/footer.html" />
+<script>
+$(document).ready(function(){
+	$.formValidator.initConfig({alertMessage:false});
+	var tm = Number($("#totalmoney").text());
+	$("#jine").formValidator({onshow:"申请金额必须是整数，例如860，本次可提现最大金额为:"+tm+"元",onfocus:"申请金额必须是整数，例如860。",oncorrect:"填写正确"}).RegexValidator({regexp:"^[0-9]*$",onerror:"申请金额必须是数字且为整数。"}).InputValidator({min:1,max:tm,type:"number",onerrormin:"申请金额必须大于0。",onerrormax:"申请金额必须小于"+tm+"。"});
+});	
+
+</script>
+</body>
+</html>

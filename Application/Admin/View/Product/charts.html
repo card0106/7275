@@ -1,0 +1,150 @@
+<extend name='Common/base' />
+<!--页面引入外部CSS文件--->
+<block name="css">
+    <link type="text/css" href="__CSS__/jquery-ui.css" rel="stylesheet" />
+      <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+  <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/exporting.js"></script>
+
+    <!--<script type="text/javascript" src="__JS__/angular.min.js"></script>-->
+</block>
+<!--左边导航部分-->
+<block name='left'>
+    <div class="left fl">
+            <div class="face"></div>
+        <div class="nav0">
+            <a href="{:U('Index/index')}" class="n1">基本信息</a>
+            <a href="{:U('Members/index')}" class="n2">用户信息</a>
+            <a href="{:U('Product/index')}" class="dr3">产品信息</a>
+            <a href="{:U('Invoicing/invoicing')}" class="n4">结算列表</a>
+            <a href="{:U('Cash/cash')}" class="n4">提现列表</a>
+            <a href="{:U('News/index')}" class="n6">新闻公告</a>
+            <a href="{:U('Question/index')}" class="n7">常见问题</a>            
+        </div>
+    </div>
+</block>    
+<!--左边导航部分-->
+<!--右边内容部分-->
+<block name="right">
+<div class="right">
+<!----顶部有关用户及退出----->
+<div ng-controller="data">
+    <div class="mtit">
+        <div class="blue f20 fl">CMS联盟</div>
+        <div class="fr">
+                <div class="userout fl"><a href="javascript:void(0)">{$_SESSION["userinfo"]["username"]}</a></div>
+                <div class="out fl"><a href="{:U('Login/Index/logout')}">退出</a></div>
+        </div>
+    </div>
+<!---查询某个日期段对应的产品数据--->
+<!--    <form name="form1" method="post">
+            <input type="hidden" name="id" value="<%=id%>">
+            <div class="bok" style="_margin-top:20px;">
+                <strong>日期：</strong>
+                <input type="text" class="form-control" ng-model="search" placeholder="请输入日期2015-05-12" style="width: 300px">
+            <div class="time fl">日期：</div>
+            <div class="time fl"><input type="text" id="date_1" name="date_1" readonly/></div>
+            <div class="time fl">至</div>
+            <div class="time fl"><input type="text" id="date_2" name="date_2" readonly /></div>
+                    <div class="time1 fl"><input type="submit" name="button" id="button" value="查询" class="but cursor" /></div>
+            </div>
+    </form> -->
+<!----产品数据列表----->
+<div class="tit f20"><a class="f12">查看收益走势</a><a href="{:U('top','goods_id='.I('get.goods_id'))}" class="f12">查看明星渠道</a><a href="{:U('goodsData','goods_id='.I('get.goods_id'))}" class="f12">查看详细报表</a></div>
+    <div class="con">
+        <!---统计收入栏---->
+    	<div class="tuiguang f12">
+            <ul id="screen">
+            	<li><p>总利润</p><p><span>￥{$total.price}</span></p></li>
+            	<li><p>总收益</p><p><span>￥{$total.umoney}</span></p></li>
+            	<li><p>总支出</p><p><span>￥{$total.money}</span></p></li>
+            	<li><p>平均利润率</p><p><span>{$total.money_percent}%</span></p></li>
+            	<li><p>总注册数</p><p><span>{$total.real_num} 次</span></p></li>
+            	<li><p>总激活数</p><p><span>{$total.promote_num} 次</span></p></li>
+            	<li><p>每激活收益</p><p><span>￥{$total.real_money}</span></p></li>
+            	<li><p>平均激活率</p><p><span>{$total.real_percent}%</span></p></li>
+            </ul>
+        </div>
+        <!--产品推广数据列表-->
+    	<!--<table border="0" cellpadding="0" cellspacing="0" class="productTable"></table>-->
+        <div id="container" style="min-width:700px;height:400px"></div>
+    </div>
+</div>
+</div>
+</block>
+<!--自定义JS部分----->
+<block name='js'>
+<!----angualrJS代码块------->
+<script>
+//var myapp=angular.module("app",[]);    
+//myapp.controller("data",["$scope",function($scope){
+//    $scope.datas={$rows};
+//    console.debug($scope.datas);
+//}]);
+</script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+<script>
+$(function () {
+    $('#container').highcharts({
+        title: {
+            text: '{$charts.title}',
+            x: -20 //center
+        },
+        subtitle: {
+            text: '{$charts.subtitle}',
+            x: -20
+        },
+        xAxis: {
+            categories: [{$charts.categories}]
+        },
+        yAxis: {
+            title: {
+                text: '收益'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: ''
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: '{$charts.series.name}',
+            data: [{$charts.series.data}]
+        }]
+    });
+});
+     $(function(){
+            $("#date_1").datepicker();
+            $("#date_2").datepicker();
+    });
+    //点击查询的时候需要执行的业务逻辑
+    $("#button").click(function(){
+        var date_1=$("#date_1").val();
+        var date_2=$("#date_2").val();
+//        var member_name=$("#name").val();
+        var member_name=$("#uname").val();
+        if(date_1=="" || date_2==""){
+            alert("日期不能为空");
+            return;
+        }
+        $.post(
+            "{:U('Product/goodsData')}",
+            {date1:date_1,date2:date_2,member:member_name},
+            function(data){
+                $("#filter").html("");
+                $("#screen").html("");
+                $("#mytpl").tmpl(data[0]).appendTo("#filter");
+                $("#screenTpl").tmpl(data[1]).appendTo("#screen");
+            }
+        );
+    });
+</script>
+</block>

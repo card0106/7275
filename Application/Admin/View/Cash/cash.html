@@ -1,0 +1,171 @@
+<extend name='Common/base' />
+<!--样式以及外部引入文件--->
+<block name='src'>
+<link rel="stylesheet" href="__CSS__/bootstrap.min.css" type="text/css">
+<link type="text/css" href="__CSS__/base_1.css" rel="stylesheet" />
+<link type="text/css" href="__CSS__/jquery-ui.css" rel="stylesheet" />
+<script type="text/javascript" src="__JS__/jquery.js"></script>
+<script type="text/javascript" src="__JS__/jquery-ui-datepicker.js"></script>
+<script type="text/javascript" src="__JS__/jquery.tmpl.min.js"></script>
+</block>
+<!--样式以及外部引入文件--->
+<!----左边导航部分----->
+<block name='left'>
+    <div class="left fl">
+            <div class="face"></div>
+        <div class="nav0">
+            <a href="{:U('Index/index')}" class="n1">基本信息</a>
+            <a href="{:U('Members/index')}" class="n2">用户信息</a>
+            <a href="{:U('Product/index')}" class="n3">产品信息</a>
+            <a href="{:U('Invoicing/invoicing')}" class="n4">结算列表</a>
+            <a href="{:U('Cash/cash')}" class="dr5">提现列表</a>
+            <a href="{:U('News/index')}" class="n6">新闻公告</a>
+            <a href="{:U('Question/index')}" class="n7">常见问题</a>
+            
+        </div>
+    </div>
+</block>    
+<!--左边导航部分-->
+<!--右边内容部分-->
+<block name='right'>
+<div class="right">
+    <div class="mtit">
+    	<div class="blue f20 fl">CMS联盟</div>
+        <div class="fr">
+        	<div class="userout fl"><a href="javascript:void(0)">{$_SESSION["userinfo"]["username"]}</a></div>
+        	<div class="out fl"><a href="{:U('Login/Index/logout')}">退出</a></div>
+        </div>
+    </div>
+    <div class="tit f20">提现列表</div>
+    <if condition="$flag eq 1">
+        <else /> 
+        <form name="form1" method="post">
+                <div class="bok" style="_margin-top:20px;">
+                  <div class="time fl">日期：</div>
+                  <div class="time fl"><input type="text" id="date_1" name="date_1" readonly></div>
+                  <div class="time fl">至</div>
+                  <div class="time fl"><input type="text" id="date_2" name="date_2" readonly/></div>
+                        <div class="time1 fl"><input type="button" name="button" id="button" value="查询" class="but cursor" /> </div>
+                </div>
+        </form>        
+    </if>
+  
+    <div class="con">
+        <table border="0" cellpadding="0" cellspacing="0" class="productTable">
+            <thead>
+            <tr>
+                <th width="15%">用户名</th>
+                <th width="15%">提现时间</th>
+                <th width="9%">金额</th>
+                <th width="9%">审核状态</th>
+                <th width="9%">操作</th>
+            </tr>
+            </thead>
+            <tbody id="destination">
+            <volist name='rows' id='row'>
+                <tr>
+                    <td>{$row.member_name}</td>
+                    <td>{:date("Y-m-d H:i:s",$row["withdrawal_date"])}</td>
+                    <td>￥{$row.withdrawal_amount}</td>
+                    <td>
+                        <if condition="$row['checked'] eq 1"><a href="javascript:void(0)" class="sb3" flag="1">已通过审核</a> 
+                            <elseif condition="$row['checked'] eq 0"/><a href="javascript:void(0)" class="sb5" flag="1">未通过审核</a>
+                            <else /> <a href="javascript:void(0)" class="sb3" onclick="check(this)" flag="1" value="{$row.id}" member='{$row.member_id}'>允许</a>
+                                    <a href="javascript:void(0)" class="sb5" onclick="check(this)" flag="0" value="{$row.id}" member='{$row.member_id}'>禁止</a>
+                        </if>
+                    </td>
+                    <td>
+                        <a href="javascript:void(0)" value='{$row["id"]}' class="sb5" onclick=" return del(this)">删除</a>
+                    </td>
+                </tr>
+            </volist>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-----返回数据，需要插入------>
+<script type="text/html" id="myTemplate">    
+    <tr>
+        <td>${member_name}</td>
+        <td>${formdate}</td>
+        <td>${withdrawal_amount}</td>
+        <td>
+                <a href="javascript:void(0)" class="sb3" flag="1">${checked}</a>
+<!--            <if condition="${checked} eq 1"><a href="javascript:void(0)" class="sb3" flag="1">已通过审核</a> 
+                <elseif condition="${checked} eq -1"/><a href="javascript:void(0)" class="sb5" flag="1">未通过审核</a>
+                <else /> <a href="javascript:void(0)" class="sb3" onclick="check(this)" flag="1" value="${id}">允许</a>
+                        <a href="javascript:void(0)" class="sb5" onclick="check(this)" flag="-1" value="${id}">禁止</a>
+            </if>-->
+        </td>
+        <td>
+            <a href="javascript:void(0)" value='${id}' class="sb5" onclick=" return del(this)">删除</a>
+        </td>
+    </tr>
+</script>    
+</block>
+<!--右边内容部分-->
+<!--JS部分-->
+<block name='js'>
+<script>    
+//当通过日期来查询出对应的 数据记录
+$(".cursor").click(function(){
+    var data_1=$("#date_1").val();
+    var data_2=$("#date_2").val();
+    if(data_1==""||data_2==""){
+        alert("查询日期不能为空");
+        return false;
+    }    
+    //发送ajax请求查询某一个会员的信息/或者具体某个时间段的数据,
+    $.post(
+        "{:U('Cash/getItemsByDate')}",
+        {date1:data_1,date2:data_2},
+        function(data){
+            console.debug(data);
+            //先清除以前的列表数据
+            $("#destination").html("");
+//            //根据取出来的 产品所对应的数据，替换以前的列表
+            $('#myTemplate').tmpl(data).appendTo('#destination');            
+        }
+    );
+});    
+</script>     
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+<script>
+    //删除一条 提现记录
+    function del(demo){
+        var id=$(demo).attr("value");
+        if(window.confirm("你确定要删除该条提现记录吗?")){
+            $.post(
+                "{:U('delById')}",
+                {id:id},
+                function(data){
+                    alert(data);
+                    location.href="{:U('cash')}";
+                }
+            );
+        }
+    }
+    //改变某一个会员“是否已经通过审核”
+    function check(demo){
+        var amount=$(demo).closest("td").prev().text();
+            amount=amount.substr(1);
+        var member_id=$(demo).attr("member");
+        var flag=$(demo).attr("flag");
+        var mes=(flag==1)?"你确定让该会员通过审核?":"你确定禁止该会员通过审核?";
+        if(window.confirm(mes)){
+          $.post(
+                "{:U('checkedById')}",
+                {id:member_id,checked:flag,amount:amount},
+                function(data){
+                    alert(data);
+                    location.href="{:U('cash')}";
+                }
+            );  
+        }        
+    }
+     $(function(){         
+            $("#date_1").datepicker();
+            $("#date_2").datepicker();
+    });
+</script>
+</block>

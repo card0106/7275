@@ -1,0 +1,906 @@
+[ 2015-07-25T11:47:53+08:00 ] 182.118.20.169 /Question/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Question
+
+[ 2015-07-25T12:18:54+08:00 ] 180.153.236.43 /index.asp
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Index.asp
+
+[ 2015-07-25T14:10:00+08:00 ] 66.249.64.68 /robots.txt
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Robots.txt
+
+[ 2015-07-25T14:10:01+08:00 ] 66.249.64.68 /reg.asp
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+ERR: 无法加载控制器:Reg.asp
+
+[ 2015-07-25T15:44:02+08:00 ] 66.249.64.68 /news/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:News
+
+[ 2015-07-25T16:57:29+08:00 ] 66.249.64.63 /robots.txt
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Robots.txt
+
+[ 2015-07-25T16:59:49+08:00 ] 66.249.64.63 /index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `news` [ RunTime:0.001000s ]
+SQL: SELECT * FROM `news` ORDER BY time DESC  [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001001s ]
+
+[ 2015-07-25T18:47:17+08:00 ] 113.24.190.69 /Home/Registe/checkUserExist.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.002000s ]
+SQL: SELECT `id` FROM `members` WHERE ( `username` = 'qingcheng' ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2015-07-25T18:47:19+08:00 ] 113.24.190.69 /Verify/Index/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-07-25T18:47:19+08:00 ] 113.24.190.69 /Verify/Index/common
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T18:47:32+08:00 ] 113.24.190.69 /Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.002000s ]
+SQL: SELECT * FROM `members` WHERE ( `username` = 'qingcheng' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: UPDATE `members` SET `login_num`=login_num+1 WHERE ( id=20 ) [ RunTime:0.005000s ]
+
+[ 2015-07-25T18:47:32+08:00 ] 113.24.190.69 /userinfo.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001000s ]
+SQL: SELECT * FROM `members` WHERE ( `username` = 'qingcheng' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `product_data` [ RunTime:0.002000s ]
+SQL: SELECT SUM(money) AS tp_sum FROM `product_data` WHERE ( `member_id`='20' AND DATE(FROM_UNIXTIME(`time`))='2015-07-24' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(money) AS tp_sum FROM `product_data` WHERE ( `member_id`='20' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Home\Model\CashModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) D:\wwwroot\7g\Application\Home\Model\CashModel.class.php 第 0 行.
+SQL: SHOW COLUMNS FROM `cash` [ RunTime:0.001000s ]
+SQL: SELECT SUM(`withdrawal_amount`) AS tp_sum FROM `cash` WHERE ( `member_id`='20' AND `checked`!=-1 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T18:47:34+08:00 ] 113.24.190.69 /getgoods.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.001000s ]
+SQL: SELECT DISTINCT  `category_id` FROM `product` WHERE ( `state`=1 )  [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.001000s ]
+SQL: SELECT * FROM `category` WHERE ( `id` IN (2,3,1) )  [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `product` WHERE ( category_id = '2' AND `state`=1 ) ORDER BY `top_time` DESC LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `product` WHERE ( category_id = '2' AND `state`=1 ) ORDER BY `top_time` DESC LIMIT 0,30   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: m D:\wwwroot\7g\ThinkPHP\Common\functions.php 第 885 行.
+NOTIC: [8] Undefined variable: up_page D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001000s ]
+SQL: SELECT `id` FROM `members` WHERE ( `username` = 'qingcheng' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `members_product` [ RunTime:0.001000s ]
+SQL: SELECT `goods_id`,`dprice1`,`dprice2`,`dprice3` FROM `members_product` WHERE ( `members_id` = 20 ) AND ( `goods_id` IN ('29','1','3','2','14','24','25','26','27','28','30','31','32') )  [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\7g\Application\Home\Controller\GoodsController.class.php 第 77 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T18:48:14+08:00 ] 113.24.190.69 /getgoods1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.002000s ]
+SQL: SELECT DISTINCT  `category_id` FROM `product` WHERE ( `state`=1 )  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `category` WHERE ( `id` IN (2,3,1) )  [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 0 D:\wwwroot\7g\Application\Home\Controller\GoodsController.class.php 第 39 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `product` WHERE ( category_id = '1' AND `state`=1 ) ORDER BY `top_time` DESC LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `product` WHERE ( category_id = '1' AND `state`=1 ) ORDER BY `top_time` DESC LIMIT 0,30   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: m D:\wwwroot\7g\ThinkPHP\Common\functions.php 第 885 行.
+NOTIC: [8] Undefined variable: up_page D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001000s ]
+SQL: SELECT `id` FROM `members` WHERE ( `username` = 'qingcheng' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `members_product` [ RunTime:0.001000s ]
+SQL: SELECT `goods_id`,`dprice1`,`dprice2`,`dprice3` FROM `members_product` WHERE ( `members_id` = 20 ) AND ( `goods_id` IN ('23') )  [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\7g\Application\Home\Controller\GoodsController.class.php 第 77 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-07-25T18:48:17+08:00 ] 113.24.190.69 /getgoods3.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.001000s ]
+SQL: SELECT DISTINCT  `category_id` FROM `product` WHERE ( `state`=1 )  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.001000s ]
+SQL: SELECT * FROM `category` WHERE ( `id` IN (2,3,1) )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `product` WHERE ( category_id = '3' AND `state`=1 ) ORDER BY `top_time` DESC LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `product` WHERE ( category_id = '3' AND `state`=1 ) ORDER BY `top_time` DESC LIMIT 0,30   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: m D:\wwwroot\7g\ThinkPHP\Common\functions.php 第 885 行.
+NOTIC: [8] Undefined variable: up_page D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001000s ]
+SQL: SELECT `id` FROM `members` WHERE ( `username` = 'qingcheng' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `members_product` [ RunTime:0.002000s ]
+SQL: SELECT `goods_id`,`dprice1`,`dprice2`,`dprice3` FROM `members_product` WHERE ( `members_id` = 20 ) AND ( `goods_id` IN ('18','19','20','21','22') )  [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\7g\Application\Home\Controller\GoodsController.class.php 第 77 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T19:07:15+08:00 ] 114.111.167.72 /Verify/Index/common
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T19:07:15+08:00 ] 114.111.167.72 /Verify/Index/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-07-25T19:08:02+08:00 ] 114.111.167.72 /Home/Registe/checkUserExist.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.001001s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001001s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001000s ]
+SQL: SELECT `id` FROM `members` WHERE ( `username` = 'shizhezhi123' ) LIMIT 1   [ RunTime:0.001000s ]
+
+[ 2015-07-25T19:08:54+08:00 ] 114.111.167.72 /Home/Registe/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001000s ]
+SQL: INSERT INTO `members` (`username`,`password`,`qq`,`tel`,`email`,`payee`,`bank_name`,`bank_addr`,`bank_account`,`client_ip`,`enter_time`) VALUES ('shizhezhi123','e81d9cc50edc514bddb47aebe165101d','284177751','18522601991','284177751@qq.com','石泽�\�','工商银行','天津市和平区兰州道支�\�','6222020302072281637',1919919944,1437822534) [ RunTime:0.005000s ]
+SQL: SELECT * FROM `members` WHERE ( `id` = 37 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: UPDATE `members` SET `login_num`=login_num+1 WHERE ( id=37 ) [ RunTime:0.005001s ]
+
+[ 2015-07-25T19:08:54+08:00 ] 114.111.167.72 /Home/Userinfo/userInfo.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001000s ]
+SQL: SELECT * FROM `members` WHERE ( `username` = 'shizhezhi123' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `product_data` [ RunTime:0.002000s ]
+SQL: SELECT SUM(money) AS tp_sum FROM `product_data` WHERE ( `member_id`='37' AND DATE(FROM_UNIXTIME(`time`))='2015-07-24' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT SUM(money) AS tp_sum FROM `product_data` WHERE ( `member_id`='37' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of Home\Model\CashModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) D:\wwwroot\7g\Application\Home\Model\CashModel.class.php 第 0 行.
+SQL: SHOW COLUMNS FROM `cash` [ RunTime:0.002000s ]
+SQL: SELECT SUM(`withdrawal_amount`) AS tp_sum FROM `cash` WHERE ( `member_id`='37' AND `checked`!=-1 ) LIMIT 1   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T19:08:57+08:00 ] 114.111.167.72 /getgoods.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.002000s ]
+SQL: SELECT DISTINCT  `category_id` FROM `product` WHERE ( `state`=1 )  [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.001000s ]
+SQL: SELECT * FROM `category` WHERE ( `id` IN (2,3,1) )  [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `product` WHERE ( category_id = '2' AND `state`=1 ) ORDER BY `top_time` DESC LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `product` WHERE ( category_id = '2' AND `state`=1 ) ORDER BY `top_time` DESC LIMIT 0,30   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: m D:\wwwroot\7g\ThinkPHP\Common\functions.php 第 885 行.
+NOTIC: [8] Undefined variable: up_page D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001000s ]
+SQL: SELECT `id` FROM `members` WHERE ( `username` = 'shizhezhi123' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `members_product` [ RunTime:0.002000s ]
+SQL: SELECT `goods_id`,`dprice1`,`dprice2`,`dprice3` FROM `members_product` WHERE ( `members_id` = 37 ) AND ( `goods_id` IN ('29','1','3','2','14','24','25','26','27','28','30','31','32') )  [ RunTime:0.001001s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\7g\Application\Home\Controller\GoodsController.class.php 第 77 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T19:09:28+08:00 ] 114.111.167.72 /getgoods1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.001000s ]
+SQL: SELECT DISTINCT  `category_id` FROM `product` WHERE ( `state`=1 )  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.001000s ]
+SQL: SELECT * FROM `category` WHERE ( `id` IN (2,3,1) )  [ RunTime:0.001001s ]
+NOTIC: [8] Undefined offset: 0 D:\wwwroot\7g\Application\Home\Controller\GoodsController.class.php 第 39 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `product` WHERE ( category_id = '1' AND `state`=1 ) ORDER BY `top_time` DESC LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `product` WHERE ( category_id = '1' AND `state`=1 ) ORDER BY `top_time` DESC LIMIT 0,30   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: m D:\wwwroot\7g\ThinkPHP\Common\functions.php 第 885 行.
+NOTIC: [8] Undefined variable: up_page D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001000s ]
+SQL: SELECT `id` FROM `members` WHERE ( `username` = 'shizhezhi123' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `members_product` [ RunTime:0.001000s ]
+SQL: SELECT `goods_id`,`dprice1`,`dprice2`,`dprice3` FROM `members_product` WHERE ( `members_id` = 37 ) AND ( `goods_id` IN ('23') )  [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\7g\Application\Home\Controller\GoodsController.class.php 第 77 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T19:09:37+08:00 ] 114.111.167.72 /getgoods2.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.002000s ]
+SQL: SELECT DISTINCT  `category_id` FROM `product` WHERE ( `state`=1 )  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `category` WHERE ( `id` IN (2,3,1) )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `product` WHERE ( category_id = '2' AND `state`=1 ) ORDER BY `top_time` DESC LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `product` WHERE ( category_id = '2' AND `state`=1 ) ORDER BY `top_time` DESC LIMIT 0,30   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: m D:\wwwroot\7g\ThinkPHP\Common\functions.php 第 885 行.
+NOTIC: [8] Undefined variable: up_page D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.002001s ]
+SQL: SELECT `id` FROM `members` WHERE ( `username` = 'shizhezhi123' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `members_product` [ RunTime:0.001000s ]
+SQL: SELECT `goods_id`,`dprice1`,`dprice2`,`dprice3` FROM `members_product` WHERE ( `members_id` = 37 ) AND ( `goods_id` IN ('29','1','3','2','14','24','25','26','27','28','30','31','32') )  [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\7g\Application\Home\Controller\GoodsController.class.php 第 77 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T19:10:45+08:00 ] 114.111.167.72 /effect.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001000s ]
+SQL: SELECT `id` FROM `members` WHERE ( `username` = 'shizhezhi123' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: date_begin D:\wwwroot\7g\Application\Home\Controller\ReportController.class.php 第 25 行.
+NOTIC: [8] Undefined index: date_end D:\wwwroot\7g\Application\Home\Controller\ReportController.class.php 第 26 行.
+NOTIC: [8] Undefined index: product_name D:\wwwroot\7g\Application\Home\Controller\ReportController.class.php 第 27 行.
+SQL: SHOW COLUMNS FROM `product_data` [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM product_data data LEFT JOIN `product` ON `product`.`id`=`data`.`goods_id`  WHERE ( `data`.`member_id`='37' AND `data`.`time`>='1437148800' AND `data`.`time`<'1437840000' ) ORDER BY `data`.`time` DESC LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT product.goods_name,data.* FROM product_data data LEFT JOIN `product` ON `product`.`id`=`data`.`goods_id`  WHERE ( `data`.`member_id`='37' AND `data`.`time`>='1437148800' AND `data`.`time`<'1437840000' ) ORDER BY `data`.`time` DESC LIMIT 0,30   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T19:10:46+08:00 ] 114.111.167.72 /getgoods.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.001000s ]
+SQL: SELECT DISTINCT  `category_id` FROM `product` WHERE ( `state`=1 )  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.001000s ]
+SQL: SELECT * FROM `category` WHERE ( `id` IN (2,3,1) )  [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `product` WHERE ( category_id = '2' AND `state`=1 ) ORDER BY `top_time` DESC LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `product` WHERE ( category_id = '2' AND `state`=1 ) ORDER BY `top_time` DESC LIMIT 0,30   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: m D:\wwwroot\7g\ThinkPHP\Common\functions.php 第 885 行.
+NOTIC: [8] Undefined variable: up_page D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001000s ]
+SQL: SELECT `id` FROM `members` WHERE ( `username` = 'shizhezhi123' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `members_product` [ RunTime:0.001000s ]
+SQL: SELECT `goods_id`,`dprice1`,`dprice2`,`dprice3` FROM `members_product` WHERE ( `members_id` = 37 ) AND ( `goods_id` IN ('29','1','3','2','14','24','25','26','27','28','30','31','32') )  [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\7g\Application\Home\Controller\GoodsController.class.php 第 77 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T19:10:47+08:00 ] 114.111.167.72 /myad.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.002001s ]
+SQL: SELECT `id` FROM `members` WHERE ( `username` = 'shizhezhi123' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `members_product` [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `members_product` WHERE ( `members_id` = 37 ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT * FROM `members_product` WHERE ( `members_id` = 37 ) LIMIT 0,30   [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\7g\Application\Home\Controller\AdController.class.php 第 41 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T19:10:49+08:00 ] 114.111.167.72 /getgoods.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.002001s ]
+SQL: SELECT DISTINCT  `category_id` FROM `product` WHERE ( `state`=1 )  [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.001000s ]
+SQL: SELECT * FROM `category` WHERE ( `id` IN (2,3,1) )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `product` WHERE ( category_id = '2' AND `state`=1 ) ORDER BY `top_time` DESC LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT * FROM `product` WHERE ( category_id = '2' AND `state`=1 ) ORDER BY `top_time` DESC LIMIT 0,30   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: m D:\wwwroot\7g\ThinkPHP\Common\functions.php 第 885 行.
+NOTIC: [8] Undefined variable: up_page D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001000s ]
+SQL: SELECT `id` FROM `members` WHERE ( `username` = 'shizhezhi123' ) LIMIT 1   [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `members_product` [ RunTime:0.001000s ]
+SQL: SELECT `goods_id`,`dprice1`,`dprice2`,`dprice3` FROM `members_product` WHERE ( `members_id` = 37 ) AND ( `goods_id` IN ('29','1','3','2','14','24','25','26','27','28','30','31','32') )  [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\7g\Application\Home\Controller\GoodsController.class.php 第 77 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T19:10:50+08:00 ] 114.111.167.72 /effect.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001000s ]
+SQL: SELECT `id` FROM `members` WHERE ( `username` = 'shizhezhi123' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: date_begin D:\wwwroot\7g\Application\Home\Controller\ReportController.class.php 第 25 行.
+NOTIC: [8] Undefined index: date_end D:\wwwroot\7g\Application\Home\Controller\ReportController.class.php 第 26 行.
+NOTIC: [8] Undefined index: product_name D:\wwwroot\7g\Application\Home\Controller\ReportController.class.php 第 27 行.
+SQL: SHOW COLUMNS FROM `product_data` [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM product_data data LEFT JOIN `product` ON `product`.`id`=`data`.`goods_id`  WHERE ( `data`.`member_id`='37' AND `data`.`time`>='1437148800' AND `data`.`time`<'1437840000' ) ORDER BY `data`.`time` DESC LIMIT 1   [ RunTime:0.001000s ]
+SQL: SELECT product.goods_name,data.* FROM product_data data LEFT JOIN `product` ON `product`.`id`=`data`.`goods_id`  WHERE ( `data`.`member_id`='37' AND `data`.`time`>='1437148800' AND `data`.`time`<'1437840000' ) ORDER BY `data`.`time` DESC LIMIT 0,30   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T19:10:51+08:00 ] 114.111.167.72 /detail.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001000s ]
+SQL: SELECT `id` FROM `members` WHERE ( `username` = 'shizhezhi123' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: date_begin D:\wwwroot\7g\Application\Home\Controller\FinanceController.class.php 第 22 行.
+NOTIC: [8] Undefined index: date_end D:\wwwroot\7g\Application\Home\Controller\FinanceController.class.php 第 23 行.
+NOTIC: [2048] Declaration of Home\Model\CashModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) D:\wwwroot\7g\Application\Home\Model\CashModel.class.php 第 0 行.
+SQL: SHOW COLUMNS FROM `cash` [ RunTime:0.001000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `cash` WHERE ( member_id='37' AND `withdrawal_date`>='1437148800' AND `withdrawal_date`<'1437840000' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `cash` WHERE ( member_id='37' AND `withdrawal_date`>='1437148800' AND `withdrawal_date`<'1437840000' ) LIMIT 0,30   [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: m D:\wwwroot\7g\ThinkPHP\Common\functions.php 第 885 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T19:10:53+08:00 ] 114.111.167.72 /getgoods.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\wwwroot\7g\ThinkPHP\Library\Think\Db\Driver\Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.002001s ]
+SQL: SELECT DISTINCT  `category_id` FROM `product` WHERE ( `state`=1 )  [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.001000s ]
+SQL: SELECT * FROM `category` WHERE ( `id` IN (2,3,1) )  [ RunTime:0.000000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `product` WHERE ( category_id = '2' AND `state`=1 ) ORDER BY `top_time` DESC LIMIT 1   [ RunTime:0.000000s ]
+SQL: SELECT * FROM `product` WHERE ( category_id = '2' AND `state`=1 ) ORDER BY `top_time` DESC LIMIT 0,30   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: m D:\wwwroot\7g\ThinkPHP\Common\functions.php 第 885 行.
+NOTIC: [8] Undefined variable: up_page D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end D:\wwwroot\7g\ThinkPHP\Library\Think\Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001000s ]
+SQL: SELECT `id` FROM `members` WHERE ( `username` = 'shizhezhi123' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `members_product` [ RunTime:0.001000s ]
+SQL: SELECT `goods_id`,`dprice1`,`dprice2`,`dprice3` FROM `members_product` WHERE ( `members_id` = 37 ) AND ( `goods_id` IN ('29','1','3','2','14','24','25','26','27','28','30','31','32') )  [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\wwwroot\7g\Application\Home\Controller\GoodsController.class.php 第 77 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+NOTIC: [8] Undefined index: have D:\wwwroot\7g\Application\Runtime\Cache\Home\38ed0e9cddc00f8541eb7e42ce4b2867.php 第 48 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T20:47:13+08:00 ] 66.249.64.63 /registe/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+
+[ 2015-07-25T21:04:03+08:00 ] 106.120.160.109 /Verify/Index/common
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T21:06:12+08:00 ] 101.199.108.57 /Verify/Index/common
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T21:16:17+08:00 ] 110.249.21.63 /Verify/Index/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-07-25T21:16:17+08:00 ] 110.249.21.63 /Verify/Index/common
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-07-25T21:22:28+08:00 ] 183.20.161.205 /Verify/Index/common
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T21:22:28+08:00 ] 183.20.161.205 /Verify/Index/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T21:23:25+08:00 ] 183.20.161.205 /Verify/Index/common
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2015-07-25T21:23:25+08:00 ] 183.20.161.205 /Verify/Index/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-07-25T22:02:57+08:00 ] 66.249.64.73 /question/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+ERR: 无法加载控制器:Question
+

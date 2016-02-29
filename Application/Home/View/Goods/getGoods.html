@@ -1,0 +1,72 @@
+<include file="./Application/Home/View/Public/header.html" menu='goods'/>
+<!---引入分页样式------->
+<link type="text/css" href="__CSS__/page.css" rel="stylesheet" />
+<script type="text/javascript" src="__JS__/jquery.js"></script>
+<script type="text/javascript" src="__JS__/tipswindown.js"></script>
+<if condition="count($cats) gt 1">
+<div id="menu" class="f14">
+  <div class="two">
+    <volist name='cats' id='cat'>
+    <a href="{:U('/getgoods'.$cat['id'])}" <if condition="$catid eq $i">class="dr"</if>>{$cat.category_name}</a>
+    </volist>
+    </div>
+</div>
+</if>
+<div id="main">
+<div id="content">
+    	<table width="100%" border="1" cellpadding="0" cellspacing="0">
+            <tr>
+                <th width="19%" colspan=2>产品名称</th>
+                <th width="11%">价格</th>
+                <th width="12%">结算周期</th>
+                <th width="11%">出数据时间</th>
+                <th width="37%">说明</th>
+                <th width="10%">获取产品</th>
+            </tr>
+            <volist name='rows' id='row'>
+            <tr <if condition="$row.have eq true">style="background: rgb(220,220,220);"</if>>
+            
+                <td style="text-align: right;"><img src="{$row.goods_small_img}" width="30" height="30"></td><td style="text-align: left;">{$row.goods_name}</td>
+                <td>
+                    <if condition="$row.cash_type eq 0">
+                    ￥<span class="color1">{$row.down_price_1}</span>
+                    <elseif condition="$row.cash_type eq 1"/>
+                    <span class="color1">{$row.down_price_1}</span>%
+                    </if>
+                </td>
+                <td>
+                    <if condition="$row['invoicing_cycle'] eq 0">每日
+                        <elseif condition="$row['invoicing_cycle'] eq 1"/>每周
+                        <elseif condition="$row['invoicing_cycle'] eq 2"/>双周
+                        <elseif condition="$row['invoicing_cycle'] eq 3"/>每月
+                    </if>
+                </td>
+                <td>
+                    <if condition="$row['data_back'] eq 0">次日
+                        <elseif condition="$row['invoicing_cycle'] eq 1"/>实时
+                        <else />每周
+                    </if>
+                </td>
+                <td>{$row.intro}</td>
+                <td>
+                    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=11507712&site=qq&menu=yes">
+                        <img border="0"  src="http://wpa.qq.com/pa?p=2:11507712:42" alt="联系我们!" title="联系我们!" />
+                    </a>
+                </td>
+            </tr>
+            </volist>
+        </table>
+        <!--分页工具条 开始---->
+        <div id="turn-page" class="page">
+            {$pageHTML}
+        </div> 
+        <!--分页工具条 结束---->     
+<include file="./Application/Home/View/Public/footer.html" />
+<script type="text/javascript"> 
+   //为联系客服注册点击事件
+   $(".cursor").click(function(){
+       alert("请联系我们的QQ客服！");
+   });
+</script>
+</body>
+</html>

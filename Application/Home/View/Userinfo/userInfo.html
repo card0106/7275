@@ -1,0 +1,34 @@
+<include file="./Application/Home/View/Public/header.html" menu='info'/>
+
+<div id="menu" class="f14">
+	<div class="one">
+	<a href="{:U('/userinfo')}" class="dr">概况</a>
+	<a href="{:U('/individual')}">个人信息</a>
+	<a href="{:U('/pass')}">修改密码</a>
+	<a href="{:U('/shenqingtixian')}">申请提现</a>
+    </div>
+</div>
+<div id="main">
+<div id="content">
+	<div class="bok"><span>您好：{$member["username"]}</span><span>上次登录时间：{$member["enter_time"]}</span><span>上次登录IP：{$member["client_ip"]}</span><span>登录次数：{$member["login_num"]}次</span></div>
+    <h2 class="f20">数据报告</h2>
+    <div class="bok bheight80">
+    	<div class="income fl">昨日收入<br /><i class="f28 color1">￥{$money.yesterday}元</i></div>
+    	<div class="income fl">总收入<br /><i class="f28 color1">￥{$money.total}元</i></div>
+    	<div class="income fl">未支付<br /><i class="f28 color1">￥{$money.notpay}元</i></div>
+    </div>
+    <h2 class="f20">付款规则</h2>
+    <div class="bok">
+        <p>联盟最低付款金额为10元(含)；如果当{日/周}"应付收入(税前)"未达到最低付款额，则联盟会将收入进行累计。</p>
+        <p>会员可以选择保留付款方式保留您的收入，期间收入将在账户进行累计。若会员取消保留付款且达到最低支付额度，联盟将在下一付款周期进行支付。</p>
+        <p>正常付款日期为每周三至周五，若付款状态显示"付款已经完成"，说明联盟已向银行安排付款，银行正在处理，请耐心等待。</p>
+    </div>
+    <h2 class="f20">企业会员注意事项</h2>
+    <div class="bok">
+        <p>企业会员请根据当月发票条目，分别开发票。并将发票号填入至对应的发票详情中，以配合7G联盟付款工作。</p>
+        <p>请确保财务公司、信息服务费/技术服务费及金额准确无误。否则7G联盟将不予付款。</p>
+        <p>企业付款流程为：开发票→填写发票信息→邮寄发票。</p>
+    </div>
+<include file="./Application/Home/View/Public/footer.html" />
+</body>
+</html>

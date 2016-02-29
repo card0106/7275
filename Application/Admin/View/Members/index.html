@@ -1,0 +1,251 @@
+<extend name="Common/base" />
+<!--左边导航部分-->
+<block name='left'>
+    <div class="left fl">
+            <div class="face"></div>
+        <div class="nav0">
+            <a href="{:U('Index/index')}" class="n1">基本信息</a>
+            <a href="{:U('Members/index')}" class="dr2">用户信息</a>
+            <a href="{:U('Product/index')}" class="n3">产品信息</a>
+            <a href="{:U('Invoicing/invoicing')}" class="n4">结算列表</a>
+            <a href="{:U('Cash/cash')}" class="n5">提现列表</a>
+            <a href="{:U('News/index')}" class="n6">新闻公告</a>
+            <a href="{:U('Question/index')}" class="n7">常见问题</a>
+        </div>
+    </div>
+</block>    
+<!--左边导航部分-->
+<!--右边内容部分-->
+<block name="right">
+<div class="right">
+    <div class="mtit">
+        <div class="blue f20 fl">CMS联盟</div>
+        <div class="fr">
+                <div class="userout fl"><a href="#">{$_SESSION["userinfo"]["username"]}</a></div>
+                <div class="out fl"><a href="{:U('Login/Index/logout')}">退出</a></div>
+        </div>
+    </div>
+    <div class="tit f20">用户信息</div>
+    <div class="con">
+    	<table border="0" cellpadding="0" cellspacing="0" class="productTable">
+            <tr class="f14">
+                <th width="8%">用户ID</th>
+                <th width="11%">用户名</th>
+                <th width="18%">已经审核产品数</th>
+                <th width="13%">未审核产品数</th>
+                <th width="14%">加入联盟时间</th>
+                <th width="12%">状态</th>
+                <th width="24%">操作</th>
+            </tr>
+            <!----循环取出会员信息 开始----->
+            <volist name="rows" id="row">
+                <tr>
+                    <td><span>{$row.id}</span></td>
+                    <td>{$row.username}</td>
+                    <td><if condition="$row['num'] eq 0">0<else/><a class="sb6" href="{:U('MembersProduct/getItems','member_id='.$row['id'])}">{$row.num}</a></if></td>
+                    <td>无此数据</td>
+                    <td>{:date("Y-m-d H:i:s",$row["enter_time"])}</td>
+                    <td>
+                        <if condition="$row['state'] eq 0"><a href="javascript:void(0)" class="sb6" flag="1" onclick="changeState(this)" value="{$row.id}">禁用</a>    
+                            <else /> <a href="javascript:void(0)" class="sb3" onclick="changeState(this)" flag="0" value="{$row.id}">正常</a>
+                        </if>
+                    </td>
+                    <td>
+                        <a href="{:U('Invoicing/invoicing',array('member_id'=>$row['id']))}" class="sb4">结算记录</a>
+                        <a href="{:U('Cash/record',array('member_id'=>$row['id']))}" class="sb4">提现记录</a>
+                        <a href="#" class="sb4" data-target="#myModal" data-toggle="modal" value="{$row['id']}" onclick="edit(this)">修改</a>
+                        <a href="{:U('Admin/Members/del')}" value='{$row["id"]}' class="sb5" onclick=" return del(this)">删除</a>
+                    </td>
+                </tr> 
+            </volist>
+            <!----循环取出会员信息 结束----->
+        </table>
+        
+        <!--分页工具条 开始---->
+        <div id="turn-page" class="page">
+            {$pageHTML}
+        </div> 
+        <!--分页工具条 结束---->
+    </div>
+</div>
+<!--修改用户的模态框-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">增加产品</h4>
+              </div>
+              <div class="modal-body" id="destination">
+            <!---编辑产品的表单 开始------>
+               
+            <!---编辑产品的表单 结束------>
+              </div>
+        </div>
+    </div>
+</div>
+<!--action="{:U('test')}" onSubmit="return jQuery.formValidator.PageIsValid('1')" enctype="multipart/form-data"--> 
+<script type="text/html" id="mytemp">
+        <form id="form1" name="form1" method="post">
+
+            <div class="form-group">
+                <lable>用户ID：</lable>
+                ${id}
+            </div>
+
+          <div class="form-group">
+            <lable>用户名：</lable>
+              <input type="hidden" name="id" value="${id}">
+              <input type="text" name='username' class="form-control" id="uname" value="${username}">
+            </div>
+
+            <div class="form-group">
+                <lable>密码：</lable>
+                <input type="password" name='password' class="form-control" id="password" value="${password}">
+            </div>
+    
+            <div class="form-group">
+                <lable>qq：</lable>
+                <input type="text" name='qq' class="form-control" id="qq" value="${qq}">
+            </div>
+    
+           <div class="form-group">
+            <lable>EMAIL地址：</lable>
+              <input type="text" name='email' class="form-control" id="email" value="${email}">
+            </div>
+
+           <div class="form-group">
+            <lable>电话号码：</lable>
+              <input type="text" name='tel' class="form-control" id="tel" value="${tel}">
+            </div>
+    
+           <div class="form-group">
+            <lable>收款人：</lable>
+              <input type="text" name='payee' class="form-control" id="payee" value="${payee}">
+            </div>    
+    
+            <div class="form-group">
+            <lable>开户银行：</lable>
+              <input type="text" name='bank_name' class="form-control" id="bank_name" value="${bank_name}">
+            </div>
+
+            <div class="form-group">
+            <lable>银行账号：</lable>
+              <input type="text" name='bank_account' class="form-control" id="bank_account" value="${bank_account}">
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="sub()">确认提交</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <input type="reset" value="重置" class="btn btn-info">
+            </div>
+    </form>     
+</script>
+<!--修改用户的模态框-->
+</block>
+<!--右边内容部分-->
+<!-----自定义JS部分-------->
+<block name="js">
+    <script>   
+        //执行编辑某个用户的个人信息
+        function edit(demo){
+            var memberId=$(demo).attr("value");
+            $.get(
+                "{:U('Members/modifyMemberInfo')}" ,
+                {id:memberId},
+                function(data){
+                    $("#destination").html("");
+                    $('#mytemp').tmpl(data).appendTo('#destination');
+                }
+            );
+        }
+        //执行修改用户个人信息
+        function sub(){
+            var username=$("#uname").val();
+            var password=$("#password").val();
+            var email=$("#email").val();
+            var tel=$("#tel").val();
+            var qq=$("#qq").val();
+            var payee=$("#payee").val();
+            var bank_account=$("#bank_account").val();
+            if(password.length<6){
+                alert("密码长度不能低于6位");
+                return;
+            }
+            if(email.length<8){
+                alert("邮箱不正确");
+                return;
+            }
+            if(tel.length<11){
+                alert("电话号码长度不正确!");
+                return;
+            }  
+            if(payee.length==0){
+                alert("收款人不能为空!");
+                return;
+            }  
+            if(bank_account.length!==19){
+                alert("收款账号的长度不正确!");
+                return;
+            }             
+//            $.post(
+//                "{:U('Admin/Members/getMembersId')}", 
+//                {name:username},
+//                function(data){
+//                    if(data!==0){
+//                        alert("该用户已经存在!");
+//                        return;
+//                    }
+//                }
+//            );
+            $.post(
+                "{:U('Admin/Members/test')}",
+                $("#form1").serialize(),
+                function(data){
+                    console.debug(data);
+                    if(data==1){
+                        alert("更新成功!");
+                        location.href="{:U('Members/index')}";
+                    }else{
+                        alert(data);
+                    }
+                }
+            );
+        }
+
+        //执行 开启某用户
+        function changeState(demo){
+            var flag=$(demo).attr("flag");
+            var member_id=$(demo).attr("value");
+            var mes=(flag==1)?"你确定要开启该用户吗?":"你确定要禁用该用户吗?";
+            if(window.confirm(mes)){
+                $.post(
+                    "{:U('Members/changeState')}" ,
+                    {id:member_id,flag:flag},
+                    function(data){
+                       location.href="{:U('index')}";
+                    }
+                );
+            }                
+        }
+        //执行删除命令
+        function del(demo){
+            var id=$(demo).attr("value");
+            if(confirm("你确定要删除吗?")){
+                $.post(
+                    "{:U('Admin/Members/del')}",
+                    {id:id},
+                    function(data){
+                        if(data==1){
+                            alert("删除成功！");
+                        }else{
+                            alert("删除失败!");
+                        }
+                        location.href="{:U('Members/index')}";
+                    }
+                );
+            }
+        return false;
+        }
+</script>  
+</block>

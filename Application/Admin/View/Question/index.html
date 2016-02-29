@@ -1,0 +1,200 @@
+<extend name="Common/base" />
+<!--左边导航部分-->
+<block name='left'>
+    <div class="left fl">
+            <div class="face"></div>
+        <div class="nav0">
+            <a href="{:U('Index/index')}" class="n1">基本信息</a>
+            <a href="{:U('Members/index')}" class="n2">用户信息</a>
+            <a href="{:U('Product/index')}" class="n3">产品信息</a>
+            <a href="{:U('Invoicing/invoicing')}" class="n4">结算列表</a>
+            <a href="{:U('Cash/cash')}" class="n5">提现列表</a>
+            <a href="{:U('News/index')}" class="n6">新闻公告</a>
+            <a href="{:U('Question/index')}" class="dr7">常见问题</a>
+        </div>
+    </div>
+</block>    
+<!--左边导航部分-->
+<!--右边内容部分-->
+<block name="right">
+<div class="right">
+	<div class="mtit">
+    	<div class="blue f20 fl">7G传媒</div>
+        <div class="fr">
+            <div class="userout fl"><a href="#">{$_SESSION["userinfo"]["username"]}</a></div>
+            <div class="out fl"><a href="{:U('Login/Index/logout')}">退出</a></div>
+        </div>
+    </div>
+	<div class="tit f20">常见问题<a class="f12 cursor" data-target="#myModal" data-toggle="modal">增加常见问题</a></div>
+    <div class="con">
+    	<table border="0" cellpadding="0" cellspacing="0" class="productTable">
+            <tr class="f14">
+                    <th width="50%">标题</th>
+                    <th width="28%">发布时间</th>
+                    <th width="22%">操作</th>
+            </tr>
+            <volist name='rows' id='row'>
+            <tr>
+                    <td>{$row.title}</td>
+                    <td>{:date("Y-m-d",$row["time"])}</td>
+                    <td>
+                        <a href="#" class="sb4" data-target="#myModal1" data-toggle="modal" value="{$row['id']}" onclick="edit(this)">修改</a>
+                        <a href="#" class="sb5" value='{$row["id"]}' onclick="return del(this)">删除</a>
+                    </td>
+            </tr>
+            </volist>
+        </table>
+        <!--分页工具条 开始---->
+        <div id="turn-page" class="page">
+            {$pageHTML}
+        </div> 
+        <!--分页工具条 结束---->         
+    </div>
+            
+</div>
+<!--添加问题的模态框-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">增加常见问题</h4>
+              </div>
+              <div class="modal-body">
+                <form id="form1" name="form1" method="post" action="{:U('Admin/Question/add')}"  enctype="multipart/form-data" >
+
+                    <div class="form-group">
+                    <lable>标题：</lable>
+                      <input type="text" name='title' class="form-control" id="title" placeholder="请输入标题">
+                    </div>
+        
+                    <div class="form-group">
+                        <lable>关键字：</lable>
+                        <input type="text" name='keyword' class="form-control" id="keyword" placeholder="请输入关键字">
+                    </div>
+                    
+                    <div class="form-group">
+                    <lable>内容：</lable>
+                      <textarea name="content" rows="10" class="form-control" id="content" placeholder="请输入内容"></textarea>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" id="confirm">确认提交</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       <input type="reset" value="重置" class="btn btn-info">
+                    </div>
+            </form>                
+<!---添加问题的表单------>
+            </div>
+        </div>
+    </div>
+</div> 
+<!--修改问题的模态框-->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">编辑问题</h4>
+              </div>
+              <div class="modal-body" id='destination'>
+                <!---修改新闻内容的表单------>
+                <!---修改新闻内容的表单------>
+              </div>
+        </div>
+    </div>
+</div>
+<!--编辑问题要插入的具体内容-->
+<script type="text/html" id='mytemp'>
+        <form id="form2"  method="post">
+          <div class="form-group">
+            <lable>标题：</lable>
+              <input type="hidden" name="id" value="${id}">
+              <input type="text" name='title' class="form-control" id="title1" value="${title}">
+            </div>
+
+            <div class="form-group">
+                <lable>关键字：</lable>
+                <input type="text" name='keyword' class="form-control" id="keyword1" value="${keyword}">
+            </div>
+
+            <div class="form-group">
+            <lable>内容：</lable>
+              <textarea name="content" rows="10" class="form-control" id="content1">${content}</textarea>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="sub()">确认提交</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <input type="reset" value="重置" class="btn btn-info">
+            </div>
+    </form>                
+</script>
+</block>
+<!-----自定义JS部分-------->
+<block name="js">
+<script>   
+    //执行编辑某个用户的个人信息
+    function edit(demo){
+        var memberId=$(demo).attr("value");
+        $.get(
+            "{:U('Question/modifyNewsInfo')}" ,
+            {id:memberId},
+            function(data){
+                $("#destination").html("");
+                $('#mytemp').tmpl(data).appendTo('#destination');
+            }
+        );
+    }
+    // 编辑修改后的提交表单
+    function sub(){
+        var title=$("#title1").val();
+        var keyword=$("#keyword1").val();
+        var content=$("#content1").text();
+        if(title.length<1){
+            alert("标题长度不对");
+            return;
+        }
+        if(keyword.length<1){
+            alert("关键字长度不对");
+            return;
+        }
+        if(content.length<1){
+            alert("新闻内容长度不对");
+            return;
+        }        
+        $.post(
+            "{:U('Admin/Question/updateInfo')}",
+            $("#form2").serialize(),
+            function(data){
+                if(data==1){
+                    alert("更新成功!");
+                    location.href="{:U('Question/index')}";
+                }else{
+                    alert(data);
+                    return;
+                }
+            }
+        );        
+    }   
+   //执行删除命令
+    function del(demo){
+        var id=$(demo).attr("value");
+        if(confirm("你确定要删除吗?")){
+            $.post(
+                "{:U('Admin/Question/del')}",
+                {id:id},
+                function(data){
+                    if(data==1){
+                        alert("删除成功！");
+                    }else{
+                        alert("删除失败!");
+                    }
+                    location.href="{:U('Question/index')}";
+                }
+            );
+        }
+    return false;
+    }      
+</script>
+</block>
