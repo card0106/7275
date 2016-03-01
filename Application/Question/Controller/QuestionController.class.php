@@ -19,6 +19,7 @@ class QuestionController extends \Think\Controller{
         $questionModel=M("Question");
         $rows=$questionModel->order("time DESC")->select();
         $this->assign("rows",$rows);
+        $this->assign('menu', 'question');
         $this->display(T('Question@Question/index'));
     }
     //处理忘记密码的功能

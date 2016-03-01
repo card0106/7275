@@ -20,6 +20,7 @@ class NewsController extends \Think\Controller{
         $newsModel=M("News");
         $rows=$newsModel->order("time DESC")->select();
         $this->assign("rows",$rows);
+        $this->assign('menu','news');
         $this->display(T('News@News/index'));
     }
     //展示常见问题下面的链接页面
@@ -28,6 +29,7 @@ class NewsController extends \Think\Controller{
         $newsModel=M("News");
         $rows=$newsModel->where("id={$id}")->find();
         $this->assign("rows",$rows);
+        $this->assign('menu','news');
         $this->display(T('News@News/detail'));
     }
 }

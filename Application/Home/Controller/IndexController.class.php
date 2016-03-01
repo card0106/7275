@@ -50,6 +50,7 @@ class IndexController extends Controller {
             }         
         }else{
             $this->assign("rows",M("News")->order("time DESC")->select());
+            $this->assign('menu','index');
             $this->display(T('Home@Index/index'));
         }
     }
@@ -60,5 +61,41 @@ class IndexController extends Controller {
        	header("location: /");
        	exit;
         //$this->display("index");
+    }
+
+    //关于我们
+    public function about(){
+      $this->assign('menu', '');
+      $this->display(T('Home@Index/about'));
+    }
+    //商务合作
+    public function business(){
+      $this->assign('menu', '');
+      $this->display(T('Home@Index/business'));
+    }
+    //版权声明
+    public function copyright(){
+      $this->assign('menu', '');
+      $this->display(T('Home@Index/copyright'));
+    }
+    //服务条款
+    public function service(){
+      $this->assign('menu', '');
+      $this->display(T('Home@Index/service'));
+    }
+    //免费声明
+    public function freeStatement(){
+      $this->assign('menu', '');
+      $this->display(T('Home@Index/freeStatement'));
+    }
+    //隐私政策
+    public function privacy(){
+      $this->assign('menu', '');
+      $this->display(T('Home@Index/privacy'));
+    }
+    //知识产权声明
+    public function intellectual(){
+      $this->assign('menu', '');
+      $this->display(T('Home@Index/intellectual'));
     }
 }
