@@ -147,7 +147,28 @@ class ProductController extends BaseController{
                 $_POST['goods_small_img'] = $goods_small_img; //
             }else{
                 $this->error("上传失败".$upload->getError());
-            } 
+            }
+
+            //把软件软件包地址也上传了
+            $config=array(    //上传图片的配置
+                //'exts'          =>  array('jpg', 'gif', 'png', 'jpeg'), //允许上传的文件后缀
+                'autoSub'       =>  true, //自动子目录保存文件
+                'subName'       =>  array('date', 'Y-m-d'), //子目录创建方式，[0]-函数名，[1]-参数，多个参数使用数组
+                'rootPath'      =>  './Uploads/', //保存根路径
+                'savePath'      =>  'app/', //保存路径
+                'saveName'      =>  array('uniqid', ''), //上传文件命名规则，[0]-函数名，[1]-参数，多个参数使用数组
+            );
+            $upload =new \Think\Upload($config);
+            $result = $upload->uploadOne($_FILES['app_path']);
+            
+            if($result!==false){
+                //上传后的路径... 例如: "/Uploads/goods/2015-01-06/54aba3ea75415.png
+                $goods_big_img =  substr($config['rootPath'],1).$result['savepath'].$result['savename'];
+                $_POST['app_path'] = $goods_big_img;
+            }else{
+                $this->error("上传失败".$upload->getError());
+            }
+
             return $_POST;
     }    
     //用于处理更新产品
