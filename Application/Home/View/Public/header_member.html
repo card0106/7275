@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>渝网传媒 你我同行,成就未来!</title>
+<meta name="description" content="渝网传媒 你我同行,成就未来!" />
+<meta name="keywords" content="渝网传媒 你我同行 成就未来" />
+<link type="text/css" href="__CSS__/user/base.css" rel="stylesheet" />
+<script type="text/javascript" src="__JS__/jquery.js"></script>
+
+</head>
+<body>
+
+<div id="header">
+	<div class="logo fl"><img src="__IMG__/user/logo.gif" width="206" height="41" /></div>
+    <div class="nav fl f16">
+    	<a href="{:U('/userinfo')}" <if condition="'[menu]' eq 'info'">class='dr'</if>>我的首页</a>
+    	<a href="{:U('/myad')}" <if condition="'[menu]' eq 'ad'">class='dr'</if>>我的广告</a>
+    	<a href="{:U('/getgoods')}"<if condition="'[menu]' eq 'goods'">class='dr'</if>>获取产品</a>
+    	<a href="{:U('/effect')}"<if condition="'[menu]' eq 'effect'">class='dr'</if>>效果报告</a>
+    	<a href="{:U('/detail')}"<if condition="'[menu]' eq 'detail'">class='dr'</if>>提现记录</a>
+     </div>
+     <div class="out fr"><a href="{:U('/userinfo')}">{$_SESSION["membersinfo"]["username"]}</a><font>|</font><a href="{:U('Home/Index/logout')}">安全退出</a></div>
+</div>
+
+<if condition="'[menu]' neq 'info' && '[menu]' neq 'goods'">
+<div id="main">
+<div id="content">
+</if>
