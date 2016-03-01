@@ -1,4 +1,4 @@
-<include file="./Application/Home/View/Public/header.html" menu='info'/>
+<include file="./Application/Home/View/Public/header_member.html" menu='info'/>
 <script type="text/javascript" src="__JS__/jquery.min.js"></script>
 <script type="text/javascript" src="__JS__/formValidator_min.js"></script>
 <!--导航栏 结束-----> 
@@ -123,6 +123,8 @@ $(document).ready(function(){
 	$("#bank_addr").formValidator({onshow:" xx省xx市xx分行xx支行",onfocus:" xx省xx市xx分行xx支行",oncorrect:"填写正确"}).InputValidator({min:2,onerror:" xx省xx市xx分行xx支行"}).RegexValidator({regexp:"^.*$",onerror:" xx省xx市xx分行xx支行"});
 	});
 </script>
+</div>
+    </div>
 <include file="./Application/Home/View/Public/footer.html" />
 </body>
 </html>

@@ -16,6 +16,7 @@ namespace Home\Controller;
 class UserinfoController extends \Think\Controller{
     //用户登录成功之后，展示用户相关信息
     public function userInfo($withdrawal_amount=""){
+
         //查询出当前会员 推广数据的总数*单价=钱包总计
         $member_name=$_SESSION["membersinfo"]["username"];
         //根据会员名得到 member_id
@@ -47,6 +48,7 @@ class UserinfoController extends \Think\Controller{
         $money['notpay'] = $totalMoneys - $withdrawalMoneys;
         
 	    $this->assign("money",$money);
+        //print_r($money);
         $this->display();
     }
     public function individual($edit=""){
