@@ -23,9 +23,10 @@ class MembersModel extends \Think\Model{
        array('tel',"require",'手机号码必须填写！'),
        array('email',"require",'邮箱必须填写！'),
        array('payee',"require",'收款人必须填写！'),
-       array('bank_name',"require",'所属银行必须填写！'),
-       array('bank_account',"require",'银行账户必须填写！'),
-       array('bank_addr',"require",'开户行地址必须填写！')
+       array('bank_name',"",'所属银行必须填写！'),
+       array('bank_account',"",'银行账户必须填写！'),
+       array('bank_addr',"",'开户行地址必须填写！'),
+       array('zhifubao',"",'支付宝与银行必须填一个')
     );      
     /**
      * 自动完成规则的语法
