@@ -65,6 +65,11 @@
                     <dt>银行账号：</dt>
                     <dd><input name="bank_account" type="text" class="text" id="zhanghao"  /><span id="zhanghaoTip"></span></dd>
                 </dl>
+		<dl>
+                        <dt>支付宝：</dt>
+                        <dd><input name="zhifuba" type="text" class="text"  id="zhifuba" /><spa
+n id="zhifuba"></span></dd>
+                </dl>
             </div>
             <div class="wtit f14 mtop10">服务协议</div>
             <dl>
@@ -184,7 +189,10 @@
         $("#yinhang").formValidator({onshow:" xx省xx市xx分行xx支行",onfocus:" xx省xx市xx分行xx支行",oncorrect:"填写正确"}).InputValidator({min:2,onerror:" xx省xx市xx分行xx支行"}).RegexValidator({regexp:"^.*$",onerror:" xx省xx市xx分行xx支行"});
 
         $("#zhanghao").formValidator({onshow:"请输入银行账号，由数字组成",onfocus:"银行账号必须是数字",oncorrect:"填写正确"}).InputValidator({min:6,onerror:"银行账号必须是数字"}).RegexValidator({regexp:"^[0-9]",onerror:"银行账号必须是数字"});
-    });
+   	$("#zhifubao").formValidator({onshow:"请输入支付宝信息",onfocus:"支付宝与银行卡必须选择
+一种",oncorrect:"填写正确"}).FunctionValidator({fun:test,onerror:"银行帐号与支付宝必须选一种"})
+;
+	 });
 </script>
 </body>
 </html>
