@@ -56,6 +56,16 @@ body { font:12px/2.0 "\5FAE\8F6F\96C5\9ED1",Arial,"\5B8B\4F53"; color:#313131; }
 .p02 { background:url(../images/banner02.gif) #e5e5e5 no-repeat center top; }
 .p03 { background:url(../images/banner03.gif) #e5e5e5 no-repeat center top; }
 .p04 { background:url(../images/banner04.gif) #e5e5e5 no-repeat center top; }
+/*newbanner*/
+.p05 { background:url(../images/bannerb.gif) #e5e5e5 no-repeat center top; }
+.p06 { background:url(../images/banners.gif) #e5e5e5 no-repeat center top; }
+.p07 { background:url(../images/bannery.gif) #e5e5e5 no-repeat center top; }
+.p08 { background:url(../images/bannerm.gif) #e5e5e5 no-repeat center top; }
+.p09 { background:url(../images/bannerf.gif) #e5e5e5 no-repeat center top; }
+.p10 { background:url(../images/bannerz.gif) #e5e5e5 no-repeat center top; }
+.p11 { background:url(../images/bannerg.gif) #e5e5e5 no-repeat center top; }
+
+
 /*wlogin*/
 .wlogin { width:960px; margin-left:50%; left:-480px; position:absolute; z-index:1000; top:135px; }
 .wlogin form { width:290px; height:340px; background:url(../images/logobg.png); margin-left:610px; padding:20px 30px; }
