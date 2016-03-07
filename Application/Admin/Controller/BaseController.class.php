@@ -7,7 +7,7 @@
  */
 
 namespace Admin\Controller;
-//
+
 /**
  * Description of BaseController
  *

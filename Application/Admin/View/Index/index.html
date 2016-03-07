@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>渝网传媒 你我同行,成就未来!</title>
+<title>7G传媒 你我同行,成就未来!</title>
 <link type="text/css" href="__CSS__/base_1.css" rel="stylesheet" />
 <script type="text/javascript" src="__JS__/jquery.js"></script>
 <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
@@ -18,26 +18,10 @@
 <div id="main">
 
 <div class="left fl">
-	<div class="face"></div>
-    <div class="nav0">
-        <a href="{:U('Index/index')}" class="dr1">基本信息</a>
-        <a href="{:U('Members/index')}" class="n2">用户信息</a>
-        <a href="{:U('Product/index')}" class="n3">产品信息</a>
-        <a href="{:U('Invoicing/invoicing')}" class="n4">结算列表</a>
-        <a href="{:U('Cash/cash')}" class="n5">提现列表</a>
-        <a href="{:U('News/index')}" class="n6">新闻公告</a>
-        <a href="{:U('Question/index')}" class="n7">常见问题</a>            
-        
-    </div>
+	<include file="./Application/Admin/View/Public/left.html" />
 </div>
 <div class="right">
-	<div class="mtit">
-    	<div class="blue f20 fl">渝网联盟</div>
-        <div class="fr">
-            <div class="userout fl"><a href="#">{$_SESSION["userinfo"]["username"]}</a></div>
-            <div class="out fl"><a href="{:U('Login/Index/logout')}">退出</a></div>
-        </div>
-    </div>
+	<include file="./Application/Admin/View/Public/top.html" />
    <div class="tit f20">财务数据</div>
     	<div class="con">
         	<div class="data">

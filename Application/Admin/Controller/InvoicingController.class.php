@@ -10,7 +10,7 @@ namespace Admin\Controller;
 
 /**
  * Description of InvoicingController
- *结算列表模块123
+ *结算列表模块
  * @author Administrator
  */
 class InvoicingController extends \Think\Controller{

@@ -10,7 +10,7 @@ namespace Admin\Model;
 
 /**
  * Description of NewsModel
- *123`
+ *
  * @author Administrator
  */
 class NewsModel extends BaseModel{

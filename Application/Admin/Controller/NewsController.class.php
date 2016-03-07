@@ -10,7 +10,7 @@ namespace Admin\Controller;
 
 /**
  * Description of NewsController
- *123
+ *
  * @author Administrator
  */
 class NewsController extends BaseController{

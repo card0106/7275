@@ -13,30 +13,13 @@
 <!--样式以及外部引入文件--->
 <!----左边导航部分----->
 <block name='left'>
-    <div class="left fl">
-            <div class="face"></div>
-        <div class="nav0">
-            <a href="{:U('Index/index')}" class="n1">基本信息</a>
-            <a href="{:U('Members/index')}" class="n2">用户信息</a>
-            <a href="{:U('Product/index')}" class="n3">产品信息</a>
-            <a href="{:U('Invoicing/invoicing')}" class="dr4">结算列表</a>
-            <a href="{:U('Cash/cash')}" class="n5">提现列表</a>
-            <a href="{:U('News/index')}" class="n6">新闻公告</a>
-            <a href="{:U('Question/index')}" class="n7">常见问题</a>
-        </div>
-    </div>
+    <include file="./Application/Admin/View/Public/left.html" />
 </block>    
 <!--左边导航部分-->
 <!--右边内容部分-->
 <block name='right'>
 <div class="right">
-    <div class="mtit">
-        <div class="blue f20 fl">渝网联盟</div>
-        <div class="fr">
-                <div class="userout fl"><a href="javascript:void(0)">{$_SESSION["userinfo"]["username"]}</a></div>
-                <div class="out fl"><a href="{:U('Login/Index/logout')}">退出</a></div>
-        </div>
-    </div>
+    <include file="./Application/Admin/View/Public/top.html" />
     <div class="tit f20">结算列表</div>
         <!---用于区分当前是查询 一个用户还是查询所有的数据----->
         <input type="hidden" id="flag" value="{$member_id}">

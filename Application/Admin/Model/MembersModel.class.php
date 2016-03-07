@@ -10,7 +10,7 @@ namespace Admin\Model;
 
 /**
  * Description of MembersModel
- *会员信息的模型层1
+ *会员信息的模型层
  * @author Administrator
  */
 class MembersModel extends BaseModel{  

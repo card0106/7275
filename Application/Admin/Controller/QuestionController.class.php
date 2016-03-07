@@ -10,7 +10,7 @@ namespace Admin\Controller;
 
 /**
  * Description of QuestionController
- *123
+ *
  * @author Administrator
  */
 class QuestionController extends BaseController{
