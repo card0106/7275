@@ -1,5 +1,4 @@
-<include file="./Application/Home/View/Public/header_member.html" menu='goods'/>
-<!---引入分页样式------->
+<include file="./Application/Home/View/Public/header.html" menu='goods'/>
 <link type="text/css" href="__CSS__/page.css" rel="stylesheet" />
 <script type="text/javascript" src="__JS__/jquery.js"></script>
 <script type="text/javascript" src="__JS__/tipswindown.js"></script>
@@ -16,17 +15,19 @@
 <div id="content">
     	<table width="100%" border="1" cellpadding="0" cellspacing="0">
             <tr>
-                <th width="19%" colspan=2>产品名称</th>
+                <th colspan=2>产品名称</th>
                 <th width="11%">价格</th>
                 <th width="12%">结算周期</th>
                 <th width="11%">出数据时间</th>
-                <th width="37%">说明</th>
-                <th width="10%">获取产品</th>
+                <th width="10%">申请推广</th>
+                <th width="10%">业务咨询</th>
             </tr>
             <volist name='rows' id='row'>
             <tr <if condition="$row.have eq true">style="background: rgb(220,220,220);"</if>>
-            
-                <td style="text-align: right;"><img src="{$row.goods_small_img}" width="30" height="30"></td><td style="text-align: left;">{$row.goods_name}</td>
+                <td style="text-align: right;">
+                    <img src="{$row.goods_small_img}" width="30" height="30">
+                </td>
+                <td style="text-align: left;">{$row.goods_name}</td>
                 <td>
                     <if condition="$row.cash_type eq 0">
                     ￥<span class="color1">{$row.down_price_1}</span>
@@ -47,7 +48,13 @@
                         <else />每周
                     </if>
                 </td>
-                <td>{$row.intro}</td>
+                <td>
+                    <if condition="$row.applying eq 1">
+                        <input type="submit" value="审核中" class="ibutton">
+                    <else/>
+                        <input type="button" value="申请" class="ibutton iapply" _goods_id="{$row.id}" _member_id="{$member_id}">
+                    </if>
+                </td>
                 <td>
                     <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=11507712&site=qq&menu=yes">
                         <img border="0"  src="http://wpa.qq.com/pa?p=2:11507712:42" alt="联系我们!" title="联系我们!" />
@@ -60,14 +67,26 @@
         <div id="turn-page" class="page">
             {$pageHTML}
         </div> 
-        <!--分页工具条 结束---->   
-</div>
-    </div>  
+        <!--分页工具条 结束---->     
 <include file="./Application/Home/View/Public/footer.html" />
 <script type="text/javascript"> 
    //为联系客服注册点击事件
    $(".cursor").click(function(){
        alert("请联系我们的QQ客服！");
+   });
+   $('.iapply').click(function(){
+        var goods_id = $(this).attr('_goods_id');
+        var members_id = $(this).attr('_member_id');
+        $.post(
+                "{:U('Goods/applyGoods')}",
+                {goods_id:goods_id, members_id:members_id},
+                function(data){
+                    var mes=data==1?"申请成功":"申请失败";
+                    alert(mes);
+                    location.reload();
+                    //location.href="{:U('Admin/Goods/index')}";
+                }
+            );
    });
 </script>
 </body>
