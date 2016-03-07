@@ -7,7 +7,6 @@ header("Content-Type:text/html;charset=utf-8");
  * @author Administrator
  */
 class CheckPermissionBehavior  extends \Think\Behavior{
-    //put your code here
      public function run(&$params){
          //先判断用户是否登录
         if(!session('userinfo')){
