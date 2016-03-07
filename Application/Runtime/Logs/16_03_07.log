@@ -448,3 +448,1296 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000727s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000805s ]
 
+[ 2016-03-07T18:14:09+08:00 ] 192.168.1.26 /Home/Registe/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000065s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000486s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000546s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.000687s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000735s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001866s ]
+NOTIC: [2] preg_match(): Empty regular expression /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 968 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000798s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000873s ]
+
+[ 2016-03-07T18:19:17+08:00 ] 192.168.1.26 /Admin/index/make/type/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000066s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000506s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000552s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000227s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000282s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000014s ]
+INFO: [ action_begin ] --END-- [ RunTime:-0.000404s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `news` [ RunTime:0.001794s ]
+SQL: SELECT * FROM `news` ORDER BY time DESC  [ RunTime:0.001554s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000057s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000115s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009601s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009657s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000217s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000251s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000016s ]
+INFO: [ action_begin ] --END-- [ RunTime:-0.031146s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000081s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.008693s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007373s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000853s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000011s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.008014s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000016s ]
+INFO: [ action_begin ] --END-- [ RunTime:-0.039142s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000046s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.014144s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004640s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.008866s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000010s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.013291s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000015s ]
+INFO: [ action_begin ] --END-- [ RunTime:-0.044470s ]
+SQL: SHOW COLUMNS FROM `question` [ RunTime:0.001680s ]
+SQL: SELECT * FROM `question` ORDER BY time DESC  [ RunTime:0.002763s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000049s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.023480s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003708s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.019445s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000011s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.022947s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000016s ]
+INFO: [ action_begin ] --END-- [ RunTime:-0.054049s ]
+SQL: SELECT * FROM `news` ORDER BY time DESC  [ RunTime:0.001817s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000048s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.031351s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005103s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.025822s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000011s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.030725s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000030s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.033969s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.001665s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.031383s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000012s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.033052s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000544s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000583s ]
+
+[ 2016-03-07T18:19:22+08:00 ] 192.168.1.26 /Admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000066s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000610s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000230s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000287s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001630s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.001788s ]
+SQL: SHOW COLUMNS FROM `product_data` [ RunTime:0.001779s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `members` LIMIT 1   [ RunTime:0.001184s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `product` LIMIT 1   [ RunTime:0.001250s ]
+SQL: SELECT SUM(umoney-money) AS tp_sum FROM `product_data` WHERE ( DATE(FROM_UNIXTIME(`time`))=DATE(DATE_SUB(NOW(),INTERVAL 1 DAY)) ) LIMIT 1   [ RunTime:0.005116s ]
+SQL: SELECT SUM(umoney-money) AS tp_sum FROM `product_data` WHERE ( CONCAT(YEAR(FROM_UNIXTIME(`time`)),'-',MONTH(FROM_UNIXTIME(`time`)))=CONCAT(YEAR(NOW()),'-',MONTH(NOW())) ) LIMIT 1   [ RunTime:0.001499s ]
+SQL: SELECT SUM(umoney-money) AS tp_sum FROM `product_data` WHERE ( CONCAT(YEAR(FROM_UNIXTIME(`time`)),'-',MONTH(FROM_UNIXTIME(`time`)))=CONCAT(YEAR(DATE_SUB(NOW(),INTERVAL 1 MONTH)),'-',MONTH(DATE_SUB(NOW(),INTERVAL 1 MONTH))) ) LIMIT 1   [ RunTime:0.002010s ]
+SQL: SELECT SUM(umoney-money) AS tp_sum FROM `product_data` WHERE ( DATE(FROM_UNIXTIME(`time`))>=DATE(DATE_SUB(NOW(),INTERVAL 7 DAY)) AND DATE(FROM_UNIXTIME(`time`))<=DATE(NOW()) ) LIMIT 1   [ RunTime:0.001596s ]
+SQL: SELECT SUM(`data`.`umoney`-`data`.`money`) AS union_price,`data`.`time` FROM product_data data GROUP BY DATE(FROM_UNIXTIME(`data`.`time`)) ORDER BY `data`.`time` ASC  [ RunTime:0.001400s ]
+NOTIC: [2] Invalid argument supplied for foreach() /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 32 行.
+NOTIC: [8] Undefined index: categories /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 37 行.
+NOTIC: [2] implode(): Invalid arguments passed /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: data /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 38 行.
+NOTIC: [2] implode(): Invalid arguments passed /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 38 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000045s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000100s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007810s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007872s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000326s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000375s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000458s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000496s ]
+
+[ 2016-03-07T18:19:29+08:00 ] 192.168.1.26 /Verify/Index/common
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000072s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000536s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000584s ]
+
+[ 2016-03-07T18:19:29+08:00 ] 192.168.1.26 /Verify/Index/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000068s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000931s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001025s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000560s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000627s ]
+
+[ 2016-03-07T18:19:59+08:00 ] 192.168.1.26 /Admin/index/make/type/news.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000063s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000402s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000450s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000275s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000325s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `news` [ RunTime:0.003097s ]
+SQL: SELECT `id`,`last_modify` FROM `news`  [ RunTime:0.001706s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000019s ]
+INFO: [ action_begin ] --END-- [ RunTime:-0.026144s ]
+NOTIC: [2] filemtime(): stat failed for news/2.html /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 102 行.
+SQL: SELECT * FROM `news` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.001752s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000046s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000107s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008117s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008181s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000131s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000164s ]
+NOTIC: [2] file_put_contents(news/2.html): failed to open stream: No such file or directory /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 110 行.
+NOTIC: [2] filemtime(): stat failed for news/3.html /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 102 行.
+SQL: SELECT * FROM `news` WHERE ( id=3 ) LIMIT 1   [ RunTime:0.001535s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000038s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.004965s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002755s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.002055s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000008s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.004680s ]
+NOTIC: [2] file_put_contents(news/3.html): failed to open stream: No such file or directory /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 110 行.
+NOTIC: [2] filemtime(): stat failed for news/6.html /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 102 行.
+SQL: SELECT * FROM `news` WHERE ( id=6 ) LIMIT 1   [ RunTime:0.001397s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000041s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.010362s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003183s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.007196s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000011s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.010265s ]
+NOTIC: [2] file_put_contents(news/6.html): failed to open stream: No such file or directory /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 110 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000057s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.014059s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004550s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.010686s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000014s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.015132s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000755s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000832s ]
+
+[ 2016-03-07T18:20:04+08:00 ] 192.168.1.26 /Admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000066s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000459s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000504s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000228s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000296s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.002399s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.001803s ]
+SQL: SHOW COLUMNS FROM `product_data` [ RunTime:0.003612s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `members` LIMIT 1   [ RunTime:0.002068s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `product` LIMIT 1   [ RunTime:0.002243s ]
+SQL: SELECT SUM(umoney-money) AS tp_sum FROM `product_data` WHERE ( DATE(FROM_UNIXTIME(`time`))=DATE(DATE_SUB(NOW(),INTERVAL 1 DAY)) ) LIMIT 1   [ RunTime:0.002127s ]
+SQL: SELECT SUM(umoney-money) AS tp_sum FROM `product_data` WHERE ( CONCAT(YEAR(FROM_UNIXTIME(`time`)),'-',MONTH(FROM_UNIXTIME(`time`)))=CONCAT(YEAR(NOW()),'-',MONTH(NOW())) ) LIMIT 1   [ RunTime:0.001621s ]
+SQL: SELECT SUM(umoney-money) AS tp_sum FROM `product_data` WHERE ( CONCAT(YEAR(FROM_UNIXTIME(`time`)),'-',MONTH(FROM_UNIXTIME(`time`)))=CONCAT(YEAR(DATE_SUB(NOW(),INTERVAL 1 MONTH)),'-',MONTH(DATE_SUB(NOW(),INTERVAL 1 MONTH))) ) LIMIT 1   [ RunTime:0.001735s ]
+SQL: SELECT SUM(umoney-money) AS tp_sum FROM `product_data` WHERE ( DATE(FROM_UNIXTIME(`time`))>=DATE(DATE_SUB(NOW(),INTERVAL 7 DAY)) AND DATE(FROM_UNIXTIME(`time`))<=DATE(NOW()) ) LIMIT 1   [ RunTime:0.001776s ]
+SQL: SELECT SUM(`data`.`umoney`-`data`.`money`) AS union_price,`data`.`time` FROM product_data data GROUP BY DATE(FROM_UNIXTIME(`data`.`time`)) ORDER BY `data`.`time` ASC  [ RunTime:0.001785s ]
+NOTIC: [2] Invalid argument supplied for foreach() /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 32 行.
+NOTIC: [8] Undefined index: categories /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 37 行.
+NOTIC: [2] implode(): Invalid arguments passed /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: data /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 38 行.
+NOTIC: [2] implode(): Invalid arguments passed /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 38 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000066s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000188s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011506s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011583s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000195s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000706s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000775s ]
+
+[ 2016-03-07T18:20:09+08:00 ] 192.168.1.26 /Verify/Index/common
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000062s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000393s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000506s ]
+
+[ 2016-03-07T18:20:10+08:00 ] 192.168.1.26 /news/6.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000070s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000128s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000463s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000520s ]
+ERR: 无法加载控制器:News
+
+[ 2016-03-07T18:20:13+08:00 ] 192.168.1.26 /news/3.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000070s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000925s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000998s ]
+ERR: 无法加载控制器:News
+
+[ 2016-03-07T18:21:03+08:00 ] 192.168.1.26 /Verify/Index/common
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000097s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000484s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000529s ]
+
+[ 2016-03-07T18:21:03+08:00 ] 192.168.1.26 /Verify/Index/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000091s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000718s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000802s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000731s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000821s ]
+
+[ 2016-03-07T18:21:14+08:00 ] 192.168.1.26 /Home/Registe/checkUserExist.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000062s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000441s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000482s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.000386s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000427s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001800s ]
+SQL: SELECT `id` FROM `members` WHERE ( `username` = '45645' ) LIMIT 1   [ RunTime:0.001429s ]
+
+[ 2016-03-07T18:21:47+08:00 ] 192.168.1.26 /Verify/Index/common
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000063s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000396s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000441s ]
+
+[ 2016-03-07T18:21:47+08:00 ] 192.168.1.26 /Verify/Index/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000063s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000453s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000502s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000549s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000617s ]
+
+[ 2016-03-07T18:21:57+08:00 ] 192.168.1.26 /Verify/Index/verify.html?randomString=0.15165299557078182
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000060s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000379s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000422s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000550s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000612s ]
+
+[ 2016-03-07T18:21:59+08:00 ] 192.168.1.26 /Verify/Index/verify.html?randomString=0.9724693296028415
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000061s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000363s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000404s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000462s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000521s ]
+
+[ 2016-03-07T18:22:03+08:00 ] 192.168.1.26 /Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000142s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000396s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000443s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.000443s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000489s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001876s ]
+SQL: SELECT * FROM `members` WHERE ( `username` = 'ssss' ) LIMIT 1   [ RunTime:0.001550s ]
+
+[ 2016-03-07T18:22:13+08:00 ] 192.168.1.26 /Verify/Index/verify.html?randomString=0.6424353753544694
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000182s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000253s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000528s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000583s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000496s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000556s ]
+
+[ 2016-03-07T18:22:18+08:00 ] 192.168.1.26 /Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000061s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000666s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000724s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.000658s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000717s ]
+
+[ 2016-03-07T18:22:21+08:00 ] 192.168.1.26 /Verify/Index/verify.html?randomString=0.13745530025398056
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000070s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000381s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000423s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000430s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000483s ]
+
+[ 2016-03-07T18:22:28+08:00 ] 192.168.1.26 /Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000062s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002059s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002122s ]
+INFO: [ action_begin ] --START--
+INFO: Run Home\Behavior\HomePermissionBehavior [ RunTime:0.000392s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000440s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001755s ]
+SQL: SELECT * FROM `members` WHERE ( `username` = 'ssss' ) LIMIT 1   [ RunTime:0.001610s ]
+
+[ 2016-03-07T18:27:07+08:00 ] 192.168.1.26 /Admin/Goods/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000068s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000453s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000503s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000250s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000316s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.002117s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `goods` LIMIT 1   [ RunTime:0.001923s ]
+SQL: SELECT * FROM `goods` LIMIT 0,30   [ RunTime:0.002539s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.002853s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.001813s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000126s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000192s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020353s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020414s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000238s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000281s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000824s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000891s ]
+
+[ 2016-03-07T18:27:31+08:00 ] 192.168.1.26 /Admin/Goods/add.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000060s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001733s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001822s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000239s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000298s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.002728s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.002632s ]
+
+[ 2016-03-07T18:45:08+08:00 ] 192.168.1.26 /Admin/Goods/add.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000064s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000638s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000717s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000227s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000291s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+NOTIC: [2] mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+ERR: Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2016-03-07T18:48:28+08:00 ] 192.168.1.26 /Admin/Goods/add.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000069s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000373s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000415s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000233s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000308s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.004373s ]
+ERR: 1146:Table '7g.goods' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `goods`
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.001278s ]
+ERR: 1146:Table '7g.goods' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `goods`
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Upload.class.php 第 169 行.
+SQL: INSERT INTO `goods` (`goods_big_img`,`goods_small_img`) VALUES ('/Uploads/goods/2016-03-07/56dd5c7bdf61f.jpg','/Uploads/goods/2016-03-07/56dd5c7bdf61f_small.jpg') [ RunTime:0.000448s ]
+ERR: 1146:Table '7g.goods' doesn't exist
+ [ SQL语句 ] : INSERT INTO `goods` (`goods_big_img`,`goods_small_img`) VALUES ('/Uploads/goods/2016-03-07/56dd5c7bdf61f.jpg','/Uploads/goods/2016-03-07/56dd5c7bdf61f_small.jpg')
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000047s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000113s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020802s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020863s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000161s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000204s ]
+
+[ 2016-03-07T18:48:37+08:00 ] 192.168.1.26 /Admin/Goods/add.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000070s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000527s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000594s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000237s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000298s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.000930s ]
+ERR: 1146:Table '7g.goods' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `goods`
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.001089s ]
+ERR: 1146:Table '7g.goods' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `goods`
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Upload.class.php 第 169 行.
+SQL: INSERT INTO `goods` (`goods_big_img`,`goods_small_img`) VALUES ('/Uploads/goods/2016-03-07/56dd5c853f259.jpg','/Uploads/goods/2016-03-07/56dd5c853f259_small.jpg') [ RunTime:0.000275s ]
+ERR: 1146:Table '7g.goods' doesn't exist
+ [ SQL语句 ] : INSERT INTO `goods` (`goods_big_img`,`goods_small_img`) VALUES ('/Uploads/goods/2016-03-07/56dd5c853f259.jpg','/Uploads/goods/2016-03-07/56dd5c853f259_small.jpg')
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000038s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000088s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009551s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009605s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000133s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000222s ]
+
+[ 2016-03-07T18:48:45+08:00 ] 192.168.1.26 /Admin/Goods/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000062s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000647s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000882s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000303s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000366s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.000799s ]
+ERR: 1146:Table '7g.goods' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `goods`
+SQL: SELECT COUNT(*) AS tp_count FROM `goods` LIMIT 1   [ RunTime:0.000297s ]
+ERR: 1146:Table '7g.goods' doesn't exist
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `goods` LIMIT 1  
+SQL: SELECT * FROM `goods` LIMIT 0,30   [ RunTime:0.000175s ]
+ERR: 1146:Table '7g.goods' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `goods` LIMIT 0,30  
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.000944s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.000208s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000105s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000163s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019049s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019104s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000178s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000213s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000891s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001007s ]
+
+[ 2016-03-07T18:49:03+08:00 ] 192.168.1.26 /Admin/Goods/add.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000115s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000695s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000787s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000221s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000306s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.000712s ]
+ERR: 1146:Table '7g.goods' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `goods`
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.000524s ]
+ERR: 1146:Table '7g.goods' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `goods`
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] in_array() expects parameter 2 to be array, boolean given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Model.class.php 第 906 行.
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Upload.class.php 第 169 行.
+SQL: INSERT INTO `goods` (`goods_big_img`,`goods_small_img`) VALUES ('/Uploads/goods/2016-03-07/56dd5c9dea380.jpg','/Uploads/goods/2016-03-07/56dd5c9dea380_small.jpg') [ RunTime:0.000592s ]
+ERR: 1146:Table '7g.goods' doesn't exist
+ [ SQL语句 ] : INSERT INTO `goods` (`goods_big_img`,`goods_small_img`) VALUES ('/Uploads/goods/2016-03-07/56dd5c9dea380.jpg','/Uploads/goods/2016-03-07/56dd5c9dea380_small.jpg')
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000039s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000098s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.227001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.227087s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000125s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000162s ]
+
+[ 2016-03-07T18:53:30+08:00 ] 192.168.1.26 /Admin/Goods/add.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000086s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000734s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000795s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000644s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000716s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.080181s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.001015s ]
+NOTIC: [2] call_user_func() expects parameter 1 to be a valid callback, no array or string given /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Upload.class.php 第 169 行.
+SQL: INSERT INTO `goods` (`category_id`,`cash_type`,`goods_name`,`max_links`,`state`,`invoicing_cycle`,`data_back`,`intro`,`goods_big_img`,`goods_small_img`) VALUES (1,0,'123',1,1,0,0,'','/Uploads/goods/2016-03-07/56dd5da94b8d9.jpg','/Uploads/goods/2016-03-07/56dd5da94b8d9_small.jpg') [ RunTime:0.004738s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000036s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000092s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018174s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018304s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000126s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000160s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000037s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.051413s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.051088s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000263s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000062s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.051231s ]
+
+[ 2016-03-07T18:53:31+08:00 ] 192.168.1.26 /Admin/Goods/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000068s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000392s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000433s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000205s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000257s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.000803s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `goods` LIMIT 1   [ RunTime:0.049317s ]
+SQL: SELECT * FROM `goods` LIMIT 0,30   [ RunTime:0.000387s ]
+NOTIC: [8] Undefined variable: up_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.000834s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.000164s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000108s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000175s ]
+NOTIC: [8] Undefined index: have /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 152 行.
+NOTIC: [8] Undefined index: category_name /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 176 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023626s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023696s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000205s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000257s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001895s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002069s ]
+
+[ 2016-03-07T18:53:48+08:00 ] 192.168.1.26 /Admin/Goods/edit/id/10000.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000064s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000431s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000476s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000352s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000401s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.000969s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.000737s ]
+SQL: SELECT * FROM `goods` WHERE ( `id` = 10000 ) LIMIT 1   [ RunTime:0.000363s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.000561s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.000134s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000143s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000205s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013361s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013422s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000165s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000199s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000503s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000555s ]
+
+[ 2016-03-07T18:54:00+08:00 ] 192.168.1.26 /Admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000063s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000404s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000459s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000329s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000393s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001219s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.000888s ]
+SQL: SHOW COLUMNS FROM `product_data` [ RunTime:0.000904s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `members` LIMIT 1   [ RunTime:0.000153s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `product` LIMIT 1   [ RunTime:0.000115s ]
+SQL: SELECT SUM(umoney-money) AS tp_sum FROM `product_data` WHERE ( DATE(FROM_UNIXTIME(`time`))=DATE(DATE_SUB(NOW(),INTERVAL 1 DAY)) ) LIMIT 1   [ RunTime:0.000424s ]
+SQL: SELECT SUM(umoney-money) AS tp_sum FROM `product_data` WHERE ( CONCAT(YEAR(FROM_UNIXTIME(`time`)),'-',MONTH(FROM_UNIXTIME(`time`)))=CONCAT(YEAR(NOW()),'-',MONTH(NOW())) ) LIMIT 1   [ RunTime:0.000226s ]
+SQL: SELECT SUM(umoney-money) AS tp_sum FROM `product_data` WHERE ( CONCAT(YEAR(FROM_UNIXTIME(`time`)),'-',MONTH(FROM_UNIXTIME(`time`)))=CONCAT(YEAR(DATE_SUB(NOW(),INTERVAL 1 MONTH)),'-',MONTH(DATE_SUB(NOW(),INTERVAL 1 MONTH))) ) LIMIT 1   [ RunTime:0.000156s ]
+SQL: SELECT SUM(umoney-money) AS tp_sum FROM `product_data` WHERE ( DATE(FROM_UNIXTIME(`time`))>=DATE(DATE_SUB(NOW(),INTERVAL 7 DAY)) AND DATE(FROM_UNIXTIME(`time`))<=DATE(NOW()) ) LIMIT 1   [ RunTime:0.000293s ]
+SQL: SELECT SUM(`data`.`umoney`-`data`.`money`) AS union_price,`data`.`time` FROM product_data data GROUP BY DATE(FROM_UNIXTIME(`data`.`time`)) ORDER BY `data`.`time` ASC  [ RunTime:0.000151s ]
+NOTIC: [2] Invalid argument supplied for foreach() /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 32 行.
+NOTIC: [8] Undefined index: categories /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 37 行.
+NOTIC: [2] implode(): Invalid arguments passed /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: data /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 38 行.
+NOTIC: [2] implode(): Invalid arguments passed /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 38 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000044s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000103s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008062s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008113s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000379s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000429s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000841s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000940s ]
+
+[ 2016-03-07T18:54:15+08:00 ] 192.168.1.26 /Verify/Index/common
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000072s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000448s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000491s ]
+
+[ 2016-03-07T18:54:16+08:00 ] 192.168.1.26 /Verify/Index/common
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000099s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000721s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000791s ]
+
+[ 2016-03-07T18:54:18+08:00 ] 192.168.1.26 /Verify/Index/common
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000062s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000432s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000486s ]
+
+[ 2016-03-07T18:54:18+08:00 ] 192.168.1.26 /Verify/Index/verify.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000063s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000462s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000508s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000526s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000593s ]
+
+[ 2016-03-07T18:54:24+08:00 ] 192.168.1.26 /Admin/Goods/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000071s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000460s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000512s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000254s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000321s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.000896s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `goods` LIMIT 1   [ RunTime:0.000176s ]
+SQL: SELECT * FROM `goods` LIMIT 0,30   [ RunTime:0.000186s ]
+NOTIC: [8] Undefined variable: up_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.000660s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.000138s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000093s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000151s ]
+NOTIC: [8] Undefined index: have /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 152 行.
+NOTIC: [8] Undefined index: category_name /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 176 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019191s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019343s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000149s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000186s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002561s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002654s ]
+
+[ 2016-03-07T18:54:29+08:00 ] 192.168.1.26 /Admin/Goods/links/id/10000.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000065s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000423s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000467s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000181s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000226s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.001329s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.000587s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.000141s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.000655s ]
+SQL: SELECT * FROM `goods` WHERE ( id=10000 ) LIMIT 1   [ RunTime:0.000289s ]
+SQL: SHOW COLUMNS FROM `goods_link` [ RunTime:0.001265s ]
+SQL: SELECT * FROM `goods_link` WHERE ( goods_id=10000 ) ORDER BY id desc  [ RunTime:0.000215s ]
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.000755s ]
+SQL: SELECT * FROM `members` WHERE ( state=1 )  [ RunTime:0.000491s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000083s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000147s ]
+NOTIC: [8] Undefined variable: pageHTML /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/17d98be407780da8bd59435dca149b29.php 第 171 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014295s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014340s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000134s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000168s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000651s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000709s ]
+
+[ 2016-03-07T18:54:49+08:00 ] 192.168.1.26 /Admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000060s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000555s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000605s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000250s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000309s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.001060s ]
+SQL: SHOW COLUMNS FROM `product` [ RunTime:0.000929s ]
+SQL: SHOW COLUMNS FROM `product_data` [ RunTime:0.001184s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `members` LIMIT 1   [ RunTime:0.000155s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `product` LIMIT 1   [ RunTime:0.000118s ]
+SQL: SELECT SUM(umoney-money) AS tp_sum FROM `product_data` WHERE ( DATE(FROM_UNIXTIME(`time`))=DATE(DATE_SUB(NOW(),INTERVAL 1 DAY)) ) LIMIT 1   [ RunTime:0.000192s ]
+SQL: SELECT SUM(umoney-money) AS tp_sum FROM `product_data` WHERE ( CONCAT(YEAR(FROM_UNIXTIME(`time`)),'-',MONTH(FROM_UNIXTIME(`time`)))=CONCAT(YEAR(NOW()),'-',MONTH(NOW())) ) LIMIT 1   [ RunTime:0.000160s ]
+SQL: SELECT SUM(umoney-money) AS tp_sum FROM `product_data` WHERE ( CONCAT(YEAR(FROM_UNIXTIME(`time`)),'-',MONTH(FROM_UNIXTIME(`time`)))=CONCAT(YEAR(DATE_SUB(NOW(),INTERVAL 1 MONTH)),'-',MONTH(DATE_SUB(NOW(),INTERVAL 1 MONTH))) ) LIMIT 1   [ RunTime:0.000181s ]
+SQL: SELECT SUM(umoney-money) AS tp_sum FROM `product_data` WHERE ( DATE(FROM_UNIXTIME(`time`))>=DATE(DATE_SUB(NOW(),INTERVAL 7 DAY)) AND DATE(FROM_UNIXTIME(`time`))<=DATE(NOW()) ) LIMIT 1   [ RunTime:0.000149s ]
+SQL: SELECT SUM(`data`.`umoney`-`data`.`money`) AS union_price,`data`.`time` FROM product_data data GROUP BY DATE(FROM_UNIXTIME(`data`.`time`)) ORDER BY `data`.`time` ASC  [ RunTime:0.000131s ]
+NOTIC: [2] Invalid argument supplied for foreach() /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 32 行.
+NOTIC: [8] Undefined index: categories /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 37 行.
+NOTIC: [2] implode(): Invalid arguments passed /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 37 行.
+NOTIC: [8] Undefined index: data /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 38 行.
+NOTIC: [2] implode(): Invalid arguments passed /usr/local/nginx/html/xs.7275.com/Application/Admin/Controller/IndexController.class.php 第 38 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000043s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000098s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008504s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008543s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000117s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000153s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000423s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000461s ]
+
+[ 2016-03-07T19:02:47+08:00 ] 192.168.1.26 /Admin/Goods/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000103s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000370s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000411s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000222s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000276s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.001583s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `goods` LIMIT 1   [ RunTime:0.000189s ]
+SQL: SELECT * FROM `goods` LIMIT 0,30   [ RunTime:0.000282s ]
+NOTIC: [8] Undefined variable: up_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.001125s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.000166s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000094s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000153s ]
+NOTIC: [8] Undefined index: have /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 152 行.
+NOTIC: [8] Undefined index: category_name /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 176 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020102s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020151s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000507s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000549s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000644s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000777s ]
+
+[ 2016-03-07T19:03:01+08:00 ] 192.168.1.26 /Admin/Goods/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000063s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000410s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000462s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000254s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000427s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.000859s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `goods` LIMIT 1   [ RunTime:0.000338s ]
+SQL: SELECT * FROM `goods` LIMIT 0,30   [ RunTime:0.000849s ]
+NOTIC: [8] Undefined variable: up_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.001157s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.000157s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000097s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000155s ]
+NOTIC: [8] Undefined index: have /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 152 行.
+NOTIC: [8] Undefined index: category_name /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 176 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.019994s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020042s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000246s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000301s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000911s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001002s ]
+
+[ 2016-03-07T19:21:11+08:00 ] 192.168.1.26 /Admin/Goods/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000116s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000701s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000779s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000504s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000594s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.005457s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `goods` LIMIT 1   [ RunTime:0.000324s ]
+SQL: SELECT * FROM `goods` LIMIT 0,30   [ RunTime:0.000260s ]
+NOTIC: [8] Undefined variable: up_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.001061s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.000155s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000096s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000156s ]
+NOTIC: [8] Undefined index: have /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 152 行.
+NOTIC: [8] Undefined index: category_name /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 176 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.419827s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.419881s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000268s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000308s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000599s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000685s ]
+
+[ 2016-03-07T19:21:15+08:00 ] 192.168.1.26 /Admin/Goods/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000062s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000617s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000297s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000367s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.000828s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `goods` LIMIT 1   [ RunTime:0.000214s ]
+SQL: SELECT * FROM `goods` LIMIT 0,30   [ RunTime:0.000172s ]
+NOTIC: [8] Undefined variable: up_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.000693s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.000145s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000132s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000215s ]
+NOTIC: [8] Undefined index: have /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 152 行.
+NOTIC: [8] Undefined index: category_name /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 176 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.421208s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.421280s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000272s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000410s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000689s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000851s ]
+
+[ 2016-03-07T19:21:16+08:00 ] 192.168.1.26 /Admin/Goods/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000074s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000428s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000472s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000339s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000441s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.002090s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `goods` LIMIT 1   [ RunTime:0.000472s ]
+SQL: SELECT * FROM `goods` LIMIT 0,30   [ RunTime:0.000319s ]
+NOTIC: [8] Undefined variable: up_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.008143s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.000199s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000093s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000151s ]
+NOTIC: [8] Undefined index: have /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 152 行.
+NOTIC: [8] Undefined index: category_name /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 176 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.155597s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.155662s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000594s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000655s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000926s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001038s ]
+
+[ 2016-03-07T19:21:26+08:00 ] 192.168.1.26 /Admin/Goods/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000105s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000552s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000604s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000472s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000574s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.011785s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `goods` LIMIT 1   [ RunTime:0.000270s ]
+SQL: SELECT * FROM `goods` LIMIT 0,30   [ RunTime:0.000262s ]
+NOTIC: [8] Undefined variable: up_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.000862s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.000164s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000104s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000168s ]
+NOTIC: [8] Undefined index: have /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 152 行.
+NOTIC: [8] Undefined index: category_name /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 176 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021012s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021071s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000155s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000194s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000612s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000694s ]
+
+[ 2016-03-07T19:21:27+08:00 ] 192.168.1.26 /Admin/Goods/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000065s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000381s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000428s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000221s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000279s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.001743s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `goods` LIMIT 1   [ RunTime:0.000195s ]
+SQL: SELECT * FROM `goods` LIMIT 0,30   [ RunTime:0.000182s ]
+NOTIC: [8] Undefined variable: up_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.000734s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.000146s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000113s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000185s ]
+NOTIC: [8] Undefined index: have /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 152 行.
+NOTIC: [8] Undefined index: category_name /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 176 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.540856s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.540904s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000158s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000194s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000433s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000564s ]
+
+[ 2016-03-07T19:21:27+08:00 ] 192.168.1.26 /Admin/Goods/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000067s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001004s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001099s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000220s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000279s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.000928s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `goods` LIMIT 1   [ RunTime:0.000198s ]
+SQL: SELECT * FROM `goods` LIMIT 0,30   [ RunTime:0.000232s ]
+NOTIC: [8] Undefined variable: up_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.000595s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.000143s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000092s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000150s ]
+NOTIC: [8] Undefined index: have /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 152 行.
+NOTIC: [8] Undefined index: category_name /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 176 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021611s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021663s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000139s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000174s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000542s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000619s ]
+
+[ 2016-03-07T19:24:24+08:00 ] 192.168.1.26 /Admin/Goods/links/id/10000.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000070s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000375s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000418s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000242s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000299s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.001266s ]
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.001242s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.000169s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.000676s ]
+SQL: SELECT * FROM `goods` WHERE ( id=10000 ) LIMIT 1   [ RunTime:0.000241s ]
+SQL: SHOW COLUMNS FROM `goods_link` [ RunTime:0.000593s ]
+SQL: SELECT * FROM `goods_link` WHERE ( goods_id=10000 ) ORDER BY id desc  [ RunTime:0.000179s ]
+SQL: SHOW COLUMNS FROM `members` [ RunTime:0.000714s ]
+SQL: SELECT * FROM `members` WHERE ( state=1 )  [ RunTime:0.000298s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000074s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000129s ]
+NOTIC: [8] Undefined variable: pageHTML /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/17d98be407780da8bd59435dca149b29.php 第 171 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013678s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013737s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000237s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000284s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000796s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000878s ]
+
+[ 2016-03-07T19:25:01+08:00 ] 192.168.1.26 /Admin/Goods/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000062s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000526s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000577s ]
+INFO: [ action_begin ] --START--
+INFO: Run Admin\Behavior\CheckPermissionBehavior [ RunTime:0.000500s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000744s ]
+NOTIC: [2048] Declaration of Admin\Model\BaseModel::page() should be compatible with Think\Model::page($page, $listRows = NULL) /usr/local/nginx/html/xs.7275.com/Application/Admin/Model/BaseModel.class.php 第 16 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.001297s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `goods` LIMIT 1   [ RunTime:0.000247s ]
+SQL: SELECT * FROM `goods` LIMIT 0,30   [ RunTime:0.000226s ]
+NOTIC: [8] Undefined variable: up_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: down_page /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_first /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+NOTIC: [8] Undefined variable: the_end /usr/local/nginx/html/xs.7275.com/ThinkPHP/Library/Think/Page.class.php 第 155 行.
+SQL: SHOW COLUMNS FROM `category` [ RunTime:0.000759s ]
+SQL: SELECT * FROM `category`  [ RunTime:0.000589s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000123s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000195s ]
+NOTIC: [8] Undefined index: have /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 152 行.
+NOTIC: [8] Undefined index: category_name /usr/local/nginx/html/xs.7275.com/Application/Runtime/Cache/Admin/7460c3bd08e8aaf3e719467d6ea19bd3.php 第 176 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024706s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024906s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000615s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000873s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000742s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000836s ]
+

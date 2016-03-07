@@ -3,24 +3,24 @@ define("WEB_URL", '');
 return array(
 	//'配置项'=>'配置值'
     TMPL_PARSE_STRING  =>array(
-     '__CSS__' => WEB_URL.'/Public/css', // 更改默认的__PUBLIC__ 替换规则
-     '__JS__' => WEB_URL.'/Public/js', // 增加新的JS类库路径替换规则
-     '__IMG__' => WEB_URL.'/Public/images', // 增加新的上传路径替换规则
+     '__CSS__' => WEB_URL.'/Public/css',        // 更改默认的__PUBLIC__ 替换规则
+     '__JS__' => WEB_URL.'/Public/js',          // 增加新的JS类库路径替换规则
+     '__IMG__' => WEB_URL.'/Public/images',     // 增加新的上传路径替换规则
     ),
     //数据库配置
-    'DB_TYPE'               =>  'mysql',            // 数据库类型
-    'DB_HOST'               =>  '192.168.1.99',     // 服务器地址
-    'DB_NAME'               =>  '7g',               // 数据库名
-    'DB_USER'               =>  'root',             // 用户名
-    'DB_PWD'                =>  '123456',           // 密码
-    'DB_PORT'               =>  '3306',             // 端口
-    'DB_PREFIX'             =>  '',                 // 数据库表前缀
-    'DB_CHARSET'            =>  'utf8',             //设置数据库编码
+    'DB_TYPE'               =>  'mysql',        // 数据库类型
+    'DB_HOST'               =>  'localhost',    // 服务器地址
+    'DB_NAME'               =>  '7g',           // 数据库名
+    'DB_USER'               =>  'root',         // 用户名
+    'DB_PWD'                =>  'lihuan0106',    // 密码
+    'DB_PORT'               =>  '3306',         // 端口
+    'DB_PREFIX'             =>  '',             // 数据库表前缀
+    'DB_CHARSET'            =>  'utf8',         //设置数据库编码
     "PAGESIZE"              =>  30,
     
     'SHOW_PAGE_TRACE'		=> false,
     
-    'DEFAULT_MODULE'        =>  'Home',  // 默认模块 
+    'DEFAULT_MODULE'        =>  'Home',         // 默认模块 
     'MODULE_ALLOW_LIST'		=> array("Admin","Login","Home","Verify"),//"News","Question"),
     'URL_MODULE_MAP'    =>    array('amomanager'=>'Admin','amomanagerlogin'=>'Login'),
     
