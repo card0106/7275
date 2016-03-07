@@ -10,7 +10,7 @@ namespace Admin\Controller;
 
 /**
  * Description of CashController
- *
+ *123
  * @author Administrator
  */
 class CashController extends \Think\Controller{

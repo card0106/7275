@@ -167,7 +167,7 @@ class IndexController extends Controller{
 						$error++;
 	    		}
 	    	}
-	       	$this->success("新闻公告分页生成成功！总数：{$total}，已修改：{$changed}".($error==0?"。":"，失败数：{$error}，请检测目录权限！"), U("Admin/Index/index"), 5);
+	       	$this->success("新闻公告分页生成成功！总数：{$total}，已修改：{$changed}".($error==0?"。":"，失败数：{$error}，请检测目录权限！!!"), U("Admin/Index/index"), 5);
         }
     }
 }
