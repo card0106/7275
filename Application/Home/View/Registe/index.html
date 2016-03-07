@@ -66,10 +66,9 @@
                     <dd><input name="bank_account" type="text" class="text" id="zhanghao"  /><span id="zhanghaoTip"></span></dd>
                 </dl>
 		<dl>
-                        <dt>支付宝：</dt>
-                        <dd><input name="zhifuba" type="text" class="text"  id="zhifuba" /><spa
-n id="zhifuba"></span></dd>
-                </dl>
+			<dt>支付宝：</dt>
+			<dd><input name="zhifubao" type="text" class="text"  id="zhifubao" /><span id="zhifubaoTip"></span></dd>    
+		</dl>
             </div>
             <div class="wtit f14 mtop10">服务协议</div>
             <dl>
@@ -160,7 +159,7 @@ n id="zhifuba"></span></dd>
                 </div>
             </dl>
             <div class="button">
-                <input type="submit" name="button" id="button" value="同意以上服务条款，提交注册信息" class="ibutton" />
+                <input type="submit" name="button" id="button" value="同意以上服务条款，提交注册信息" class="ibutton"  />
             </div>
         </form>
     </div>
@@ -172,7 +171,7 @@ n id="zhifuba"></span></dd>
 <script type="text/javascript" src="__JS__/formValidator_min.js"></script>
 <script>
     $(document).ready(function(){
-        $.formValidator.initConfig({alertMessage:false});
+        $.formValidator.initConfig({onError:function(msg){alert(msg)}});
         $("#username").formValidator({onshow:"请输入用户名,4-18位数字或字母组成",onfocus:"请输入用户名,4-18位数字或字母组成",oncorrect:"填写正确"}).InputValidator({min:4,max:18,onerror:"请输入一个4-18位的用户名"}).RegexValidator({regexp:"^[A-Za-z0-9]+$",onerror:"用户名由数字、26个英文字母组成"}).AjaxValidator({addidvalue:false,type:"POST",url:"<?php echo U('Home/Registe/checkUserExist');?>",buttons:$("#button"),success:function(data){return data==1;},error: function(jqXHR,textStatus,errorThrown){alert("服务器没有返回数据，可能服务器忙，请重试"+errorThrown);},onerror:"该用户名已经注册，请更换用户名",onwait:"正在对用户名进行合法性校验，请稍候..."});
         $("#password").formValidator({onshow:"请输入密码",onfocus:"使用英文字母加数字的组合，且在6-16个字符以内",oncorrect:"填写正确"}).InputValidator({min:6,max:16,onerror:"使用英文字母加数字的组合，且在6-16个字符以内"});
         $("#passwordre").formValidator({onshow:"请再输入一遍您上面输入的密码",onfocus:"请再输入一遍您上面输入的密码",oncorrect:"填写正确"}).InputValidator({min:6,max:16,onerror:"请再输入一遍您上面输入的密码"}).CompareValidator({desID:"password",operateor:"=",onerror:"请再输入一遍您上面输入的密码"});
@@ -189,10 +188,16 @@ n id="zhifuba"></span></dd>
         $("#yinhang").formValidator({onshow:" xx省xx市xx分行xx支行",onfocus:" xx省xx市xx分行xx支行",oncorrect:"填写正确"}).InputValidator({min:2,onerror:" xx省xx市xx分行xx支行"}).RegexValidator({regexp:"^.*$",onerror:" xx省xx市xx分行xx支行"});
 
         $("#zhanghao").formValidator({onshow:"请输入银行账号，由数字组成",onfocus:"银行账号必须是数字",oncorrect:"填写正确"}).InputValidator({min:6,onerror:"银行账号必须是数字"}).RegexValidator({regexp:"^[0-9]",onerror:"银行账号必须是数字"});
-   	$("#zhifubao").formValidator({onshow:"请输入支付宝信息",onfocus:"支付宝与银行卡必须选择
-一种",oncorrect:"填写正确"}).FunctionValidator({fun:test,onerror:"银行帐号与支付宝必须选一种"})
-;
+   	$("#zhifubao").formValidator({onshow:"请输入支付宝信息",onfocus:"支付宝与银行卡必须选择一种",oncorrect:"填写正确"});
 	 });
+</script>
+<script	type="text/javascript">
+		$("#button").bind("click",function(event){
+		if((($("#zhifubao").val()=="")&&($("#zhanghao").val()==""))){
+		alert("银行帐号与支付宝帐号必需选一个");
+		return false;
+	}
+	})
 </script>
 </body>
 </html>
