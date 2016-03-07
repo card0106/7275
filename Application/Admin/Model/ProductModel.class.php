@@ -10,7 +10,7 @@ namespace Admin\Model;
 
 /**
  * Description of ProductModel
- *产品表 model
+ *产品表 modela
  * @author Administrator
  */
 class ProductModel extends BaseModel{

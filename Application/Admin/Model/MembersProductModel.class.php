@@ -37,7 +37,7 @@ class MembersProductModel extends BaseModel{
         } 
         return $rows;
     }  */
-    //根据用户id以及goods_id查询出是否有记录
+    //根据用户id以及goods_id查询出是否有记录1
     public function getRecordByIds($member_id="",$goods_id=""){
         $sql="select id from members_product where members_id={$member_id} and goods_id={$goods_id}";
         $row=$this->query($sql);

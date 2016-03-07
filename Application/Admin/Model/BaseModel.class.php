@@ -10,7 +10,7 @@ namespace Admin\Model;
 
 /**
  * Description of BaseModel
- *
+ *123
  * @author Administrator
  */
 class BaseModel extends \Think\Model{

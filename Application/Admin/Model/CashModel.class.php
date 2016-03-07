@@ -10,7 +10,7 @@ namespace Admin\Model;
 
 /**
  * Description of CashModel
- *
+ *123
  * @author Administrator
  */
 class CashModel extends BaseModel{
