@@ -1,0 +1,133 @@
+<extend name='Common/base' />
+<block name='left'>
+    <include file="./Application/Admin/View/Public/left.html" />
+</block>
+<block name='right'>
+<div class="right">
+    <include file="./Application/Admin/View/Public/top.html" />
+    <div class="con">
+        <form id="form1" name="form1" method="post" action="{:U('Goods/edit')}" enctype="multipart/form-data" onsubmit="return jQuery.formValidator.PageIsValid('1')">
+    	   <input type="hidden" name="id" value="{$row.id}">
+            <dl>
+                <dt>平台类型：</dt>
+                <dd>
+                    <select name="category_id" id="pselect" class="text1 fl">
+                            <option value="0">请选择平台类型</option>
+                            <volist name='cats' id='cat'>
+                            <option value="{$cat.id}">{$cat.category_name}</option>
+                            </volist>
+                    </select>
+                    <span id="pselectTip"></span>
+                </dd>
+        	</dl>
+            <dl>
+                <dt>结算类型：</dt>
+                <dd>
+                    <select name="cash_type" id="cselect" class="text1 fl">
+                        <option>请选择结算类型</option>
+                        <volist name="cashType" id="cash">
+                            <option value="{$key}">{$cash}</option>
+                        </volist>
+                    </select>
+                    <span id="cselectTip"></span>
+                </dd>
+        	</dl>
+        	<dl>
+                <dt>产品logo：</dt>
+                <dd>
+                    <input type="file" name="logo" id="logo" class="text" />(<a href="{$row.goods_big_img}" target="_blank">查看原图</a>)
+                </dd>
+        	</dl>
+        	<dl>
+                <dt>产品名称：</dt>
+                <dd>
+                    <input name="goods_name" type="text" class="text" id="pname" value="{$row.goods_name}" /><span id="pnameTip"></span>
+                </dd>
+        	</dl>
+            <dl>
+                <dt>结算周期：</dt>
+                <dd>
+                <div class="fl" style="padding-top:14px; padding-left:20px; padding-right:5px;">
+                    <label class="radio-inline">
+                        <input type="radio" name="invoicing_cycle" value="0" class="optionsRadios1" <if condition="$row.invoicing_cycle eq 0">checked</if>>每日
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="invoicing_cycle" value="1"class="optionsRadios1" <if condition="$row.invoicing_cycle eq 1">checked</if>>每周
+                    </label> 
+                    <label class="radio-inline">
+                      <input type="radio" name="invoicing_cycle" value="2" class="optionsRadios1" <if condition="$row.invoicing_cycle eq 2">checked</if>>双周
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="invoicing_cycle" value="3" class="optionsRadios1" <if condition="$row.invoicing_cycle eq 3">checked</if>>每月
+                    </label>
+                </div>
+                    <div class="fl"></div>
+                </dd>
+        	</dl>
+            <dl>
+                <dt>产品状态：</dt>
+                <dd>
+                <div class="fl" style="padding-top:14px; padding-left:20px; padding-right:5px;">
+                    <label class="radio-inline">
+                        <input type="radio" name="state" class="optionsRadios2" value="1" <if condition="$row.state eq 1">checked</if>>正常
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="state" class="optionsRadios2" value="0" <if condition="$row.state eq 0">checked</if>>关闭
+                    </label>                
+                </div>
+                </dd>
+        	</dl>
+            <dl>
+                <dt>数据返回：</dt>
+                <dd>
+                <div class="fl" style="padding-top:14px; padding-left:20px; padding-right:5px;">
+                    <label class="radio-inline">
+                        <input type="radio" name="data_back" class="optionsRadios3"  value="0" <if condition="$row.data_back eq 0">checked</if>>次日
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="data_back" class="optionsRadios3"   value="1" <if condition="$row.data_back eq 1">checked</if>>实时
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" name="data_back" class="optionsRadios3" value="2" <if condition="$row.data_back eq 2">checked</if>>每周
+                    </label>                
+                </div>
+                <div class="fl"></div>
+                </dd>
+        	</dl>
+            <dl>
+                <dt>产品说明：</dt>
+                <dd><textarea name="intro" rows="5" class="text2" id="introduction" >{$row.intro}</textarea><span id="introductionTip"></span></dd>
+        	</dl>
+            <div class="button"><input type="submit" name="button" id="button" value="提交" class="ibutton" /></div>
+        </form>
+    </div>    
+</div>
+</block>
+<block name='js'>
+<script language="JavaScript" type="text/javascript">
+//回选单选框等的函数
+$(function(){
+    //选中 平台类型
+    $("#pselect").val(["{$row.category_id}"]);
+    $("#cselect").val(["{$row.cash_type}"]);
+    //选中 结算周期
+    $(".optionsRadios1").val(["{$row.invoicing_cycle}"]);
+    //选中 产品状态
+    $(".optionsRadios2").val(["{$row.state}"]);
+    //数据返回
+    $(".optionsRadios3").val(["{$row.data_back}"]);
+});
+$(document).ready(function(){
+	$.formValidator.initConfig({alertMessage:false});
+	$("#pselect").formValidator({onshow:"请选择平台类型",onfocus:"请选择平台类型",oncorrect:"填写正确"}).InputValidator({onerror:"请选择平台类型"}).RegexValidator({regexp:"^.*$",onerror:""});
+	$("#cselect").formValidator({onshow:"请选择结算类型",onfocus:"请选择结算类型",oncorrect:"填写正确"}).InputValidator({onerror:"请选择结算类型"}).RegexValidator({regexp:"^.*$",onerror:""});
+	//$("#logo").formValidator({onshow:"产品logo必须是gif|jpg|png图片格式",onfocus:"产品logo必须是gif|jpg|png图片格式",oncorrect:"填写正确"}).InputValidator({min:2,onerror:"产品logo必须是gif|jpg|png图片格式"}).RegexValidator({regexp:"^.*gif|jpg|png$",onerror:"gif|jpg|png图片格式"});
+	$("#pname").formValidator({onshow:"请输入产品名称",onfocus:"请输入产品名称",oncorrect:"填写正确"}).InputValidator({min:1,onerror:"请输入一个产品名称"}).RegexValidator({regexp:"^.*$",onerror:"请输入产品名称"});
+	$("#amount").formValidator({onshow:"请输入扣量率",onfocus:"请输入扣量率",oncorrect:"填写正确"}).InputValidator({min:1,onerror:"请输入扣量率"}).RegexValidator({regexp:"^\\d+(\\.\\d+)?$",onerror:"扣量率由于数字组成"});
+	$("#goup").formValidator({onshow:"请输入上游价格",onfocus:"请输入上游价格",oncorrect:"填写正确"}).InputValidator({min:1,onerror:"请输入上游价格"}).RegexValidator({regexp:"^\\d+(\\.\\d+)?$",onerror:"上游价格由于数字组成"});
+	$("#godown").formValidator({onshow:"请输入下游价格",onfocus:"请输入下游价格",oncorrect:"填写正确"}).InputValidator({min:1,onerror:"请输入下游价格"}).RegexValidator({regexp:"^\\d+(\\.\\d+)?$",onerror:" 下游价格由于数字组成"});
+	$("#introduction").formValidator({onshow:"产品说明",onfocus:"产品说明",oncorrect:"填写正确"}).InputValidator({min:2,onerror:"产品说明"}).RegexValidator({regexp:"^.*$",onerror:"产品说明"});
+	$("#sjfh").formValidator({onshow:"规则与数据返回",onfocus:"规则与数据返回",oncorrect:"填写正确"}).InputValidator({min:2,onerror:"规则与数据返回"}).RegexValidator({regexp:"^.*$",onerror:"规则与数据返回"});
+});	
+</script>    
+</block>

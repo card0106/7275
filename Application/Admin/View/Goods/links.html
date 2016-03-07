@@ -1,0 +1,205 @@
+<extend name='Common/base' />
+<block name='left'>
+    <include file="./Application/Admin/View/Public/left.html" />
+</block>    
+<block name='right'>
+    <div class="right">
+    	<include file="./Application/Admin/View/Public/top.html" />
+        <div class="tit f20">
+            <span>产品详情</span>
+        </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">增加链接</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form1" name="form1" method="post" action="{:U('Goods/addLink')}" onsubmit="return jQuery.formValidator.PageIsValid('1')" enctype="multipart/form-data" >
+                            <input type="hidden" value="{$id}" name="goods_id" >
+                            <if condition="($goods.category_id eq 1) or ($goods.category_id eq 2)">
+                                <div class="form-group">
+                                    <lable>软件包：</lable>
+                                    <input type="file" name='soft' class="form-control" >
+                                </div>
+                            <else/>
+                                <div class="form-group">
+                                    <lable>推广链接：</lable>
+                                    <input type="text" name='link_url' class="form-control" id="pname" placeholder="请输入产品名称">
+                                </div>
+                            </if>
+                            <div class="form-group">
+                                <lable>扣量率：</lable>
+                                <input type="text" name='discount' class="form-control" id="amount" placeholder="请输入扣量率">
+                            </div>
+                            <div class="form-group">
+                                <lable>数据上游价格：</lable>
+                                <input type="text" name='up_price_1' class="form-control" id="goup" placeholder="请输入价格">
+                            </div>
+                            <div class="form-group">
+                                <lable>数据下游价格：</lable>
+                                <input type="text" name='down_price_1' class="form-control" id="godown" placeholder="请输入价格">
+                            </div> 
+                            <div class="form-group">
+                                <lable>选择用户：</lable>
+                                <select name="members_id" class="form-control">
+                                    <option value="0">以后选择</option>
+                                    <volist name="members" id="member">
+                                        <option value="{$member.id}">{$member.username}</option>
+                                    </volist>
+                                </select>
+                            </div> 
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success" id="confirm">确认提交</button>
+                                <input type="reset" value="重置" class="btn btn-info">
+                            </div>
+                        </form>                
+                    </div>
+                </div>
+            </div>
+        </div>  
+        <div class="con">
+            <table border="0" cellpadding="0" cellspacing="0" class="productTable" id="data">
+                <thead>
+                    <tr>
+                        <th style="width:100px;">产品ID</th>
+                        <th colspan="2">产品名称</th>
+                        <th style="width:150px;">平台类型</th>
+                        <th style="width:80px;">最大接口数</th>
+                        <th style="width:80px;">结算类型</th>
+                        <th style="width:80px;">结算周期</th>
+                        <th style="width:80px;">产品状态</th>
+                        <th style="width:80px;">数据返回</th>
+                        <th>产品说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{$goods.id}</td>
+                        <td style="width:30px;"><img src="{$goods.goods_small_img}" width="30" height="30"></td>
+                        <td style="text-align:left;">{$goods.goods_name}</td>
+                        <td>{$cats[$goods['category_id']]['category_name']}</td>
+                        <td>{$goods.max_links}</td>
+                        <td>{$cashType[$goods['cash_type']]}</td>
+                        <td>{$invoicing_cycle[$goods['invoicing_cycle']]}</td>
+                        <td>{$states[$goods['state']]}</td>
+                        <td>{$data_back[$goods['data_back']]}</td>
+                        <td>{$goods['intro']}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <div class="tit f20" style="margin-top: 0px; margin-left: -20px;">
+                <span>链接列表</span>
+                <a class="f12 cursor" data-toggle="modal" data-target="#myModal">增加链接</a>
+            </div>
+            <table border="0" cellpadding="0" cellspacing="0" class="productTable" id="data">
+                <thead>
+                    <tr>
+                        <th style="width:100px;">链接ID</th>
+                        <th>推广(下载)URL</th>
+                        <th style="width:70px;">扣量率</th>
+                        <th style="width:100px;">上游价格</th>
+                        <th style="width:100px;">下游价格</th>
+                        <th style="width:100px;">用户名</th>
+                        <th style="width:250px;">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <volist name="links" id="link">
+                        <tr>
+                            <td>{$link.id}</td>
+                            <td>{$link.link_url}</td>
+                            <td>{$link.discount}</td>
+                            <td>{$link.up_price_1}</td>
+                            <td>{$link.down_price_1}</td>
+                            <td>
+                                <if condition="$link.members_id neq 0">
+                                    {$members[$link['members_id']]['username']}
+                                </if>
+                            </td>
+                            <td>
+                                <a href="{:U('edit','id='.$row['id'])}" class="sb4">修改链接</a>
+                                <a href="javascript:void(0);" class="sb5" onclick="delGoods(this)" value="{$row.id}">删除</a>
+                            </td>
+                        </tr>
+                    </volist>
+                </tbody>
+            </table>
+            <div id="turn-page" class="page">
+                {$pageHTML}
+            </div> 
+        </div>
+    </div> 
+</block>
+<!--右边内容部分-->
+<!----自定义JS部分-------->
+<block name='js'>
+<script type="text/javascript">
+    //点击增加用户的时候，触发的函数
+    $("#addUsers").click(function(){
+        //查出用用户名
+        var userName=$(".form-control[name='members_name']").val();
+        $.post(
+            "{:U('Members/getMembersId')}",
+            {name:userName},
+            function(data){
+                if(data!==0){   //有对应的会员信息，要提交表单
+                    $.ajax({
+                        type: 'post',
+                        url: '{:U("Members/addMembersProduct")}',
+                        data: $("#form1").serialize(),
+                        success: function(mes) {
+                            if(mes!==0){   //已经保存成功
+                                console.debug(mes);
+                                //location.href="{:U('finishSeats')}"+"?reservation_id="+data;
+                            }
+                        }
+                    });
+                }else{
+                    alert("该会员不存在！");
+                }
+            }
+        );
+        return false;
+    });
+    function control(id,type,val)
+    {
+    
+        if(type==0 && !confirm("你确定要["+(val==0?"关闭":"开启")+"]这款产品吗？"))
+        	return;
+            $.post(
+                "{:U('Goods/control')}",
+                {id:id,type:type,val:val},
+                function(data){
+                    var mes=data==1?"操作成功":"操作失败";
+                    alert(mes);
+                    location.href="{:U('Admin/Goods/index')}";
+                }
+            );
+    }
+    //点击“查看数据”触发的函数
+    function checkData(demo){
+        var id=$(demo).attr("value");
+        alert(id);
+    }
+    //点击 删除产品 所触发的函数
+    function delGoods(demo){
+        var id=$(demo).attr("value");
+        if(confirm("你确定要删除吗？")){
+            $.post(
+                "{:U('Goods/delGoods')}",
+                {id:id},
+                function(data){
+                    var mes=data==1?"删除成功":"删除失败";
+                    alert(mes);
+                    location.href="{:U('Admin/Goods/index')}";
+                }
+            );
+        }
+    }
+</script>
+</block>
