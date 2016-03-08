@@ -56,12 +56,18 @@
             	<dt>开户行地址：</dt>
                 <dd>{$member["bank_addr"]}</dd>
             </dl>
+	   </dl>
+                <dl>
+                <dt>支付宝：</dt>
+                <dd>{$member["zhifubao"]}</dd>
+            </dl>
+	<div><img src={$member["photo_url"]} style="width:100px;" ></img></div>
         </div>
     </div>
 <else />
     <h2 class="f20">修改个人信息</h2>
     <div class="bok bheight590">
-    	<form id="form1" name="form1" method="post" action="#" onsubmit="return jQuery.formValidator.PageIsValid('1')">
+    	<form id="form1" name="form1" method="post"  enctype="multipart/form-data" action="#"   onsubmit="return jQuery.formValidator.PageIsValid('1')">
     	<div class="tit f14">基本信息</div> 
         <div class="con">
         	<dl>
@@ -99,7 +105,14 @@
             	<dt>开户行地址：</dt>
                 <dd><input name="bank_addr" type="text" class="text" id="bank_addr" value="{$member["bank_addr"]}" /><span id="bank_addrTip"></span></dd>
             </dl>
-        </div>
+		<dl>
+                <dt>支付宝：</dt>
+                <dd><input name="zhifubao" type="text" class="text" id="zhifubao" value="{$member["zhifubao"]}" /><span id="zhibubaoTip"></span></dd>
+            </dl>
+		<dl>
+                <dt>个人照片</dt>
+                <dd><input name="photo" type="file" id="photo" value="{$member["photo_url"]}" /><span id="photoTip"></span></dd>
+            </dl>
 		<div class="button"><input type="submit" id="button" value="提交" class="ibutton" />
 		  <input type="reset" id="button2" value="取消" class="qbutton" onclick="history.back(-1)" />
 		</div>
