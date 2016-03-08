@@ -55,13 +55,33 @@ class UserinfoController extends \Think\Controller{
         $member_name=$_SESSION["membersinfo"]["username"];
         if(IS_POST){
 	        $membersModel=D("Members");
+
+		//$photo=$_POST['photo'];
+
+		if($_FILES['photo']['error']<4){    //查看上传文件错误值
+			$cfg= array(
+				'rootPath'      =>  './Uploads/', //保存根路径
+				'maxSize'       =>  0 //上传的文件大小限制 (0-不做限制)
+			);
+			$up=new \Think\Upload($cfg);	//实例化上传类
+			$z=$up->uploadOne($_FILES['photo']);	//上传方法
+			//dump($up->getError());	//获取上传错误信息			
+			//dump($z);
+			$_POST['photo_url']=$up->rootPath.$z["savepath"].$z["savename"];
+			}
+		//dump($_FILES);  查看上传文件属性；
+		//exit;
 	        $data = array(	'qq' => $_POST['qq'],
-				        	'tel' => $_POST['tel'],
-				            'email' => $_POST['email'],
-				        	'bank_name' => $_POST['bank_name'],
-				        	'bank_account' => $_POST['bank_account'],
-				        	'bank_addr' => $_POST['bank_addr']
+				'tel' => $_POST['tel'],
+				'email' => $_POST['email'],
+				'bank_name' => $_POST['bank_name'],
+				'bank_account' => $_POST['bank_account'],
+				'bank_addr' => $_POST['bank_addr'],
+				'zhifubao' =>$_POST['zhifubao'],
+				'photo_url'=>$_POST['photo_url']
 	        				);
+		
+	
 	        //$data=$membersModel->create();
 	        $succeed = $membersModel->where("username='{$member_name}'")->save($data);
 	        if($succeed!==false){
