@@ -122,8 +122,8 @@
                                 </if>
                             </td>
                             <td>
-                                <a href="{:U('edit','id='.$row['id'])}" class="sb4">修改链接</a>
-                                <a href="javascript:void(0);" class="sb5" onclick="delGoods(this)" value="{$row.id}">删除</a>
+                                <a href="{:U('editLink','id='.$link['id'])}" class="sb4">修改链接</a>
+                                <a href="javascript:void(0);" class="sb5" onclick="delGoodsLink(this)" value="{$link.id}">删除</a>
                             </td>
                         </tr>
                     </volist>
@@ -139,64 +139,17 @@
 <!----自定义JS部分-------->
 <block name='js'>
 <script type="text/javascript">
-    //点击增加用户的时候，触发的函数
-    $("#addUsers").click(function(){
-        //查出用用户名
-        var userName=$(".form-control[name='members_name']").val();
-        $.post(
-            "{:U('Members/getMembersId')}",
-            {name:userName},
-            function(data){
-                if(data!==0){   //有对应的会员信息，要提交表单
-                    $.ajax({
-                        type: 'post',
-                        url: '{:U("Members/addMembersProduct")}',
-                        data: $("#form1").serialize(),
-                        success: function(mes) {
-                            if(mes!==0){   //已经保存成功
-                                console.debug(mes);
-                                //location.href="{:U('finishSeats')}"+"?reservation_id="+data;
-                            }
-                        }
-                    });
-                }else{
-                    alert("该会员不存在！");
-                }
-            }
-        );
-        return false;
-    });
-    function control(id,type,val)
-    {
-    
-        if(type==0 && !confirm("你确定要["+(val==0?"关闭":"开启")+"]这款产品吗？"))
-        	return;
-            $.post(
-                "{:U('Goods/control')}",
-                {id:id,type:type,val:val},
-                function(data){
-                    var mes=data==1?"操作成功":"操作失败";
-                    alert(mes);
-                    location.href="{:U('Admin/Goods/index')}";
-                }
-            );
-    }
-    //点击“查看数据”触发的函数
-    function checkData(demo){
-        var id=$(demo).attr("value");
-        alert(id);
-    }
-    //点击 删除产品 所触发的函数
-    function delGoods(demo){
+    function delGoodsLink(demo){
         var id=$(demo).attr("value");
         if(confirm("你确定要删除吗？")){
             $.post(
-                "{:U('Goods/delGoods')}",
+                "{:U('Goods/delGoodsLink')}",
                 {id:id},
                 function(data){
                     var mes=data==1?"删除成功":"删除失败";
                     alert(mes);
-                    location.href="{:U('Admin/Goods/index')}";
+                    location.reload();
+                    //location.href="{:U('Admin/Goods/index')}";
                 }
             );
         }
