@@ -20,7 +20,7 @@ class RegisteController extends \Think\Controller{
                     session('membersinfo',$userinfo);
                     $membersModel->where("id={$mid}")->setInc("login_num");
         			header("location: ".U('Home/Userinfo/userInfo'));
-        			exit;
+        			
                     //$this->success("恭喜你，注册成功！",U("Home/Userinfo/userInfo"));
                 }else{
                     $this->error("注册失败！".$membersModel->getError());
