@@ -193,11 +193,9 @@ class GoodsController extends BaseController{
     		}
         }else{
         	$this->error('请求方式错误');
-        }
     }
-
-
-
-
-
+}
+       public function editData(){
+          $this->display();
+       }
 }

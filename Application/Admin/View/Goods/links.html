@@ -51,7 +51,11 @@
                                         <option value="{$member.id}">{$member.username}</option>
                                     </volist>
                                 </select>
-                            </div> 
+                            </div>
+                             <div class="form-group">
+                                <lable>网站名称：</lable>
+                                <input type="text" name='site_name' class="form-control" id="sitename" placeholder="请输入网站名称">
+                            </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-success" id="confirm">确认提交</button>
                                 <input type="reset" value="重置" class="btn btn-info">
@@ -105,7 +109,8 @@
                         <th style="width:100px;">上游价格</th>
                         <th style="width:100px;">下游价格</th>
                         <th style="width:100px;">用户名</th>
-                        <th style="width:250px;">操作</th>
+                        <th style="width:100px;">网站名称</th>
+                        <th style="width:250px;">操作</th>                        
                     </tr>
                 </thead>
                 <tbody>
@@ -115,16 +120,17 @@
                             <td>{$link.link_url}</td>
                             <td>{$link.discount}</td>
                             <td>{$link.up_price_1}</td>
-                            <td>{$link.down_price_1}</td>
+                            <td>{$link.down_price_1}</td>                       
                             <td>
                                 <if condition="$link.members_id neq 0">
                                     {$members[$link['members_id']]['username']}
                                 </if>
                             </td>
+                            <td>{$link.site_name}</td>
                             <td>
                                 <a href="{:U('editLink','id='.$link['id'])}" class="sb4">修改链接</a>
                                 <a href="javascript:void(0);" class="sb5" onclick="delGoodsLink(this)" value="{$link.id}">删除</a>
-                                <a href="javascript:void(0);" class="sb6" onclick="delGoodsLink(this)" value="{$link.id}">添加数据</a>                           	
+                                <a href="{:U('editData','id='.$link['id'])}" class="sb6" onclick="(this)" value="{$link.id}">添加数据</a>                           	
                             </td>
                         </tr>
                     </volist>
@@ -155,4 +161,5 @@
             );
         }
     }
-</scri
+</script>
+</block>
