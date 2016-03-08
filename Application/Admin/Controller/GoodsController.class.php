@@ -36,6 +36,7 @@ class GoodsController extends BaseController{
         $this->assign($result);
         $this->_before_index_view($result);
         $categories = M('category')->select();
+        $categories = subscriptArray($categories, 'id');
     	$this->assign('cats', $categories);
     	$this->assign('states', $this->_states);
     	$this->assign('invoicing_cycle', $this->_invoicing_cycle);
