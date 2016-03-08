@@ -23,10 +23,11 @@ class BaseController extends \Think\Controller{
     //用于展示数据表中的数据
     public function index(){
         $wheres=$order='';
+        
         //定义一个钩子方法，改变where里面的条件
         //$this->_setWheres($wheres,$order);
         //去数据库取出数据
-        $result=$this->model->page();
+        $result=$this->model->order('id desc')->page();
         //分配分页数据
         $this->assign($result);
         $this->_before_index_view($result);
@@ -62,7 +63,7 @@ class BaseController extends \Think\Controller{
         }else{
             $rows=$this->_before_edit_view();
             $this->assign("row", $rows);
-       		$this->assign("cats", D("Category")->select());
+       		$this->assign("cats", D("Category")->order('id desc')->select());
             $this->_before_edit_view();
             $this->display("edit");
         }
@@ -98,6 +99,7 @@ class BaseController extends \Think\Controller{
             }else{
                 $this->error("操作失败".$this->model->getError());
             }
+   
         }
     }
 }
