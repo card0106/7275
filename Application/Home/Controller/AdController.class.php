@@ -21,6 +21,32 @@ class AdController extends \Think\Controller{
         //根据用户名找出对应的members_id
         $membersModel=M("Members");
         $member_id=$membersModel->getFieldByUsername($member,"id");
+
+        $goodsLink = M('goodsLink')->where("members_id={$member_id}")->select();
+        $goods_ids = [];
+        foreach($goodsLink as $value){
+            $goods_ids[] = $value['goods_id'];
+        }
+        $goods_ids = array_unique($goods_ids);
+        if($goods_ids){
+            $goods_ids = implode(',', $goods_ids);
+            $goods = M('goods')->where("id in ({$goods_ids})")->select();
+            $goods = subscriptArray($goods, 'id');
+        }
+        foreach($goodsLink as $value){
+            $goods[$value['goods_id']]['links'][] = $value;
+        }
+
+        $this->assign('goods', $goods);
+        $this->display();
+        die();
+
+        print_r($goods);die();
+
+
+
+
+
         //根据members_id到members_product表中查出所有的记录
         $membersProductModel=M("MembersProduct");
         $totalRows=$membersProductModel->where(array("members_id"=>$member_id))->count();

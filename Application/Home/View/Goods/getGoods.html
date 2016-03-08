@@ -56,9 +56,15 @@
                     </if>
                 </td>
                 <td>
-                    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=11507712&site=qq&menu=yes">
-                        <img border="0"  src="http://wpa.qq.com/pa?p=2:11507712:42" alt="联系我们!" title="联系我们!" />
-                    </a>
+                    <if condition="($row.category_id eq 1) or ($row.category_id eq 2)">
+                        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=3147455531&site=qq&menu=yes">
+                            <img border="0"  src="http://wpa.qq.com/pa?p=2:3147455531:42" alt="联系我们!" title="联系我们!" />
+                        </a>
+                    <else/>
+                        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2186025311&site=qq&menu=yes">
+                            <img border="0"  src="http://wpa.qq.com/pa?p=2:2186025311:42" alt="联系我们!" title="联系我们!" />
+                        </a>
+                    </if>
                 </td>
             </tr>
             </volist>

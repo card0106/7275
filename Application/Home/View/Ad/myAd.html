@@ -7,19 +7,27 @@
     <table width="100%" border="1" cellpadding="0" cellspacing="0">
         <tr>
             <th>产品名称</th>
+            <th>平台类型</th>
             <th>结算周期</th>
-            <th>单价</th>
+            <th>价格</th>
+            <th>状态</th>
+            <th>数据接口</th>
         </tr>
-        <volist name="rows" id="row">
+        <volist name="goods" id="row">
         <tr>
-                <td>{$row.goods_name}</td>
                 <td>
-                    <if condition="$row['invoicing_cycle'] eq 0">每日
+                    <img src="{$row.goods_small_img}" />
+                    {$row.goods_name}</td>
+                <td>
+                    {$row.category_id}
+                </td>
+                <td><if condition="$row['invoicing_cycle'] eq 0">每日
                         <elseif condition="$row['invoicing_cycle'] eq 1"/>每周
                         <elseif condition="$row['invoicing_cycle'] eq 2"/>双周
                         <elseif condition="$row['invoicing_cycle'] eq 3"/>每月
-                    </if>
-                </td>
+                    </if></td>
+                <td></td>
+                <td>{$row.state}</td>
                 <td>{$row.dprice1}</td>
         </tr>
         </volist>
@@ -29,8 +37,6 @@
         {$pageHTML}
     </div> 
     <!--分页工具条 结束---->
-</div>
-    </div>
 <include file="./Application/Home/View/Public/footer.html" />
 </body>
 </html>
