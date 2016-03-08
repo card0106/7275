@@ -1,0 +1,75 @@
+<extend name='Common/base' />
+<block name='left'>
+    <include file="./Application/Admin/View/Public/left.html" />
+</block>
+<block name='right'>
+<div class="right">
+    <include file="./Application/Admin/View/Public/top.html" />
+    <div class="con">
+        <form id="form1" name="form1" method="post" action="{:U('Goods/editLink')}" onsubmit="return jQuery.formValidator.PageIsValid('1')" enctype="multipart/form-data" >
+            <input type="hidden" value="{$row.id}" name="id" >
+            <if condition="($goods.category_id eq 1) or ($goods.category_id eq 2)">
+                <div class="form-group">
+                    <lable>软件包：({$row.link_url})</lable>
+                    <input type="file" name='soft' class="form-control" >
+                </div>
+            <else/>
+                <div class="form-group">
+                    <lable>推广链接：</lable>
+                    <input type="text" name='link_url' class="form-control" placeholder="请输入产品名称" value='{$row.link_url}'>
+                </div>
+            </if>
+            <div class="form-group">
+                <lable>扣量率：</lable>
+                <input type="text" name='discount' class="form-control" placeholder="请输入扣量率" value="{$row.discount}">
+            </div>
+            <div class="form-group">
+                <lable>数据上游价格：</lable>
+                <input type="text" name='up_price_1' class="form-control" placeholder="请输入价格" value="{$row.up_price_1}">
+            </div>
+            <div class="form-group">
+                <lable>数据下游价格：</lable>
+                <input type="text" name='down_price_1' class="form-control" placeholder="请输入价格" value="{$row.down_price_1}">
+            </div> 
+            <div class="form-group">
+                <lable>选择用户：</lable>
+                <select name="members_id" class="form-control">
+                    <option value="0">以后选择</option>
+                    <volist name="members" id="member">
+                        <option value="{$member.id}" <eq name="member.id" value="$row.members_id">selected</eq> >{$member.username}</option>
+                    </volist>
+                </select>
+            </div> 
+            <div class="button"><input type="submit" name="button" id="button" value="提交" class="ibutton" /></div>
+        </form>  
+    </div>    
+</div>
+</block>
+<block name='js'>
+<script language="JavaScript" type="text/javascript">
+//回选单选框等的函数
+$(function(){
+    //选中 平台类型
+    $("#pselect").val(["{$row.category_id}"]);
+    $("#cselect").val(["{$row.cash_type}"]);
+    //选中 结算周期
+    $(".optionsRadios1").val(["{$row.invoicing_cycle}"]);
+    //选中 产品状态
+    $(".optionsRadios2").val(["{$row.state}"]);
+    //数据返回
+    $(".optionsRadios3").val(["{$row.data_back}"]);
+});
+$(document).ready(function(){
+	$.formValidator.initConfig({alertMessage:false});
+	$("#pselect").formValidator({onshow:"请选择平台类型",onfocus:"请选择平台类型",oncorrect:"填写正确"}).InputValidator({onerror:"请选择平台类型"}).RegexValidator({regexp:"^.*$",onerror:""});
+	$("#cselect").formValidator({onshow:"请选择结算类型",onfocus:"请选择结算类型",oncorrect:"填写正确"}).InputValidator({onerror:"请选择结算类型"}).RegexValidator({regexp:"^.*$",onerror:""});
+	//$("#logo").formValidator({onshow:"产品logo必须是gif|jpg|png图片格式",onfocus:"产品logo必须是gif|jpg|png图片格式",oncorrect:"填写正确"}).InputValidator({min:2,onerror:"产品logo必须是gif|jpg|png图片格式"}).RegexValidator({regexp:"^.*gif|jpg|png$",onerror:"gif|jpg|png图片格式"});
+	$("#pname").formValidator({onshow:"请输入产品名称",onfocus:"请输入产品名称",oncorrect:"填写正确"}).InputValidator({min:1,onerror:"请输入一个产品名称"}).RegexValidator({regexp:"^.*$",onerror:"请输入产品名称"});
+	$("#amount").formValidator({onshow:"请输入扣量率",onfocus:"请输入扣量率",oncorrect:"填写正确"}).InputValidator({min:1,onerror:"请输入扣量率"}).RegexValidator({regexp:"^\\d+(\\.\\d+)?$",onerror:"扣量率由于数字组成"});
+	$("#goup").formValidator({onshow:"请输入上游价格",onfocus:"请输入上游价格",oncorrect:"填写正确"}).InputValidator({min:1,onerror:"请输入上游价格"}).RegexValidator({regexp:"^\\d+(\\.\\d+)?$",onerror:"上游价格由于数字组成"});
+	$("#godown").formValidator({onshow:"请输入下游价格",onfocus:"请输入下游价格",oncorrect:"填写正确"}).InputValidator({min:1,onerror:"请输入下游价格"}).RegexValidator({regexp:"^\\d+(\\.\\d+)?$",onerror:" 下游价格由于数字组成"});
+	$("#introduction").formValidator({onshow:"产品说明",onfocus:"产品说明",oncorrect:"填写正确"}).InputValidator({min:2,onerror:"产品说明"}).RegexValidator({regexp:"^.*$",onerror:"产品说明"});
+	$("#sjfh").formValidator({onshow:"规则与数据返回",onfocus:"规则与数据返回",oncorrect:"填写正确"}).InputValidator({min:2,onerror:"规则与数据返回"}).RegexValidator({regexp:"^.*$",onerror:"规则与数据返回"});
+});	
+</script>    
+</block>
