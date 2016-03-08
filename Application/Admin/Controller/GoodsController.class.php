@@ -32,7 +32,7 @@ class GoodsController extends BaseController{
 
     
     public function index(){
-    	$result=$this->model->page();
+    	$result=$this->model->order('id desc')->page();
         $this->assign($result);
         $this->_before_index_view($result);
         $categories = M('category')->select();
