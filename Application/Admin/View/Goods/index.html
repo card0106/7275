@@ -6,8 +6,8 @@
     <div class="right">
     	<include file="./Application/Admin/View/Public/top.html" />
         <div class="tit f20">
-            <span>产品信息</span>
-            <a class="f12 cursor" data-toggle="modal" data-target="#myModal">增加产品</a> 
+            <span>业务信息</span>
+            <a class="f12 cursor" data-toggle="modal" data-target="#myModal">增加业务</a> 
             <!--<a href="{:U('import')}" class="f12">导入报表数据</a>-->
         </div>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -17,7 +17,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title" id="myModalLabel">增加产品</h4>
+                        <h4 class="modal-title" id="myModalLabel">增加业务</h4>
                     </div>
                     <div class="modal-body">
                         <form id="form1" name="form1" method="post" action="{:U('Goods/add')}" onsubmit="return jQuery.formValidator.PageIsValid('1')" enctype="multipart/form-data" >
@@ -40,11 +40,11 @@
         		                </select>
                             </div>
                             <div class="form-group">
-                                <lable>产品名称：</lable>
-                                <input type="text" name='goods_name' class="form-control" placeholder="请输入产品名称">
+                                <lable业务务名称：</lable>
+                                <input type="text" name='goods_name' class="form-control" placeholder="请输入业务名称">
                             </div>
                             <div class="form-group">
-                                <lable>产品logo：</lable>
+                                <lable>业务logo：</lable>
                                 <input type="file" name="logo" class="form-control">
                             </div>                
                             <div class="form-group">
@@ -52,7 +52,7 @@
                                 <input type="text" name='max_links' class="form-control" placeholder="最大接口数">
                             </div>       
                             <div class="radio">
-                                <span>产品状态：</span>
+                                <span>业务状态：</span>
                                 <volist name="states" id="state">
                                     <label class="radio-inline">
                                         <input type="radio" name="state" value="{$key}" <if condition="$key eq '1'">checked</if>>{$state}
@@ -75,7 +75,7 @@
                                     </label>
                                 </volist>
                             </div>            
-                            <lable>产品说明:</lable>
+                            <lable>业务说明:</lable>
                             <textarea class="form-control" rows="3" name='intro'></textarea>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-success" id="confirm">确认提交</button>
@@ -90,8 +90,8 @@
             <table border="0" cellpadding="0" cellspacing="0" class="productTable" id="data">
                 <thead>
                     <tr>
-                        <th style="width:70px;">产品ID</th>
-                        <th colspan=2>产品名称</th>
+                        <th style="width:70px;">业务ID</th>
+                        <th colspan=2>业务名称</th>
                         <!--<th>剩余接口数</th>-->
                         <th>平台类型</th>
                         <th style="width:80px;">结算<br />类型</th>
@@ -147,7 +147,7 @@
                                 <!--<a href="{:U('addUser','goods_id='.$row['id'].'&category='.$row['category_name'])}" class="sb4">增加用户</a>
                                 <a href="{:U('goodsData','goods_id='.$row['id'])}" class="sb4">查看数据</a>-->
                                 <a href="{:U('links','id='.$row['id'])}" class="sb4">添加链接</a>
-                                <a href="{:U('edit','id='.$row['id'])}" class="sb4">修改产品</a>
+                                <a href="{:U('edit','id='.$row['id'])}" class="sb4">修改业务</a>
                                 <a href="javascript:void(0);" class="sb5" onclick="delGoods(this)" value="{$row.id}">删除</a>
                             </td>
                         </tr> 
@@ -194,7 +194,7 @@
     function control(id,type,val)
     {
     
-        if(type==0 && !confirm("你确定要["+(val==0?"关闭":"开启")+"]这款产品吗？"))
+        if(type==0 && !confirm("你确定要["+(val==0?"关闭":"开启")+"]这款业务吗？"))
         	return;
             $.post(
                 "{:U('Goods/control')}",
@@ -211,7 +211,7 @@
         var id=$(demo).attr("value");
         alert(id);
     }
-    //点击 删除产品 所触发的函数
+    //点击 删除业务 所触发的函数
     function delGoods(demo){
         var id=$(demo).attr("value");
         if(confirm("你确定要删除吗？")){

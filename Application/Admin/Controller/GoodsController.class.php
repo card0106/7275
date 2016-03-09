@@ -11,7 +11,7 @@ class GoodsController extends BaseController{
 
 	private $_cash_type = [
 				'0' => '金额',
-				'1' => '比例'
+				'1' => '分成'
 			];
 	private $_states = [
 				'0' => '已关闭',
@@ -195,6 +195,16 @@ class GoodsController extends BaseController{
         	$this->error('请求方式错误');
     }
 }
+  public function  editLink(){
+        if(IS_GET){
+            $id=I('get.id',0);
+            if($id>0){
+                
+            }
+        }
+      $this->assign('id',$id); 
+      $this->display();
+  } 
        public function editData(){
           $this->display();
        }
