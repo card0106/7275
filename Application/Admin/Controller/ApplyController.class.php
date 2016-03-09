@@ -19,4 +19,30 @@ class ApplyController extends \Think\Controller{
         $this->assign('goodsApplies', $goodsApplies);
         $this->display();
     }
+
+    public function applyAgree(){
+    	$flag = 0;
+    	$id = I('id', 0);
+    	$goodsApply = M('goodsApply');
+    	$data = $goodsApply->where("id={$id}")->find();
+    	if(isset($data['state']) && $data['state'] == 0){
+    		if($goodsApply->where("id={$id}")->save(['state' => 1])){
+    			$flag = 1;
+    		}
+    	}
+    	$this->ajaxReturn($flag);
+    }
+
+    public function applyRefuse(){
+    	$flag = 0;
+    	$id = I('id', 0);
+    	$goodsApply = M('goodsApply');
+    	$data = $goodsApply->where("id={$id}")->find();
+    	if(isset($data['state']) && $data['state'] == 0){
+    		if($goodsApply->where("id={$id}")->save(['state' => -1])){
+    			$flag = 1;
+    		}
+    	}
+    	$this->ajaxReturn($flag);
+    }
 }
