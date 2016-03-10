@@ -18,7 +18,7 @@ return array(
     'DB_CHARSET'            =>  'utf8',         //设置数据库编码
     "PAGESIZE"              =>  30,
     
-    'SHOW_PAGE_TRACE'		=> false,
+    'SHOW_PAGE_TRACE'		=> true,           //ye miantiaoshi
     
     'DEFAULT_MODULE'        =>  'Home',         // 默认模块 
     'MODULE_ALLOW_LIST'		=> array("Admin","Login","Home","Verify"),//"News","Question"),

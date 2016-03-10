@@ -42,7 +42,20 @@
                             <div class="form-group">
                                 <lable>数据下游价格：</lable>
                                 <input type="text" name='down_price_1' class="form-control" id="godown" placeholder="请输入价格">
+                            </div>
+                            <div class="form-group">
+                                <lable>单位：</lable>
+                                <select name="members_id" class="form-control">
+                                    <option value="0">以后选择</option>
+                                    <volist name="members" id="member">
+                                        <option value="{$member.id}">{$member.username}</option>
+                                    </volist>
+                                </select>
                             </div> 
+                            <div class="form-group">
+                                <lable>产品名称：</lable>
+                                <input type="text" name='site_name' class="form-control" id="sitename" placeholder="请输入产品名称">
+                            </div>
                             <div class="form-group">
                                 <lable>选择用户：</lable>
                                 <select name="members_id" class="form-control">
@@ -52,10 +65,7 @@
                                     </volist>
                                 </select>
                             </div>
-                             <div class="form-group">
-                                <lable>产品名称：</lable>
-                                <input type="text" name='site_name' class="form-control" id="sitename" placeholder="请输入网站名称">
-                            </div>
+                             
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-success" id="confirm">确认提交</button>
                                 <input type="reset" value="重置" class="btn btn-info">
@@ -161,5 +171,3 @@
             );
         }
     }
-</script>
-</block>

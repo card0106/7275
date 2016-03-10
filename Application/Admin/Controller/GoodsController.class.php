@@ -29,7 +29,11 @@ class GoodsController extends BaseController{
 				'2' => '每周'
 			];
 
-
+    private $_measure = [
+                  '0'  => '元/千检索',
+                  '1'  => '元/千浏览',
+                  '2'  => '元/包激活'
+             ];
     
     public function index(){
     	$result=$this->model->order('id desc')->page();
@@ -196,16 +200,50 @@ class GoodsController extends BaseController{
     }
 }
   public function  editLink(){
-        if(IS_GET){
-            $id=I('get.id',0);
-            if($id>0){
+      $good_id=I('get.id',0);      
+      if(IS_POST){                
+        $data['up_price_1']=I('post.up_price_1');
+        $data['down_price_1']=I('post.down_price_1');
+                    //echo $down_price_1;
+                    //$goods=M('goods')->where('{id=$goodid}')->find();
+                                    
+            if($data['up_price_1']>$data['down_price_1']){ 
+                        $data['link_url']=I('post.link_url');
+                        $data['discount']=I('post.discount');
+                        $data['site_name']=I('post.site_name');
+                        $data['members_id']=I('post.members_id');                           
+                       // var_dump($data);
+                        //exit;
+                        $model=M('goodsLink');
+                        $model->create(); 
+                    if($model->where("id=$good_id")->save($data) !== false){
+                                    $this->success('修改成功', U('Admin:Goods/index'));                   
+                                     }else{
+                                         $this->error('修改失败');
+                            }
+                     }else{
+                        echo "jiagebudi";
+                     }
+
                 
+           }else if($good_id>0){
+            $goods_link['id']=$good_id;
+            $goods_link=M('goodsLink')->where($goods_link)->find();
+			$categories = M('category')->select();
+            if(!$goods_link){
+                $this->error('该产品id不存在');
+            }else{
+					//var_dump($categories);
+				$this->assign('categories',$categories);	
+                $this->assign('goods_link',$goods_link);
+                //var_dump($goods_link);
+                $this->display();
             }
+           
         }
-      $this->assign('id',$id); 
-      $this->display();
+     
   } 
        public function editData(){
           $this->display();
-       }
+     }
 }
