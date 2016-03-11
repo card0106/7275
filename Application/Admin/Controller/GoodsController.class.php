@@ -162,7 +162,7 @@ class GoodsController extends BaseController{
     		$links = M('goodsLink')->where("goods_id={$id}")->order('id desc')->select();
     		$this->assign('links', $links);
 
-    		$members = M('members')->where("state=1")->select();
+    		$members = M('members')->where("state=1")->select();            
     		$members = subscriptArray($members, 'id');
     		$this->assign('members', $members);
     		$this->display();
@@ -209,6 +209,7 @@ class GoodsController extends BaseController{
         	$this->error('请求方式错误');
         }
     }
+    
     public function  editLink(){
         $good_id=I('id',0);      
         if(IS_POST){                
@@ -253,6 +254,42 @@ class GoodsController extends BaseController{
         } 
     } 
     public function editData(){
-        $this->display();
+         
+         if(IS_POST){
+             $data_time = I('date', 0);                        
+             $id = I('id', 0);
+             $click_num = I('click_num',0);
+             $model = M('dataList');
+             if($model->where("data_time=$data_time and goods_id=$id")->find()){
+                       $this->ajaxReturn('1');
+                       exit;
+             }else{
+                  $link = M('goodsLink')->where("id=$id")->find();
+                  $data['data_list'] = $click_num;
+                  $data['goods_id'] = $link['id'];
+                  $data['up_price_1'] = $link['up_price_1'];
+                  $data['down_price_1']=$link['down_price_1'];
+                  $data['data_time'] = $data_time; 
+                  $goods = M('goods');
+                  $data['cash_type']=$goods['cash_type'];
+                  //$data['percent ']=$goods['percent'];
+                  $model->create($data);
+                  $res = $model->add();
+                  if($res !== false){
+                       $this->ajaxReturn('1');
+                       exit;
+                  }else{
+                       $this->ajaxReturn('-1');
+                       exit;
+                  }
+
+             }
+             
+         }else{
+            $link_id=I('get.id');                     
+            $link=M('goodsLink')->where("id={$link_id}")->find();
+            $this->assign('link',$link);
+            $this->display();
+         }
     }
 }
