@@ -39,8 +39,8 @@
                 <lable>选择用户：</lable>
                 <select name="members_id" class="form-control">
                     <option value="0">以后选择</option>
-                    <volist name="categories" id="categories">
-                        <option value="{$categories.id}" <eq name="$categories.id" value="$categories.members_id">selected</eq> >{$categories.category_name}</option>
+                    <volist name="members" id="member">
+                        <option value="{$member.id}" <?php if($goods_link['members_id'] == $member['id']){echo "selected";}?>>{$member.username}</option>
                     </volist>
                 </select>
             </div> 

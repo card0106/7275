@@ -3,7 +3,6 @@
 <link type="text/css" href="__CSS__/page.css" rel="stylesheet" />
 <script type="text/javascript" src="__JS__/tipswindown.js"></script>
 
-
     <table width="100%" border="1" cellpadding="0" cellspacing="0">
         <tr>
             <th>产品名称</th>
@@ -14,29 +13,54 @@
             <th>数据接口</th>
         </tr>
         <volist name="goods" id="row">
-        <tr>
-                <td>
+            <tr>
+                <td rowspan="<?php echo count($row['links']);?>">
                     <img src="{$row.goods_small_img}" />
-                    {$row.goods_name}</td>
-                <td>
-                    {$row.category_id}
+                    {$row.goods_name}
                 </td>
-                <td><if condition="$row['invoicing_cycle'] eq 0">每日
-                        <elseif condition="$row['invoicing_cycle'] eq 1"/>每周
-                        <elseif condition="$row['invoicing_cycle'] eq 2"/>双周
-                        <elseif condition="$row['invoicing_cycle'] eq 3"/>每月
-                    </if></td>
-                <td></td>
-                <td>{$row.state}</td>
-                <td>{$row.dprice1}</td>
-        </tr>
+                <td rowspan="<?php echo count($row['links']);?>">
+                    {$cates[$row['category_id']]['category_name']}
+                </td>
+                <td rowspan="<?php echo count($row['links']);?>">
+                    {$invoicing_cycle[$row['invoicing_cycle']]}
+                </td>
+                <volist name="row.links" id="link">
+                <if condition="$key eq 0">
+                    <td>{$link.down_price_1}</td>
+                    <td>{$link.state}</td>
+                    <td>
+                        <if condition="($row.category_id eq 1) or ($row.category_id eq 2)">
+                            <a href="{$host_url}{$link.link_url}" target="_blank">{$host_url}{$link.link_url}</a>
+                            <a href="{$host_url}{$link.link_url}" target="_blank">下载</a>
+                        <else/>
+                            <a href="javascript:;">复制</a>
+                            <a href="javascript:;">复制</a>
+                        </if>
+                    </td>
+                </if>
+                </volist>
+            </tr>
+            <volist name="row.links" id="link">
+                <if condition="$key gt 0">
+                <tr>
+                    <td>{$link.down_price_1}</td>
+                    <td>{$link.state}</td>
+                    <td>
+                        <if condition="($row.category_id eq 1) or ($row.category_id eq 2)">
+                            <a href="{$host_url}{$link.link_url}" target="_blank">{$host_url}{$link.link_url}</a>
+                            <a href="{$host_url}{$link.link_url}" target="_blank">下载</a>
+                        <else/>
+                            <a href="javascript:;">复制</a>
+                            <a href="javascript:;">复制</a>
+                        </if>
+                    </td>
+                </tr>
+            </if>
+            </volist>
         </volist>
     </table>
-    <!--分页工具条 开始---->
-    <div id="turn-page" class="page">
-        {$pageHTML}
-    </div> 
-    <!--分页工具条 结束---->
+</div>
+</div>
 <include file="./Application/Home/View/Public/footer.html" />
 </body>
 </html>

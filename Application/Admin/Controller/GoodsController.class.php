@@ -53,6 +53,9 @@ class GoodsController extends BaseController{
     	if(IS_POST){
     		$model = D('goods');
     		$model->create();
+            if($model->cash_type == 0){
+                $model->percent = 0;
+            }
     		if(isset($_FILES['logo']['name'])){
     			$result = uploadImage($_FILES['logo'], 'goods');
     			if(empty($result['errorInfo']) && $result['filePath']){
@@ -75,6 +78,9 @@ class GoodsController extends BaseController{
     		if($id > 0){
     			$model = M('goods');
 	    		$model->create();
+                if($model->cash_type == 0){
+                    $model->percent = 0;
+                }
 	    		if(!empty($_FILES['logo']['tmp_name'])){
 	    			$result = uploadImage($_FILES['logo'], 'goods');
 	    			if(empty($result['errorInfo']) && $result['filePath']){
@@ -117,7 +123,10 @@ class GoodsController extends BaseController{
         $productModel=D("goods");
         $id=$_POST["id"];
         $res=$productModel->where("id={$id}")->delete();
-        if($res!==false) $this->ajaxReturn (1);
+        if($res!==false){
+            M('goods')->where("id={$goods_id}")->setInc('effective_links', -1);
+            $this->ajaxReturn (1);
+        }
     }   
 
     //根据ID操作关闭或者置顶
@@ -181,6 +190,7 @@ class GoodsController extends BaseController{
 		    			}
     				}
     				if($model->add() !== false){
+                        M('goods')->where("id={$goods_id}")->setInc('effective_links', 1);
     					$this->success('保存成功');
     					exit;
 		    		}else{
@@ -197,53 +207,52 @@ class GoodsController extends BaseController{
     		}
         }else{
         	$this->error('请求方式错误');
+        }
     }
-}
-  public function  editLink(){
-      $good_id=I('get.id',0);      
-      if(IS_POST){                
-        $data['up_price_1']=I('post.up_price_1');
-        $data['down_price_1']=I('post.down_price_1');
-                    //echo $down_price_1;
-                    //$goods=M('goods')->where('{id=$goodid}')->find();
-                                    
+    public function  editLink(){
+        $good_id=I('id',0);      
+        if(IS_POST){                
+            $data['up_price_1']=I('post.up_price_1');
+            $data['down_price_1']=I('post.down_price_1');
+            //echo $down_price_1;
+            //$goods=M('goods')->where('{id=$goodid}')->find();
+                                        
             if($data['up_price_1']>$data['down_price_1']){ 
-                        $data['link_url']=I('post.link_url');
-                        $data['discount']=I('post.discount');
-                        $data['site_name']=I('post.site_name');
-                        $data['members_id']=I('post.members_id');                           
-                       // var_dump($data);
-                        //exit;
-                        $model=M('goodsLink');
-                        $model->create(); 
-                    if($model->where("id=$good_id")->save($data) !== false){
-                                    $this->success('修改成功', U('Admin:Goods/index'));                   
-                                     }else{
-                                         $this->error('修改失败');
-                            }
-                     }else{
-                        echo "jiagebudi";
-                     }
-
-                
-           }else if($good_id>0){
+                $data['link_url']=I('post.link_url');
+                $data['discount']=I('post.discount');
+                $data['site_name']=I('post.site_name');
+                $data['members_id']=I('post.members_id');                           
+                // var_dump($data);
+                //exit;
+                $model=M('goodsLink');
+                $model->create(); 
+                if($model->where("id=$good_id")->save($data) !== false){
+                    $goods_link['id']=$good_id;
+                    $goods_link=M('goodsLink')->where($goods_link)->find();
+                    $this->success('修改成功', U('Admin:Goods/links?id='. $goods_link['goods_id']));                   
+                }else{
+                    $this->error('修改失败');
+                }
+            }else{
+                echo "jiagebudi";
+            }
+        }else if($good_id>0){
             $goods_link['id']=$good_id;
             $goods_link=M('goodsLink')->where($goods_link)->find();
-			$categories = M('category')->select();
+            $categories = M('category')->select();
             if(!$goods_link){
                 $this->error('该产品id不存在');
             }else{
-					//var_dump($categories);
-				$this->assign('categories',$categories);	
+                $members = M('members')->where("state=1")->select();
+                $members = subscriptArray($members, 'id');
+                $this->assign('members', $members);
+    			$this->assign('categories',$categories);	
                 $this->assign('goods_link',$goods_link);
-                //var_dump($goods_link);
                 $this->display();
             }
-           
-        }
-     
-  } 
-       public function editData(){
-          $this->display();
-     }
+        } 
+    } 
+    public function editData(){
+        $this->display();
+    }
 }

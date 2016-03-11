@@ -14,7 +14,7 @@
                     <select name="category_id" id="pselect" class="text1 fl">
                             <option value="0">请选择平台类型</option>
                             <volist name='cats' id='cat'>
-                            <option value="{$cat.id}">{$cat.category_name}</option>
+                            <option value="{$cat.id}" <?php if($cat['id'] == $row['category_id']){echo "selected";} ?>>{$cat.category_name}</option>
                             </volist>
                     </select>
                     <span id="pselectTip"></span>
@@ -26,12 +26,19 @@
                     <select name="cash_type" id="cselect" class="text1 fl">
                         <option>请选择结算类型</option>
                         <volist name="cashType" id="cash">
-                            <option value="{$key}">{$cash}</option>
+                            <option value="{$key}"  <?php if($key == $row['cash_type']){echo "selected";} ?>>{$cash}</option>
                         </volist>
                     </select>
                     <span id="cselectTip"></span>
                 </dd>
         	</dl>
+            <dl id="jsbl">
+                <dt>结算比例：</dt>
+                <dd>
+                    <input name="percent" type="text" class="text" id="pname" value="{$row.percent}" />
+                    <span id="cselectTip"></span>
+                </dd>
+            </dl>
         	<dl>
                 <dt>业务logo：</dt>
                 <dd>
