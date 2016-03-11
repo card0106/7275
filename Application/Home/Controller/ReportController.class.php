@@ -17,17 +17,17 @@ class ReportController extends \Think\Controller{
     //展示“效果报告”
     public function  effect(){
         //根据当前 登录的会员，查出他所对应的产品
-        $member_name=$_SESSION["membersinfo"]["username"];
-	    $membersModel=D("Members");
-            $member_id=$membersModel->getFieldByUsername($member_name,"id");
+        $member_name = $_SESSION["membersinfo"]["username"];
+	      $membersModel = D("Members");
+        $member_id = $membersModel->getFieldByUsername($member_name,"id");
 	    //$date_begin = date("Y-m-d", $_POST["date_begin"] ? strtotime($_POST["date_begin"]) : time()-604800);
 	    //$date_end = date("Y-m-d", $_POST["date_end"] ? strtotime($_POST["date_end"]) : time());
-            $date_begin = $_POST["date_begin"] ? strtotime($_POST["date_begin"]) : mktime(0,0,0)-604800;
-	    $date_end = $_POST["date_end"] ? strtotime($_POST["date_end"])+86399 : mktime(0,0,0)+86400;
-	    $product_name = strval($_POST['product_name']) | '';
+        $date_begin = $_POST["date_begin"] ? strtotime($_POST["date_begin"]) : mktime(0,0,0)-604800;
+	      $date_end = $_POST["date_end"] ? strtotime($_POST["date_end"])+86399 : mktime(0,0,0)+86400;
+	      $product_name = strval($_POST['product_name']) | '';
 
-  		$productDataModel=D("ProductData");
-    	$rules = array(
+  		    $productDataModel=D("ProductData");
+    	    $rules = array(
 				array('date_begin','require','日期必须填写！',1),
 				array('date_begin','strtotime','日期格式不正确！',1,'function'),
 				array('date_end','require','日期必须填写！',1),
@@ -39,13 +39,16 @@ class ReportController extends \Think\Controller{
         //	$date_end = date("Y-m-d", strtotime($_POST["date_end"]));
         
        	if($date_begin >= $date_end)
-       		exit($this->success("结束时间不能大于开始时间！"));
-       	$totalRows = $productDataModel->alias('data')->join("LEFT JOIN `product` ON `product`.`id`=`data`.`goods_id`")
+       		   exit($this->success("结束时间不能大于开始时间！"));
+       	$totalRows = $productDataModel->alias('data')->join("LEFT JOIN `product` ON `product`.`id`=`goods`.`goods_id`")
                                       //->join("LEFT JOIN `members_product` ON `members_product`.`members_id`=`product_data`.`member_id` AND `members_product`.`goods_id`=`product_data`.`goods_id`")
        					->field('product.goods_name,data.*')
                                         ->where("`data`.`member_id`='{$member_id}' AND `data`.`time`>='{$date_begin}' AND `data`.`time`<'{$date_end}'".(strlen($product_name)>0?" AND `product`.`goods_name` LIKE '%".$product_name."%'":""))
       					->order("`data`.`time` DESC")
                                         ->count();
+
+                        
+
         //分页数据
         $page=new \Think\Page($totalRows, C("PAGESIZE"));
         $start=$page->firstRow;

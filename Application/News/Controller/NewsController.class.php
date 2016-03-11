@@ -25,6 +25,7 @@ class NewsController extends \Think\Controller{
     }
     //展示常见问题下面的链接页面
     public function detail($id=""){
+        
         //根据$id取出对应的id下面的内容
         $newsModel=M("News");
         $rows=$newsModel->where("id={$id}")->find();

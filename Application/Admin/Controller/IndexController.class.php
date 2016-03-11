@@ -92,15 +92,16 @@ class IndexController extends Controller{
 	        $text.= file_put_contents("news.html", $contents)?"成功":"失败";
 	        
 	        $this->success($text, U("Admin/Index/index"), 5);
-        }elseif($type == "news"){
-        	$rows=M("News")->getField("id,last_modify", true);
-	    	$tpl = new \News\Controller\NewsController();
-	    	$total = count($rows);
-	    	$changed = $error = 0;
-	    	foreach($rows AS $key => $val)
-	    	{
-	    		$mtime = filemtime("news/".$key.".html");
-	    		if($mtime === false || intval($val) > $mtime)
+        }elseif(
+        		$type == "news"){
+        		$rows=M("News")->getField("id,last_modify", true);
+	    		$tpl = new \News\Controller\NewsController();
+	    		$total = count($rows);
+	    		$changed = $error = 0;
+	    		foreach($rows AS $key => $val)
+	    		{
+	    			$mtime = filemtime("news/".$key.".html");
+	    			if($mtime === false || intval($val) > $mtime)
 	    		{
 	    			$changed++;
 			    	ob_start();

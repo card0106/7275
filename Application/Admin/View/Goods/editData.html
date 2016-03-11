@@ -1,5 +1,7 @@
 <extend name='Common/base' />
-<!--样式以及外部引入文件--->
+<block name='left'>
+    <include file="./Application/Admin/View/Public/left.html" />
+</block>
 <block name='src'>
 <link rel="stylesheet" href="__CSS__/bootstrap.min.css" type="text/css">
 <link type="text/css" href="__CSS__/base_1.css" rel="stylesheet" />
@@ -7,151 +9,137 @@
 <script type="text/javascript" src="__JS__/jquery.js"></script>
 <script type="text/javascript" src="__JS__/jquery-ui-datepicker.js"></script>
 <script type="text/javascript" src="__JS__/jquery.tmpl.min.js"></script>
-</block>
-<!--样式以及外部引入文件--->
-<!----左边导航部分----->
-<block name='left'>
-    <include file="./Application/Admin/View/Public/left.html" />
 </block>    
-<!--左边导航部分-->
-<!--右边内容部分-->
 <block name='right'>
-<div class="right">
-    <include file="./Application/Admin/View/Public/top.html" />
-    <div class="tit f20">数据查询</div>
-    <if condition="$flag eq 1">
-        <else /> 
-        <form name="form1" method="post">
+    <div class="right">
+    
+        <include file="./Application/Admin/View/Public/top.html" />       
+        <div class="con">
+           
+            <br />
+            <div class="tit f20" style="margin-top: 0px; margin-left: -20px;">
+                <span>产品列表</span>
+                <a class="f12 cursor" data-toggle="modal" data-target="#myModal">增加链接</a>
+            </div>
+            <table border="0" cellpadding="0" cellspacing="0" class="productTable" id="data">
+                <thead>
+                    <tr>
+                        <th style="width:100px;">产品ID</th>
+                        <th>推广(下载)URL</th>
+                        <th style="width:70px;">扣量率</th>
+                        <th style="width:100px;">上游价格</th>
+                        <th style="width:100px;">下游价格</th>
+                        <th style="width:100px;">用户名</th>
+                        <th style="width:100px;">产品名称</th>
+                        <th style="width:250px;">操作</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                        <tr>
+                            <td>{$link.id}</td>
+                            <td>{$link.link_url}</td>
+                            <td>{$link.discount}</td>
+                            <td>{$link.up_price_1}</td>
+                            <td>{$link.down_price_1}</td>                       
+                            <td>
+                                <if condition="$link.members_id neq 0">
+                                    {$members[$link['members_id']]['username']}
+                                </if>
+                            </td>
+                            <td>{$link.site_name}</td>
+                            <td>
+                                <a href="{:U('editLink','id='.$link['id'])}" class="sb4">修改链接</a>
+                                <a href="javascript:void(0);" class="sb5" onclick="delGoodsLink(this)" value="{$link.id}">删除</a>
+                                <a href="{:U('editData','id='.$link['id'])}" class="sb6" onclick="(this)" value="{$link.id}">添加数据</a>                               
+                            </td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+
+            <div id="turn-page" class="page">
+                {$pageHTML}
+            </div> 
+             <div>
+                <table border="0" cellpadding="0" cellspacing="0" class="productTable" id="data">
+                <tr><th>id</th><th>产品名称</th><th>产品数据</th><th>数据日期</th><th>归档状态</th></tr>
+                <tr><td id='id'>{$link.id}</td>
+                <td>{$link.site_name}</td>
+                <td><input type="text" id="click_num"  value=""/></td>
+                <td>
                 <div class="bok" style="_margin-top:20px;">
                   <div class="time fl">日期：</div>
-                  <div class="time fl"><input type="text" id="date_1" name="date_1" readonly></div>
-                  <div class="time fl">至</div>
-                  <div class="time fl"><input type="text" id="date_2" name="date_2" readonly/></div>
-                        <div class="time1 fl"><input type="button" name="button" id="button" value="查询" class="but cursor" /> </div>
+                  <div class="time fl"><input type="text" id="date_1" name="date_1" readonly /></div> <input type="submit"  id='submit'value="submit" />                      
                 </div>
-        </form>        
-    </if>
-  
-    <div class="con">
-        <table border="0" cellpadding="0" cellspacing="0" class="productTable">
-            <thead>
-            <tr>
-                <th width="5%">id</th>
-                <th width="15%">产品名称</th>
-                <th width="10%">上游价格</th>
-                <th width="10%">下游价格</th>
-                <th width="10%">结算类型</th>
-                <th width="10%">百分比(%)</th>
-                <th width="10%">数据量</th>
-                <th width="10%">数据日期</th>             
-                <th width="10%">操作</th>
-            </tr>
-            </thead>
-            <tbody id="destination">
-            <volist name='rows' id='row'>
-                <tr>
-                    <td>{$row.member_name}</td>
-                    <td>{:date("Y-m-d H:i:s",$row["withdrawal_date"])}</td>
-                    <td>￥{$row.withdrawal_amount}</td>
-                    <td>
-                        <if condition="$row['checked'] eq 1"><a href="javascript:void(0)" class="sb3" flag="1">已通过审核</a> 
-                            <elseif condition="$row['checked'] eq 0"/><a href="javascript:void(0)" class="sb5" flag="1">未通过审核</a>
-                            <else /> <a href="javascript:void(0)" class="sb3" onclick="check(this)" flag="1" value="{$row.id}" member='{$row.member_id}'>允许</a>
-                                    <a href="javascript:void(0)" class="sb5" onclick="check(this)" flag="0" value="{$row.id}" member='{$row.member_id}'>禁止</a>
-                        </if>
-                    </td>
-                    <td>
-                        <a href="javascript:void(0)" value='{$row["id"]}' class="sb5" onclick=" return del(this)">删除</a>
-                    </td>
+            </td>
+                <td></td>
                 </tr>
-            </volist>
-            </tbody>
-        </table>
-    </div>
-</div>
-<!-----返回数据，需要插入------>
-<script type="text/html" id="myTemplate">    
-    <tr>
-        <td>${member_name}</td>
-        <td>${formdate}</td>
-        <td>${withdrawal_amount}</td>
-        <td>
-                <a href="javascript:void(0)" class="sb3" flag="1">${checked}</a>
-<!--            <if condition="${checked} eq 1"><a href="javascript:void(0)" class="sb3" flag="1">已通过审核</a> 
-                <elseif condition="${checked} eq -1"/><a href="javascript:void(0)" class="sb5" flag="1">未通过审核</a>
-                <else /> <a href="javascript:void(0)" class="sb3" onclick="check(this)" flag="1" value="${id}">允许</a>
-                        <a href="javascript:void(0)" class="sb5" onclick="check(this)" flag="-1" value="${id}">禁止</a>
-            </if>-->
-        </td>
-        <td>
-            <a href="javascript:void(0)" value='${id}' class="sb5" onclick=" return del(this)">删除</a>
-        </td>
-    </tr>
-</script>    
-</block>
-<!--右边内容部分-->
-<!--JS部分-->
-<block name='js'>
-<script>    
-//当通过日期来查询出对应的 数据记录
-$(".cursor").click(function(){
-    var data_1=$("#date_1").val();
-    var data_2=$("#date_2").val();
-    if(data_1==""||data_2==""){
-        alert("查询日期不能为空");
-        return false;
-    }    
-    //发送ajax请求查询某一个会员的信息/或者具体某个时间段的数据,
-    $.post(
-        "{:U('Cash/getItemsByDate')}",
-        {date1:data_1,date2:data_2},
-        function(data){
-            console.debug(data);
-            //先清除以前的列表数据
-            $("#destination").html("");
-//            //根据取出来的 产品所对应的数据，替换以前的列表
-            $('#myTemplate').tmpl(data).appendTo('#destination');            
-        }
-    );
-});    
-</script>     
+                </table>
+            </div>
+        </div>
+   </div> 
 <script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
-<script>
-    //删除一条 提现记录
-    function del(demo){
-        var id=$(demo).attr("value");
-        if(window.confirm("你确定要删除该条提现记录吗?")){
-            $.post(
-                "{:U('delById')}",
-                {id:id},
-                function(data){
-                    alert(data);
-                    location.href="{:U('cash')}";
-                }
-            );
-        }
-    }
-    //改变某一个会员“是否已经通过审核”
-    function check(demo){
-        var amount=$(demo).closest("td").prev().text();
-            amount=amount.substr(1);
-        var member_id=$(demo).attr("member");
-        var flag=$(demo).attr("flag");
-        var mes=(flag==1)?"你确定让该会员通过审核?":"你确定禁止该会员通过审核?";
-        if(window.confirm(mes)){
-          $.post(
-                "{:U('checkedById')}",
-                {id:member_id,checked:flag,amount:amount},
-                function(data){
-                    alert(data);
-                    location.href="{:U('cash')}";
-                }
-            );  
-        }        
-    }
-     $(function(){         
-            $("#date_1").datepicker();
-            $("#date_2").datepicker();
+<script type="text/javascript">
+    $(function(){
+        $("#date_1").datepicker();  
     });
 </script>
+<script>
+  $("#submit").click(function(){
+    //alert("Value: " + $("#id").text());
+    var id=$("#id").text();
+    var date=$("#data_1").val();
+    var click_num=$("#click_num").val();
+    //var id= 10004;
+    //var date = '2014-10-10';
+    //var click_num = 100;
+        
+     $.post(
+                "{:U('Goods/editData')}",
+                {click_num:click_num,date:date,id:id},
+                function(data){
+                    var mes=data==1?"成功":"失败";
+                    //var mes=data;
+                    alert(mes);
+                   
+                }
+            );
+  });
+
+
+
+
+
+/*
+$('table td').click(function(){    
+        if(!$(this).is('.input')){    
+            $(this).addClass('input').html('<input type="text" value="'+ $(this).text() +'" />').find('input').focus().blur(function(){    
+                var thisid = $(this).parent().siblings("th:eq(0)").text();    
+                var thisvalue=$(this).val();    
+                var thisclass = $(this).parent().attr("class");      
+                 
+                $.ajax({    
+                  type: 'POST',    
+                  url: 'update.php',    
+                  data: "thisid="+thisid+"&thisclass="+thisclass+"&thisvalue="+thisvalue    
+                });    
+                $(this).parent().removeClass('input').html($(this).val() || 0);    
+            });                        
+        }    
+    }).hover(function(){    
+        $(this).addClass('hover');    
+    },function(){    
+        $(this).removeClass('hover');    
+    });    
+    });
+    */
+</script>
 </block>
+<!--右边内容部分-->
+<!----自定义JS部分-------->
+
+
+
+
+    

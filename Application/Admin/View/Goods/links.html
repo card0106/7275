@@ -150,12 +150,8 @@
                 {$pageHTML}
             </div> 
         </div>
-    </div> 
-</block>
-<!--右边内容部分-->
-<!----自定义JS部分-------->
-<block name='js'>
-<script type="text/javascript">
+    </div>
+    <script type="text/javascript">
     function delGoodsLink(demo){
         var id=$(demo).attr("value");
         if(confirm("你确定要删除吗？")){
@@ -171,3 +167,7 @@
             );
         }
     }
+</script> 
+</block>
+
+

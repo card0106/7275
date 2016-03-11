@@ -153,7 +153,7 @@ class GoodsController extends BaseController{
     		$links = M('goodsLink')->where("goods_id={$id}")->order('id desc')->select();
     		$this->assign('links', $links);
 
-    		$members = M('members')->where("state=1")->select();
+    		$members = M('members')->where("state=1")->select();            
     		$members = subscriptArray($members, 'id');
     		$this->assign('members', $members);
     		$this->display();
@@ -199,51 +199,79 @@ class GoodsController extends BaseController{
         	$this->error('请求方式错误');
     }
 }
-  public function  editLink(){
-      $good_id=I('get.id',0);      
-      if(IS_POST){                
-        $data['up_price_1']=I('post.up_price_1');
-        $data['down_price_1']=I('post.down_price_1');
-                    //echo $down_price_1;
-                    //$goods=M('goods')->where('{id=$goodid}')->find();
-                                    
-            if($data['up_price_1']>$data['down_price_1']){ 
-                        $data['link_url']=I('post.link_url');
-                        $data['discount']=I('post.discount');
-                        $data['site_name']=I('post.site_name');
-                        $data['members_id']=I('post.members_id');                           
-                       // var_dump($data);
-                        //exit;
-                        $model=M('goodsLink');
-                        $model->create(); 
-                    if($model->where("id=$good_id")->save($data) !== false){
-                                    $this->success('修改成功', U('Admin:Goods/index'));                   
-                                     }else{
-                                         $this->error('修改失败');
-                            }
-                     }else{
-                        echo "jiagebudi";
-                     }
-
-                
-           }else if($good_id>0){
-            $goods_link['id']=$good_id;
-            $goods_link=M('goodsLink')->where($goods_link)->find();
-			$categories = M('category')->select();
-            if(!$goods_link){
-                $this->error('该产品id不存在');
-            }else{
-					//var_dump($categories);
-				$this->assign('categories',$categories);	
-                $this->assign('goods_link',$goods_link);
-                //var_dump($goods_link);
-                $this->display();
-            }
+    public function  editLink(){
+        $good_id=I('get.id',0);      
+        if(IS_POST){                
+            $up_price_1=I('post.up_price_1');
+            $down_price_1=I('post.down_price_1');
+            //echo $down_price_1;
+            //$goods=M('goods')->where('{id=$goodid}')->find();                                   
+            if($up_price_1>$down_price_1){ 
+                $model=M('goodsLink');
+                $model->create();                        
+                if($model->where("id={$good_id}")->save() !== false){
+                    $this->success('修改成功', U('Admin:Goods/editlink?id='));   
+                }else{ 
+                    $this->error('修改失败');
+                //}else{
+                //    echo "上游价格小于下游价格";
+                }
+            }else if($good_id>0){
+                //$goods_link['id']=$good_id;
+                $goods_link=M('goodsLink')->where("id={$good_id}")->find();
+                if(!$goods_link){
+                    $this->error('该产品id不存在');
+                }else{
+                    //var_dump($categories);
+                    $categories = M('category')->select();
+                    $this->assign('categories',$categories);	
+                    $this->assign('goods_link',$goods_link);
+                    //var_dump($goods_link);
+                    $this->display();
+                }
            
+            }
         }
      
-  } 
-       public function editData(){
-          $this->display();
-     }
+    } 
+
+    public function editData(){
+         
+         if(IS_POST){
+             $data_time = I('date', 0);                        
+             $id = I('id', 0);
+             $click_num = I('click_num',0);
+             $model = M('dataList');
+             if($model->where("data_time=$data_time and goods_id=$id")->find()){
+                       $this->ajaxReturn('1');
+                       exit;
+             }else{
+                  $link = M('goodsLink')->where("id=$id")->find();
+                  $data['data_list'] = $click_num;
+                  $data['goods_id'] = $link['id'];
+                  $data['up_price_1'] = $link['up_price_1'];
+                  $data['down_price_1']=$link['down_price_1'];
+                  $data['data_time'] = $data_time; 
+                  $goods = M('goods');
+                  $data['cash_type']=$goods['cash_type'];
+                  //$data['percent ']=$goods['percent'];
+                  $model->create($data);
+                  $res = $model->add();
+                  if($res !== false){
+                       $this->ajaxReturn('1');
+                       exit;
+                  }else{
+                       $this->ajaxReturn('-1');
+                       exit;
+                  }
+
+             }
+             
+         }else{
+            $link_id=I('get.id');                     
+            $link=M('goodsLink')->where("id={$link_id}")->find();
+            $this->assign('link',$link);
+            $this->display();
+         }
+    }
 }
