@@ -28,15 +28,15 @@
             <volist name="rows" id="row">
             <tr>
                     <td><strong>{:date('Y-m-d',$row['time'])} </strong></td>	
-                    <td>{$row.goods_name}</td>	
+                    <td>{$row.link_url}</td>	
                     <td>
                         <if condition="$row['invoicing_cycle'] eq 0">每日
                             <elseif condition="$row['invoicing_cycle'] eq 1"/>每周
                             <elseif condition="$row['invoicing_cycle'] eq 2"/>双周
                             <elseif condition="$row['invoicing_cycle'] eq 3"/>每月
                         </if>
-                    </td>
-                    <td><if condition="$row['promote_num'] eq ''">0    <else /> {:round($row['promote_num']*(100-$row['discount'])/100)}</if></strong></td>
+                    </td>                    
+                    <td>{$row.data_list}</td>
                     <td>{$row.dprice1}</td>
                     <td>{$row.money}</td>
             </tr>

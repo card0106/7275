@@ -42,14 +42,14 @@ CREATE TABLE `goods_apply` (
 
 CREATE TABLE `data_list`(
 	`id` int(11) unsigned  NOT NULL AUTO_INCREMENT COMMENT '自增长ID',
-	`goods_id` int(11) unsigned NOT NULL ,
+	`good_link_id` int(11) unsigned NOT NULL ,
 	`up_price_1` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '数据上游价',
 	`down_price_1` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '数据下游价',
 	`cash_type` tinyint(1) NOT NULL DEFAULT '0' COMMENT '结算类型',
 	`percent`  decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '百分比',
 	`data_list` INT(10) NOT NULL DEFAULT '0' COMMENT  '数据量',
 	`onfile`  int()  NOT NULL DEFAULT '0' COMMENT '归档',
-	`data_time`  DATETIME   COMMENT  '数据时间',
+	`data_time`  DATE   COMMENT  '数据时间',
 	`create_time` DATETIME   COMMENT '操作时间',
  	PRIMARY KEY (`id`)
  )ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8 COMMENT='数据流量表'

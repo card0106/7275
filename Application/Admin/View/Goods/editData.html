@@ -19,7 +19,7 @@
             <br />
             <div class="tit f20" style="margin-top: 0px; margin-left: -20px;">
                 <span>产品列表</span>
-                <a class="f12 cursor" data-toggle="modal" data-target="#myModal">增加链接</a>
+               
             </div>
             <table border="0" cellpadding="0" cellspacing="0" class="productTable" id="data">
                 <thead>
@@ -62,6 +62,10 @@
                 {$pageHTML}
             </div> 
              <div>
+                <div class="tit f20" style="margin-top: 0px; margin-left: -20px;">
+                <span>产品数据</span>
+                
+                </div>
                 <table border="0" cellpadding="0" cellspacing="0" class="productTable" id="data">
                 <tr><th>id</th><th>产品名称</th><th>产品数据</th><th>数据日期</th><th>归档状态</th></tr>
                 <tr><td id='id'>{$link.id}</td>
@@ -87,9 +91,9 @@
 </script>
 <script>
   $("#submit").click(function(){
-    //alert("Value: " + $("#id").text());
+    //alert("Value: " + $("#date_1").val());
     var id=$("#id").text();
-    var date=$("#data_1").val();
+    var date=$("#date_1").val();
     var click_num=$("#click_num").val();
     //var id= 10004;
     //var date = '2014-10-10';
@@ -105,9 +109,10 @@
                    
                 }
             );
-  });
-
-
+        });
+    $("#submit").click(function(){
+        setTimeout(function(){window.history.go(-1);},3000); 
+    });
 
 
 
@@ -135,6 +140,11 @@ $('table td').click(function(){
     });
     */
 </script>
+
+
+
+
+
 </block>
 <!--右边内容部分-->
 <!----自定义JS部分-------->
