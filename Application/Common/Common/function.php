@@ -64,5 +64,13 @@ function subscriptArray($arr, $index){
 	return $newArr;
 }
 
+function comission($value){
+	//计算公式 down_price_1 * (data_list /1000) * (100 - 折量率)/100
+	$money = $value['down_price_1'] * (1 - ($value['discount'] / 100)) * $value['data_list'] / 100 / 1000;
+	if($value['cash_type'] == 1){//按照比例
+		$money = $money * $value['percent'];
+	}
+	return $money;
+}
 
 
