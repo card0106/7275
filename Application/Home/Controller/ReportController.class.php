@@ -17,16 +17,68 @@ class ReportController extends \Think\Controller{
     //展示“效果报告”
     public function  effect(){
         //根据当前 登录的会员，查出他所对应的产品
-        $member_name = $_SESSION["membersinfo"]["username"];
-	      $membersModel = M("Members");
-        $member_id = $membersModel->getFieldByUsername($member_name,"id");
+         $member_name = $_SESSION["membersinfo"]["username"];
+	     $membersModel = M("Members");
+         $member_id = $membersModel->getFieldByUsername($member_name,"id");
 	    //$date_begin = date("Y-m-d", $_POST["date_begin"] ? strtotime($_POST["date_begin"]) : time()-604800);
 	    //$date_end = date("Y-m-d", $_POST["date_end"] ? strtotime($_POST["date_end"]) : time());
         //$date_begin = $_POST["date_begin"] ? strtotime($_POST["date_begin"]) : mktime(0,0,0)-604800;
         //$date_end = $_POST["date_end"] ? strtotime($_POST["date_end"])+86399 : mktime(0,0,0)+86400;
         //$product_name = strval($_POST['product_name']) | '';
+
+        if(IS_POST){
         $date_begin = $_POST["date_begin"];
         $date_end = $_POST["date_end"];
+
+                //$date_begin = '2016-03-06';
+                //$date_end = '2016-03-12';
+            /*$rules = array(
+                array('date_begin','require','日期必须填写！',1),
+                array('date_begin','strtotime','日期格式不正确！',1,'function'),
+                array('date_end','require','日期必须填写！',1),
+                array('date_end','strtotime','日期格式不正确！',1,'function')
+                );
+                */
+            $goodsLinkmodel = M("goodsLink");
+            $totalRows = $goodsLinkmodel->alias('data')->join("LEFT JOIN `data_list` ON `data_list`.`good_link_id` = `data`.`id`")
+                                    ->field('data.link_url,data_list.*')
+                                                ->where("`data`.`members_id`='$member_id' AND `data_list`.`data_time`>'$date_begin' AND `data_list`.`data_time`<'$date_end'")
+                                    ->order("`data_list`.`data_time` DESC")
+                                    ->count();
+        $page=new \Think\Page($totalRows, C("PAGESIZE"));
+        $start=$page->firstRow;
+        if($start>=$totalRows)
+            $start=$page->totalRows-$page->listRows;
+        if($start<=0)
+            $start=0;
+        //$page->setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%');
+
+        $rows = $goodsLinkmodel->alias('data')->join("LEFT JOIN `data_list` ON `data_list`.`good_link_id` = `data`.`id`")
+                                    ->field('data.link_url,data_list.*')
+                                                ->where("`data`.`members_id`='$member_id' AND `data_list`.`data_time`>'$date_begin' AND `data_list`.`data_time`<'$date_end'")
+                                    ->order("`data_list`.`data_time` DESC")
+                                         ->limit($start,$page->listRows)->select();
+
+        $page->setConfig('router', true);
+        $pageHTML=$page->show();
+        $this->assign("date_begin",$date_begin);
+        $this->assign("date_end",$date_end);
+        $this->assign("product_name",$product_name);
+        
+        $this->assign("pageHTML",$pageHTML);
+        $this->assign("rows",$rows);
+        $this->display();
+          }else{
+           
+        //$this->assign("date_begin",$date_begin);
+        //$this->assign("date_end",$date_end);
+        $this->assign("product_name",$product_name);
+            $this->display();
+
+          }
+
+        //$date_begin = $_POST["date_begin"];
+        //$date_end = $_POST["date_end"];
         //$date_begin = "2016-03-06";
         //$date_end = "2016-03-12";
         /*
@@ -75,26 +127,16 @@ class ReportController extends \Think\Controller{
             */
        
         //and data_time>'$date_begin' and data_time<'$date_end' ;
-    	    $rules = array(
-				array('date_begin','require','日期必须填写！',1),
-				array('date_begin','strtotime','日期格式不正确！',1,'function'),
-				array('date_end','require','日期必须填写！',1),
-				array('date_end','strtotime','日期格式不正确！',1,'function')
-				);
+    	    
         //if(!$membersModel->validate($rules)->create())
         //	exit($this->success($membersModel->getError()));
         //	$date_begin = date("Y-m-d", strtotime($_POST["date_begin"]));
         //	$date_end = date("Y-m-d", strtotime($_POST["date_end"]));
         
-       	if($date_begin >= $date_end)
-       		   exit($this->success("结束时间不能大于开始时间！"));
+       	/*if($date_begin >= $date_end)
+       		   exit($this->success("结束时间不能大于开始时间！"));*/
 
-        $goodsLinkmodel = M("goodsLink");
-        $totalRows = $goodsLinkmodel->alias('data')->join("LEFT JOIN `data_list` ON `data_list`.`good_link_id` = `data`.`id`")
-                                    ->field('data.link_url,data_list.*')
-                                                ->where("`data`.`members_id`='$member_id' AND `data_list`.`data_time`>'$date_begin' AND `data_list`.`data_time`<'$date_end'")
-                                    ->order("`data_list`.`data_time` DESC")
-                                    ->count();
+        
        	
 
 
@@ -110,22 +152,7 @@ class ReportController extends \Think\Controller{
 
 
         //分页数据
-        $page=new \Think\Page($totalRows, C("PAGESIZE"));
-        $start=$page->firstRow;
-        if($start>=$totalRows)
-            $start=$page->totalRows-$page->listRows;
-        if($start<=0)
-            $start=0;
-        //$page->setConfig('theme','%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%');
-
-        $rows = $goodsLinkmodel->alias('data')->join("LEFT JOIN `data_list` ON `data_list`.`good_link_id` = `data`.`id`")
-                                    ->field('data.link_url,data_list.*')
-                                                ->where("`data`.`members_id`='$member_id' AND `data_list`.`data_time`>'$date_begin' AND `data_list`.`data_time`<'$date_end'")
-                                    ->order("`data_list`.`data_time` DESC")
-                                         ->limit($start,$page->listRows)->select();
-
-        $page->setConfig('router', true);
-        $pageHTML=$page->show();
+        
 
         
         /*
@@ -150,12 +177,8 @@ class ReportController extends \Think\Controller{
 //        $membersProductModel=D("MembersProduct");      
 //        $rows=$membersProductModel->getRowsById($member_id);
 
-        $this->assign("date_begin",$date_begin);
-        $this->assign("date_end",$date_end);
-        $this->assign("product_name",$product_name);
-        
-        $this->assign("pageHTML",$pageHTML);
-        $this->assign("rows",$rows);
-        $this->display();
+      
     }
+     
+     
 }

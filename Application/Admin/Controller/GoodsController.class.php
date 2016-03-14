@@ -273,9 +273,13 @@ class GoodsController extends BaseController{
              }
              
          }else{
-            $link_id=I('get.id');                     
-            $link=M('goodsLink')->where("id={$link_id}")->find();
+            $link_id = I('get.id');                     
+            $link = M('goodsLink')->where("id={$link_id}")->find();
             $this->assign('link',$link);
+
+            $data = M('dataList')->where("good_link_id={$link_id}")->order("data_time  DESC")->select();
+            //dump($data);
+            $this->assign('data',$data);
             $this->display();
          }
     }
