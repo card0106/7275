@@ -162,6 +162,9 @@ class GoodsController extends BaseController{
     		$links = M('goodsLink')->where("goods_id={$id}")->order('id desc')->select();
     		$this->assign('links', $links);
 
+         $measure=M('measure')->select();
+         $this->assign('mesure',$measure); 
+
     		$members = M('members')->where("state=1")->select();            
     		$members = subscriptArray($members, 'id');
     		$this->assign('members', $members);
@@ -260,18 +263,20 @@ class GoodsController extends BaseController{
              $id = I('id', 0);
              $click_num = I('click_num',0);
              $model = M('dataList');
-             if($model->where("data_time=$data_time and goods_id=$id")->find()){
-                       $this->ajaxReturn('1');
+             if($model->where("good_link_id = '$id' and data_time = '$data_time'")->find()){
+                       $this->ajaxReturn('-1');
                        exit;
              }else{
                   $link = M('goodsLink')->where("id=$id")->find();
                   $data['data_list'] = $click_num;
-                  $data['goods_id'] = $link['id'];
+                  $data['good_link_id'] = $id;
                   $data['up_price_1'] = $link['up_price_1'];
                   $data['down_price_1']=$link['down_price_1'];
                   $data['data_time'] = $data_time; 
                   $goods = M('goods');
-                  $data['cash_type']=$goods['cash_type'];
+                  $goods_id=$link['goods_id'];
+                  $type=$goods->where("id=$goods_id")->find();
+                  $data['cash_type']=$type['cash_type'];
                   //$data['percent ']=$goods['percent'];
                   $model->create($data);
                   $res = $model->add();
