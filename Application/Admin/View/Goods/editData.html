@@ -64,21 +64,11 @@
              <div>
                 <div class="tit f20" style="margin-top: 0px; margin-left: -20px;">
                 <span>产品数据</span>               
-                </div>
-                <table border="0" cellpadding="0" cellspacing="0" class="productTable">
-                
-                <tr><td id='id'>{$link.id}</td>
-                
-                <td><label>添加数据</label></label><br /><input type="text" id="click_num"  value=""/></td>
-                <td>
-                <div class="bok" style="_margin-top:20px;">
+                </div>                                
+                <div class="" >
                   <div class="time fl">日期：</div>
-                  <div class="time fl"><input type="text" id="date_1" name="date_1" readonly /></div> <input type="submit"  id='submit'value="submit" />                      
-                </div>
-                </td>
-                <td></td>
-                </tr>
-                </table>
+                  <div class="time fl"><input type="hidden" id='id' value={$link.id} ><input type="text" id="date_1" name="date_1" readonly /><label>添加数据</label></label><input type="text" id="click_num"  value=""/><input type="submit"  id='submit' value="提交" />                      </div> 
+                </div>               
             </div>
             <div>
                
@@ -91,7 +81,7 @@
                 <td>{$data.data_list}</td>                
                 <td>{$data.up_price_1}</td>
                 <td>{$data.down_price_1}</td>
-                <td>{$data.members}</td>
+                <td>{$username}</td>
                 <td>{$data.onfile}</td>
                 </tr>
                 </volist>
@@ -107,8 +97,8 @@
 </script>
 <script>
   $("#submit").click(function(){
-    //alert("Value: " + $("#date_1").val());
-    var id=$("#id").text();
+    //alert("Value: " + $("#id").val());
+    var id=$("#id").val();
     var date=$("#date_1").val();
     var click_num=$("#click_num").val();
     //var id= 10004;
@@ -122,14 +112,12 @@
                     var mes=data==1?"成功":"失败";
                     //var mes=data;
                     alert(mes);
-                   
+                    location.reload();
                 }
             );
-        });
-    $("#submit").click(function(){
-        setTimeout(function(){window.history.go(-1);},3000); 
-    });
 
+        });
+  
 
 
 /*
