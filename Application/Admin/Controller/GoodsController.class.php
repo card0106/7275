@@ -250,7 +250,7 @@ class GoodsController extends BaseController{
                 $members = M('members')->where("state=1")->select();
                 $members = subscriptArray($members, 'id');
                 $this->assign('members', $members);
-    			$this->assign('categories',$categories);	
+    			  $this->assign('categories',$categories);	
                 $this->assign('goods_link',$goods_link);
                 $this->display();
             }
@@ -274,10 +274,12 @@ class GoodsController extends BaseController{
                   $data['up_price_1'] = $link['up_price_1'];
                   $data['down_price_1']=$link['down_price_1'];
                   $data['data_time'] = $data_time; 
+                  $data['members_id'] = $link['members_id']; 
                   $goods = M('goods');
-                  $goods_id=$link['goods_id'];
+                  $goods_id = $link['goods_id'];
                   $type=$goods->where("id=$goods_id")->find();
-                  $data['cash_type']=$type['cash_type'];
+                  $data['cash_type'] = $type['cash_type'];
+                 
                   //$data['percent ']=$goods['percent'];
                   $model->create($data);
                   $res = $model->add();
@@ -297,7 +299,12 @@ class GoodsController extends BaseController{
             $this->assign('link',$link);
 
             $data = M('dataList')->where("good_link_id={$link_id}")->order("data_time  DESC")->select();
+
+            $members_id = $link['members_id'];
+            $members = M('members')->where("id=$members_id")->find();
+            $username = $members['username'];
             //dump($data);
+            $this->assign('username',$username);
             $this->assign('data',$data);
             $this->display();
          }
