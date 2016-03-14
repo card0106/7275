@@ -24,7 +24,9 @@ function uploadImage($file, $path='goods', $exts=[]){
 			'saveName' => ['uniqid', '']				//上传文件命名规则，[0]-函数名，[1]-参数，多个参数使用数组
 		];
 	if($exts){
-	//	array_push($config['exts'], $exts);
+		foreach ($exts as $value) {
+			array_push($config['exts'], $value);
+		}	
 	}
 
 	$upload = new \Think\Upload($config);
@@ -38,7 +40,7 @@ function uploadImage($file, $path='goods', $exts=[]){
 }
 
 function uploadSoftPack($file, $path='download'){
-	return uploadImage($file, $path, ['exe', 'apk', 'ipk']);
+	return uploadImage($file, $path, ['exe', 'apk', 'ipk','dmg']);
 }
 
 //图片缩略图
