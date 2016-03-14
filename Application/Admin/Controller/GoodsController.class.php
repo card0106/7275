@@ -255,7 +255,8 @@ class GoodsController extends BaseController{
                 $this->display();
             }
         } 
-    } 
+    }
+     
     public function editData(){
          
          if(IS_POST){
