@@ -22,7 +22,7 @@ class CrontabController extends \Think\Controller{
 						$log_str .= '归档成功(id:' . $value['id'] . '	' . 'member_id:' . $value['members_id'] . '	' . "money:" . $comission . ")\r\n";
 					}else{
 						$model->rollback();
-						$log_str .= '归档失败(id:' . $value['id'] . '	' . 'member_id:' . $value['members_id'] . '	' . "money:" . $comission . ")\r\n";
+						$log_str .= '归档失败(id:' . $value['id'] . '	' . 'member_id:' . $value['members_id'] . '	' . "money:" . $comission . ")({var_dump($res), var_dump($res1)})\r\n";
 					}
 				}
 			}
