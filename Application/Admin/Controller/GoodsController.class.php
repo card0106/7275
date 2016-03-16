@@ -249,9 +249,11 @@ class GoodsController extends BaseController{
             }else{
                 $members = M('members')->where("state=1")->select();
                 $members = subscriptArray($members, 'id');
+                $goods = M("goods")->where("id={$goods_link['goods_id']}")->find();
                 $this->assign('members', $members);
-    			  $this->assign('categories',$categories);	
+    			$this->assign('categories',$categories);	
                 $this->assign('goods_link',$goods_link);
+                $this->assign('goods', $goods);
                 $this->display();
             }
         } 

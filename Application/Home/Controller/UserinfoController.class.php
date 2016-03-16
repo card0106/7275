@@ -16,6 +16,33 @@ namespace Home\Controller;
 class UserinfoController extends \Think\Controller{
     //用户登录成功之后，展示用户相关信息
     public function userInfo($withdrawal_amount=""){
+    	//查询出当前会员 推广数据的总数*单价=钱包总计
+        $member_name=$_SESSION["membersinfo"]["username"];
+        //根据会员名得到 member_id
+        $membersModel=D("Members");
+        $member=$membersModel->getByUsername($member_name);
+    	$member["enter_time"] = date("Y-m-d H:i:s", $member["enter_time"]);
+        $member["client_ip"] = long2ip($member["client_ip"]);
+        $this->assign("member",$member);
+
+        //金额
+        $money = [];
+        $yesterday = date('Y-m-d', strtotime("-1 days"));
+        $money['yesterday'] = M('dataList')->where("members_id={$member['id']} AND data_time='{$yesterday}'")->sum('comission');
+        if(empty($money['yesterday'])){
+        	$money['yesterday'] = '0.00';
+        }
+        $money['notpay'] = $member['balance'];
+        $money['total'] = $member['total_amount'];
+        $this->assign("money",$money);
+        //print_r($money);
+        $this->display();
+        die();
+
+
+
+
+
 
         //查询出当前会员 推广数据的总数*单价=钱包总计
         $member_name=$_SESSION["membersinfo"]["username"];
@@ -138,10 +165,17 @@ class UserinfoController extends \Think\Controller{
 	   	$username=$_SESSION["membersinfo"]["username"];
 	    $membersModel=M("Members");
        	$member=$membersModel->getByUsername($username,"id");
+
+
+
+
+
        	
         $withdrawalMoneys = D("Cash")->getTotals($member["id"]);
-        $totalMoneys = D("ProductData")->getTotals($member["id"]);
-        
+        //$totalMoneys = D("ProductData")->getTotals($member["id"]);
+        $totalMoneys = $member['total_amount'];
+
+
         $member['notpay'] = $totalMoneys - $withdrawalMoneys;
 	   	if(IS_POST){
         	$money = floatval($_POST['money']);

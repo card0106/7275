@@ -17,6 +17,9 @@ class ApplyController extends \Think\Controller{
     public function index(){
         $goodsApplies = M('goodsApply')->where(['state'=> 0])->select();
         $this->assign('goodsApplies', $goodsApplies);
+        $members = M('members')->select();
+        $members = subscriptArray($members, 'id');
+        $this->assign('members', $members);
         $this->display();
     }
 
