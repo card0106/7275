@@ -6,9 +6,9 @@
         <div class="bok" style="_margin-top:20px;">
     	<form id="form1" name="form1" method="post" action="{:U('/effect')}" >
        	  <div class="time fl">日期：</div>
-          <div class="time fl"><input type="text" id="date_1" name="date_begin"  readonly /></div>
+          <div class="time fl"><input type="text" id="date_1" name="date_begin"  value="{$date_begin}" readonly /></div>
        	  <div class="time fl">至</div>
-		  <div class="time fl"><input type="text" id="date_2" name="date_end"  readonly /></div>
+		  <div class="time fl"><input type="text" id="date_2" name="date_end"  value="{$date_end}" readonly /></div>
           <div class="time1 fl">产品：</div>
 			<div class="time fl"><input type="text" name="product_name" value="{$product_name}" style="width:250px;" /></div>
 			<div class="time1 fl"><input type="submit" id="button" value="查询" class="but cursor" /></div>

@@ -1,0 +1,51 @@
+<extend name='Common/base' />
+<block name='left'>
+    <include file="./Application/Admin/View/Public/left.html" />
+
+<link rel="stylesheet" href="__CSS__/bootstrap.min.css" type="text/css">
+<link type="text/css" href="__CSS__/base_1.css" rel="stylesheet" />
+<link type="text/css" href="__CSS__/jquery-ui.css" rel="stylesheet" />
+<script type="text/javascript" src="__JS__/jquery.js"></script>
+<script type="text/javascript" src="__JS__/jquery-ui-datepicker.js"></script>
+<script type="text/javascript" src="__JS__/jquery.tmpl.min.js"></script>
+ 
+</block>
+<block name='right'>
+<div class="right">
+    <include file="./Application/Admin/View/Public/top.html" />
+    <div class="con">
+      <form id="form1" name="form1" method="post" action="{:U('Goods/dataEdit')}" onsubmit="return jQuery.formValidator.PageIsValid('1')" enctype="multipart/form-data" >
+        <div>
+            <div class="tit f20" style="margin-top: 0px; margin-left: -20px;">
+                <span>产品数据</span>               
+            </div>                                
+            <div class="" >
+                  <input type="hidden" name='link_id' value='{$check.good_link_id}' />
+                  <input type="hidden"  name='id' value='{$check.id}' />
+                  <div class="time fl">日期：</div>
+                  <div class="time fl"> 
+                  <input type="text" id="date_1" name="data_time"  value="{$check.data_time}"   readonly /> 
+                  </div> 
+                  <div class="time fl">    
+                  <label>添加数据</label>
+                  <input type="text" id="click_num"  name="data_list" value=''/>
+                  </div>
+                  <div class="time fl"> 
+                  <input type="submit"   value="提交" />            
+                  </div>                   
+            </div>               
+        </div>
+     </from>    
+    </div>    
+</div>
+</block>
+<block name='js'>
+<script language="JavaScript" type="text/javascript">
+
+</script>    
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#date_1").datepicker();  
+    });
+</script>

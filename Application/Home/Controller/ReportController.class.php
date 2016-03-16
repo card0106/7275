@@ -71,7 +71,7 @@ class ReportController extends \Think\Controller{
           }else{
            
         //$this->assign("date_begin",$date_begin);
-        //$this->assign("date_end",$date_end);
+        //$this->assign("date_end",$date_end); 
         $this->assign("product_name",$product_name);
             $this->display();
 

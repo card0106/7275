@@ -30,9 +30,9 @@ class GoodsController extends BaseController{
 			];
 
     private $_measure = [
-                  '0'  => '元/千检索',
-                  '1'  => '元/千浏览',
-                  '2'  => '元/包激活'
+                  '1'  => '元/千检索',
+                  '2'  => '元/千浏览',
+                  '3'  => '元/包激活'
              ];
     
     public function index(){
@@ -162,8 +162,8 @@ class GoodsController extends BaseController{
     		$links = M('goodsLink')->where("goods_id={$id}")->order('id desc')->select();
     		$this->assign('links', $links);
 
-         $measure=M('measure')->select();
-         $this->assign('mesure',$measure); 
+        
+         $this->assign('measure',$this->_measure); 
 
     		$members = M('members')->where("state=1")->select();            
     		$members = subscriptArray($members, 'id');
@@ -258,15 +258,16 @@ class GoodsController extends BaseController{
     }
      
     public function editData(){
-         
+         //date_default_timezone_set('PRC');
          if(IS_POST){
              $data_time = I('date', 0);                        
              $id = I('id', 0);
              $click_num = I('click_num',0);
              $model = M('dataList');
-             if($model->where("good_link_id = '$id' and data_time = '$data_time'")->find()){
-                       $this->ajaxReturn('-1');
-                       exit;
+             
+             if($result=$model->where("good_link_id = '$id' and data_time = '$data_time'")->find()){                                             
+                     $this->ajaxReturn('-1');
+                       exit;   
              }else{
                   $link = M('goodsLink')->where("id=$id")->find();
                   $data['data_list'] = $click_num;
@@ -274,11 +275,14 @@ class GoodsController extends BaseController{
                   $data['up_price_1'] = $link['up_price_1'];
                   $data['down_price_1']=$link['down_price_1'];
                   $data['data_time'] = $data_time; 
-                  $data['members_id'] = $link['members_id']; 
+                  $data['members_id'] = $link['members_id'];
+                  $data['discount'] = $link['discount'];
+                  $data['create_time'] = date('Y-m-d h:i:s'); 
                   $goods = M('goods');
                   $goods_id = $link['goods_id'];
                   $type=$goods->where("id=$goods_id")->find();
                   $data['cash_type'] = $type['cash_type'];
+
                  
                   //$data['percent ']=$goods['percent'];
                   $model->create($data);
@@ -298,15 +302,51 @@ class GoodsController extends BaseController{
             $link = M('goodsLink')->where("id={$link_id}")->find();
             $this->assign('link',$link);
 
-            $data = M('dataList')->where("good_link_id={$link_id}")->order("data_time  DESC")->select();
-
             $members_id = $link['members_id'];
             $members = M('members')->where("id=$members_id")->find();
-            $username = $members['username'];
-            //dump($data);
+            $username = $members['username'];            
             $this->assign('username',$username);
-            $this->assign('data',$data);
+
+            //$data = M('dataList')->where("good_link_id={$link_id}")->order("data_time  DESC")->select();
+            $datalist = M('dataList');
+            $count = $datalist->where("good_link_id={$link_id}")->order("data_time  DESC")->count();
+            $Page       = new \Think\Page($count,5);
+            $show       = $Page->show();
+            $list = $datalist->where("good_link_id={$link_id}")->order("data_time  DESC")->limit($Page->firstRow.','.$Page->listRows)->select();
+            //dump($show);
+            //exit;
+            $this->assign('list',$list);
+            $this->assign('page',$show);
             $this->display();
          }
     }
+        public function dataEdit(){
+            if(IS_POST){
+                //echo "123456";
+                $id = I('post.id');
+                $link_id = I('post.link_id');
+                //dump($id);
+                //exit;
+                $data = M('dataList');
+                $data->create();
+                if($data->where("id=$id")->save()!== false){
+                    $this->success('修改成功', U('Admin:Goods/editData?id='.$link_id));
+                }else{
+                    $this->error('修改失败');
+                }
+                
+                
+            }else{
+                $data_id = I('get.id');
+                $data = M('dataList')->where("id={$data_id}")->find();
+                //dump($data);
+                $check['id'] = $data_id;
+                $check['good_link_id'] = $data['good_link_id'];
+                $check['data_time'] = $data['data_time'];
+                $check['click_num'] = $data['click_num'];              
+                
+                $this->assign('check',$check);
+                $this->display();
+            }
+        }
 }
