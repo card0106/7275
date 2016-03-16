@@ -1,7 +1,7 @@
 <include file="./Application/Home/View/Public/header_member.html" menu='info'/>
 <script type="text/javascript" src="__JS__/jquery.min.js"></script>
 <script type="text/javascript" src="__JS__/formValidator_min.js"></script>
-<!--导航栏 结束-----> 
+<!--导航栏 结束--> 
 <div id="menu" class="f14">
 	<div class="one">
 	<a href="{:U('/userinfo')}">概况</a>
@@ -61,7 +61,10 @@
                 <dt>支付宝：</dt>
                 <dd>{$member["zhifubao"]}</dd>
             </dl>
+            <if condition="$member['photo_url'] eq ''">暂无照片
+            <else />
 	<div><img src={$member["photo_url"]} style="width:100px;" ></img></div>
+    </if>
         </div>
     </div>
 <else />
@@ -110,9 +113,11 @@
                 <dd><input name="zhifubao" type="text" class="text" id="zhifubao" value="{$member["zhifubao"]}" /><span id="zhibubaoTip"></span></dd>
             </dl>
 		<dl>
+               
                 <dt>个人照片</dt>
                 <dd><input name="photo" type="file" id="photo" value="{$member["photo_url"]}" /><span id="photoTip"></span></dd>
             </dl>
+            
 		<div class="button"><input type="submit" id="button" value="提交" class="ibutton" />
 		  <input type="reset" id="button2" value="取消" class="qbutton" onclick="history.back(-1)" />
 		</div>
