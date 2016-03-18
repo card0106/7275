@@ -43,7 +43,7 @@
         </div>
         <ul class="news">
             <volist name='rows' id='row'>
-            <li><a target="_blank" href="{:U('/news/'.$row['id'])}">{$row.title}</a>{:date("Y-m-d",$row["time"])}</li>
+            <li><a target="_blank" href="{:U('/news/'.$row['id'])}">{$row.title}</a></li>
             </volist>
         </ul>
     </div>
