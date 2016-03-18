@@ -90,6 +90,62 @@ class IndexController extends Controller{
 			$contents = ob_get_contents();
 			ob_end_clean();
 	        $text.= file_put_contents("news.html", $contents)?"成功":"失败";
+
+	        $text.= "<br>关于我们：";
+	        ob_start();
+	        $tpl = new \Home\Controller\IndexController();
+	        $tpl->about();
+	        $contents = ob_get_contents();
+	        ob_end_clean();
+	        $text.= file_put_contents("about.html", $contents)?"成功":"失败";
+
+			$text.= "<br>商务合作：";
+			ob_start();
+			$tpl = new \Home\Controller\IndexController();
+			$tpl->business();
+			$contents = ob_get_contents();
+			ob_end_clean();
+			$text.= file_put_contents("business.html", $contents)?"成功":"失败";
+
+			$text.= "<br>版权声明：";
+			ob_start();
+			$tpl = new \Home\Controller\IndexController();
+			$tpl->copyright();
+			$contents = ob_get_contents();
+			ob_end_clean();
+			$text.= file_put_contents("copyright.html", $contents)?"成功":"失败";
+
+			$text.= "<br>服务条款：";
+			ob_start();
+			$tpl = new \Home\Controller\IndexController();
+			$tpl->service();
+			$contents = ob_get_contents();
+			ob_end_clean();
+			$text.= file_put_contents("service.html", $contents)?"成功":"失败";
+
+			$text.= "<br>免费声明：";
+			ob_start();
+			$tpl = new \Home\Controller\IndexController();
+			$tpl->freeStatement();
+			$contents = ob_get_contents();
+			ob_end_clean();
+			$text.= file_put_contents("freeStatement.html", $contents)?"成功":"失败";
+
+			$text.= "<br>隐私政策：";
+			ob_start();
+			$tpl = new \Home\Controller\IndexController();
+			$tpl->privacy();
+			$contents = ob_get_contents();
+			ob_end_clean();
+			$text.= file_put_contents("privacy.html", $contents)?"成功":"失败";
+
+			$text.= "<br>知识产权声明：";
+			ob_start();
+			$tpl = new \Home\Controller\IndexController();
+			$tpl->intellectual();
+			$contents = ob_get_contents();
+			ob_end_clean();
+			$text.= file_put_contents("intellectual.html", $contents)?"成功":"失败";
 	        
 	        $this->success($text, U("Admin/Index/index"), 5);
         }elseif(
