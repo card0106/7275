@@ -23,9 +23,9 @@ class RegisteController extends \Think\Controller{
         			
                     //$this->success("恭喜你，注册成功！",U("Home/Userinfo/userInfo"));
                 }else{
-                    $this->error("注册失败！".$membersModel->getError());
+                    $this->error("注册失败！".$membersModel->getError());                    
                 }
-            }
+            } $this->display(T('Home@Registe/index'));
         }else{
             $this->display(T('Home@Registe/index'));
         }
