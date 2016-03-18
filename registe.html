@@ -242,7 +242,13 @@
 		alert("银行帐号与支付宝帐号必需选一个");
 		return false;
 	}
+        if($("#xm").val()==""){
+            alert("收款人不能为空");
+            return false;
+        }
 	})
+
+
 </script>
 </body>
 </html>

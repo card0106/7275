@@ -17,18 +17,22 @@ class ReportController extends \Think\Controller{
     //展示“效果报告”
     public function  effect(){
         //根据当前 登录的会员，查出他所对应的产品
-         $member_name = $_SESSION["membersinfo"]["username"];
-	     $membersModel = M("Members");
-         $member_id = $membersModel->getFieldByUsername($member_name,"id");
-	    //$date_begin = date("Y-m-d", $_POST["date_begin"] ? strtotime($_POST["date_begin"]) : time()-604800);
-	    //$date_end = date("Y-m-d", $_POST["date_end"] ? strtotime($_POST["date_end"]) : time());
+        $member_name = $_SESSION["membersinfo"]["username"];
+        $membersModel = M("Members");
+        $member_id = $membersModel->getFieldByUsername($member_name,"id");
+        $date_begin = I('date_begin', date('Y-m-d',strtotime("-1 week")));
+        //$date_begin = $_POST["date_begin"] ? $_POST["date_begin"]:date("Y-m-d");
+        $date_end = I('date_end', date('Y-m-d'));
+        //$date_end = $_POST["date_end"] ? $_POST["date_end"]:date("Y-m-d");
+        $product_name = strval($_POST['product_name']) | '';
+
         //$date_begin = $_POST["date_begin"] ? strtotime($_POST["date_begin"]) : mktime(0,0,0)-604800;
         //$date_end = $_POST["date_end"] ? strtotime($_POST["date_end"])+86399 : mktime(0,0,0)+86400;
         //$product_name = strval($_POST['product_name']) | '';
 
-        if(IS_POST){
+        /*if(IS_POST){
         $date_begin = $_POST["date_begin"];
-        $date_end = $_POST["date_end"];
+        $date_end = $_POST["date_end"];*/
 
                 //$date_begin = '2016-03-06';
                 //$date_end = '2016-03-12';
@@ -40,9 +44,9 @@ class ReportController extends \Think\Controller{
                 );
                 */
             $goodsLinkmodel = M("goodsLink");
-            $totalRows = $goodsLinkmodel->alias('data')->join("LEFT JOIN `data_list` ON `data_list`.`good_link_id` = `data`.`id`")
-                                    ->field('data.link_url,data_list.*')
-                                                ->where("`data`.`members_id`='$member_id' AND `data_list`.`data_time`>'$date_begin' AND `data_list`.`data_time`<'$date_end'")
+            $totalRows = $goodsLinkmodel->alias('data')->join("LEFT JOIN `data_list` ON `data_list`.`good_link_id` = `data`.`id`")                                            
+                                    ->field('data.link_url,data_list.*')                                               
+                                                ->where("`data`.`members_id`='$member_id' AND `data_list`.`data_time`>'$date_begin' AND `data_list`.`data_time`<'$date_end'".(strlen($product_name)>0?" AND `data`.`link_url` LIKE '%".$product_name."%'":""))
                                     ->order("`data_list`.`data_time` DESC")
                                     ->count();
         $page=new \Think\Page($totalRows, C("PAGESIZE"));
@@ -55,27 +59,31 @@ class ReportController extends \Think\Controller{
 
         $rows = $goodsLinkmodel->alias('data')->join("LEFT JOIN `data_list` ON `data_list`.`good_link_id` = `data`.`id`")
                                     ->field('data.link_url,data_list.*')
-                                                ->where("`data`.`members_id`='$member_id' AND `data_list`.`data_time`>'$date_begin' AND `data_list`.`data_time`<'$date_end'")
+                                                ->where("`data`.`members_id`='$member_id' AND `data_list`.`data_time`>'$date_begin' AND `data_list`.`data_time`<'$date_end'".(strlen($product_name)>0?" AND `data`.`link_url` LIKE '%".$product_name."%'":""))
                                     ->order("`data_list`.`data_time` DESC")
                                          ->limit($start,$page->listRows)->select();
-
-        $page->setConfig('router', true);
+        //fenye URL
+        //$page->setConfig('router', true);
         $pageHTML=$page->show();
+        //print_r($pageHTML);die();
         $this->assign("date_begin",$date_begin);
         $this->assign("date_end",$date_end);
         $this->assign("product_name",$product_name);
         
+        //dump($pageHTML);
+        //exit;
         $this->assign("pageHTML",$pageHTML);
         $this->assign("rows",$rows);
         $this->display();
-          }else{
+         /* }else{
            
         //$this->assign("date_begin",$date_begin);
         //$this->assign("date_end",$date_end); 
+
         $this->assign("product_name",$product_name);
             $this->display();
 
-          }
+          }*/
 
         //$date_begin = $_POST["date_begin"];
         //$date_end = $_POST["date_end"];

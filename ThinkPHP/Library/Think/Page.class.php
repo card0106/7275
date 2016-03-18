@@ -66,6 +66,7 @@ class Page{
      * @param  integer $page 页码
      * @return string
      */
+    
     private function url($page){
     	if($this->config['router']===true)
     		return U('/'.ACTION_NAME.$page);
@@ -74,7 +75,7 @@ class Page{
     	else
     		return str_replace(urlencode('[PAGE]'), $page, $this->url);
     }
-
+    
     /**
      * 组装分页链接
      * @return string
