@@ -40,7 +40,7 @@ function uploadImage($file, $path='goods', $exts=[]){
 }
 
 function uploadSoftPack($file, $path='download'){
-	return uploadImage($file, $path, ['exe', 'apk', 'ipk','dmg']);
+	return uploadImage($file, $path, ['exe', 'apk', 'ipk','dmg','rar','zip','ipa']);
 }
 
 //图片缩略图
