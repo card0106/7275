@@ -29,18 +29,32 @@ class GoodsController extends \Think\Controller{
                 $catMaps[$val['id']] = $val['category_name'];
         }
         $catid = I("get.catid",0,'intval');
-        $catid = $catid!=0?$catid:2;//兼容路由空get参数，否则可直接使用I("get.catid",2,'intval');
-        $catid = intval($catMaps[$catid-1]==NULL ? $cats[0]['id'] : $catid);
-        $totalRows = $goods->where("category_id = '".$catid."' AND `state`=1")->order('`top_time` DESC')->count();
+        if($catid > 0){
+        //$catid = $catid!=0?$catid:2;//兼容路由空get参数，否则可直接使用I("get.catid",2,'intval');
+        //$catid = intval($catMaps[$catid-1]==NULL ? $cats[0]['id'] : $catid);        
+                $totalRows = $goods->where("category_id = '".$catid."' AND `state`=1")->order('`top_time` DESC')->count();
 
-        $page=new \Think\Page($totalRows, C("PAGESIZE"));
-        $start=$page->firstRow;
-        if($start>=$totalRows)
-            $start=$page->totalRows-$page->listRows;
-        if($start<=0)
-            $start=0;
+                $page=new \Think\Page($totalRows, C("PAGESIZE"));
+                $start=$page->firstRow;
+                if($start>=$totalRows)
+                    $start=$page->totalRows-$page->listRows;
+                if($start<=0)
+                    $start=0;
 
-        $rows = $goods->where("category_id = '".$catid."' AND `state`=1")->order('`top_time` DESC')->limit($start,$page->listRows)->select(); 
+                $rows = $goods->where("category_id = '".$catid."' AND `state`=1")->order('`top_time` DESC')->limit($start,$page->listRows)->select(); 
+        }else{
+                $totalRows = $goods->where("`state`=1")->order('`top_time` DESC')->count();
+                $page=new \Think\Page($totalRows, C("PAGESIZE"));
+                $start=$page->firstRow;
+                if($start>=$totalRows)
+                    $start=$page->totalRows-$page->listRows;
+                if($start<=0)
+                    $start=0;
+
+                $rows = $goods->where("`state`=1")->order('`top_time` DESC')->limit($start,$page->listRows)->select();      
+                //echo $goods->getLastSql();
+        }
+
 
         $page->setConfig('router', strtolower('/'.ACTION_NAME.$catid).'_[PAGE]');
         $pageHTML=$page->show();

@@ -30,68 +30,87 @@ class GoodsController extends BaseController{
 			];
 
     private $_measure = [
-                  '1'  => '元/千检索',
-                  '2'  => '元/千浏览',
-                  '3'  => '元/包激活'
+                  '1'  => '元/千ip检索',
+                  '2'  => '元/千ip搜索',
+                  '3'  => '元/激活'
              ];
-    
+
+    public function getAdminId(){
+                $userinfo = I('session.userinfo',0);
+                return $userinfo['id'];
+    }
     public function index(){
     	$result=$this->model->order('id desc')->page();
         $this->assign($result);
         $this->_before_index_view($result);
         $categories = M('category')->select();
         $categories = subscriptArray($categories, 'id');
+     $this->assign('measure',$this->_measure);    
     	$this->assign('cats', $categories);
     	$this->assign('states', $this->_states);
     	$this->assign('invoicing_cycle', $this->_invoicing_cycle);
     	$this->assign('data_back', $this->_data_back);
     	$this->assign('cashType', $this->_cash_type);
-    	$this->display();
+    	$this->display(); 
+
     }
+    
 
     public function add(){
-    	if(IS_POST){
-    		$model = D('goods');
-    		$model->create();
+        if(IS_POST){
+                $model = D('goods');
+                $model->create();
             if($model->cash_type == 0){
                 $model->percent = 0;
-            }
-    		if(isset($_FILES['logo']['name'])){
-    			$result = uploadImage($_FILES['logo'], 'goods');
-    			if(empty($result['errorInfo']) && $result['filePath']){
-    				$model->goods_big_img = $result['filePath'];
-    				$model->goods_small_img = thumbImage($result['filePath']);
-    			}else{
-    				$this->error($result['errorInfo']);
-    			}
-    		}
-    		if($model->add() !== false){
-    			$this->success('保存成功', U('Admin:Goods/index'));
-    		}
+                }
+                if(isset($_FILES['logo']['name'])){
+                        $result = uploadImage($_FILES['logo'], 'goods');
+                        if(empty($result['errorInfo']) && $result['filePath']){
+                                $model->goods_big_img = $result['filePath'];
+                                $model->goods_small_img = thumbImage($result['filePath']);
+                        }else{
+                                $this->error($result['errorInfo']);
+                        }
+                }
+                $res = $model->add();
+                if($res !== false){
+                        $record2 = serialize($model->where("id=$res")->find());
+                        $this->record($this->getAdminId,1,'goods',$res,'',$record2);
+                        $this->success('保存成功', U('Admin:Goods/index'));               
+                }
             $this->error("操作失败");
         }
     }
+
 
     public function edit(){
     	$id = I('id', 0);
     	if(IS_POST){
     		if($id > 0){
     			$model = M('goods');
+             $record1=serialize($model->where("id=$id")->find());
+        
 	    		$model->create();
                 if($model->cash_type == 0){
                     $model->percent = 0;
                 }
-	    		if(!empty($_FILES['logo']['tmp_name'])){
-	    			$result = uploadImage($_FILES['logo'], 'goods');
-	    			if(empty($result['errorInfo']) && $result['filePath']){
-	    				$model->goods_big_img = $result['filePath'];
-	    				$model->goods_small_img = thumbImage($result['filePath']);
+	    		         if(!empty($_FILES['logo']['tmp_name'])){
+	    			         $result = uploadImage($_FILES['logo'], 'goods');
+	    			        if(empty($result['errorInfo']) && $result['filePath']){
+	    				   $model->goods_big_img = $result['filePath'];
+	    				   $model->goods_small_img = thumbImage($result['filePath']);
 	    			}else{
 	    				$this->error($result['errorInfo']);
 	    			}
 	    		}
-	    		if($model->where("id={$id}")->save() !== false){
-	    			$this->success('修改成功', U('Admin:Goods/index'));
+	    		if($res=$model->where("id={$id}")->save() !== false){
+                  $record2=serialize($model->where("id=$id")->find());
+	    			$this->record($this->getAdminId,2,'goods',$id,$record1,$record2);
+                  
+                  $this->success('修改成功', U('Admin:Goods/index'));
+
+                 
+                 
 	    		}else{
 	    			$this->error('修改失败');
 	    		}
@@ -113,8 +132,8 @@ class GoodsController extends BaseController{
     			$this->assign('row', $goods);
     			$this->display();
     		}
-    	}else{
-    		$this->error('参数错误');
+    }else{
+    		  $this->error('参数错误');
     	}
     }
 
@@ -122,9 +141,11 @@ class GoodsController extends BaseController{
     public function delGoods(){
         $productModel=D("goods");
         $id=$_POST["id"];
+        $record1=serialize($productModel->where("id=$id")->find());       
         $res=$productModel->where("id={$id}")->delete();
         if($res!==false){
             M('goods')->where("id={$goods_id}")->setInc('effective_links', -1);
+            $this->record($this->getAdminId,3,'goods',$id,$record1,'');
             $this->ajaxReturn (1);
         }
     }   
@@ -150,6 +171,7 @@ class GoodsController extends BaseController{
     	$id = I('id', 0);
     	if($id > 0){
     		$categories = M('category')->select();
+         $categories = subscriptArray($categories, 'id');
 	    	$this->assign('cats', $categories);
 	    	$this->assign('states', $this->_states);
 	    	$this->assign('invoicing_cycle', $this->_invoicing_cycle);
@@ -163,7 +185,7 @@ class GoodsController extends BaseController{
     		$this->assign('links', $links);
 
         
-         $this->assign('measure',$this->_measure); 
+         
 
     		$members = M('members')->where("state=1")->select();            
     		$members = subscriptArray($members, 'id');
@@ -192,8 +214,11 @@ class GoodsController extends BaseController{
 		    				exit;
 		    			}
     				}
-    				if($model->add() !== false){
+                  $res = $model->add();
+    				if($res !== false){
                         M('goods')->where("id={$goods_id}")->setInc('effective_links', 1);
+                      $record2=serialize($model->where("id=$res")->find()); 
+                      $this->record($this->getAdminId,1,'goods_link',$res,$old_data='0',$record2); 
     					$this->success('保存成功');
     					exit;
 		    		}else{
@@ -229,16 +254,21 @@ class GoodsController extends BaseController{
                 // var_dump($data);
                 //exit;
                 $model=M('goodsLink');
+
+                $record1=serialize($model->where("id=$good_id")->find());
                 $model->create(); 
                 if($model->where("id=$good_id")->save($data) !== false){
                     $goods_link['id']=$good_id;
                     $goods_link=M('goodsLink')->where($goods_link)->find();
+                    $record2=serialize($goods_link);
+                    $this->record($this->getAdminId,2,'goods_link',$good_id,$record1,$record2);
+
                     $this->success('修改成功', U('Admin:Goods/links?id='. $goods_link['goods_id']));                   
                 }else{
                     $this->error('修改失败');
                 }
             }else{
-                echo "jiagebudi";
+                $this->error('修改失败,上游价格小于下游价格');
             }
         }else if($good_id>0){
             $goods_link['id']=$good_id;
@@ -282,7 +312,7 @@ class GoodsController extends BaseController{
                   $data['create_time'] = date('Y-m-d h:i:s'); 
                   $goods = M('goods');
                   $goods_id = $link['goods_id'];
-                  $type=$goods->where("id=$goods_id")->find();
+                  $type = $goods->where("id=$goods_id")->find();
                   $data['cash_type'] = $type['cash_type'];
 
                  
@@ -290,6 +320,9 @@ class GoodsController extends BaseController{
                   $model->create($data);
                   $res = $model->add();
                   if($res !== false){
+                       
+                       $record1 = serialize($model->where("id=$res")->find());
+                       $this->record($this->getAdminId,1,'data_list',$res,$record1,'');
                        $this->ajaxReturn('1');
                        exit;
                   }else{
@@ -322,7 +355,7 @@ class GoodsController extends BaseController{
             $this->display();
          }
     }
-        public function dataEdit(){
+    public function dataEdit(){
             if(IS_POST){
                 //echo "123456";
                 $id = I('post.id');
@@ -330,8 +363,12 @@ class GoodsController extends BaseController{
                 //dump($id);
                 //exit;
                 $data = M('dataList');
+                $record1 = serialize($data->where("id=$id")->find());
                 $data->create();
                 if($data->where("id=$id")->save()!== false){
+
+                    $record2 = serialize($data->where("id=$id")->find());
+                    $this->record($this->getAdminId,2,'data_list',$id,$record1,$record2);
                     $this->success('修改成功', U('Admin:Goods/editData?id='.$link_id));
                 }else{
                     $this->error('修改失败');
@@ -351,4 +388,53 @@ class GoodsController extends BaseController{
                 $this->display();
             }
         }
+
+    public function record($admin_id=0,$record=0,$table,$table_id=0,$old_data='0',$new_data='0'){
+            $recordModel = M('Record');
+            $data['admin_id'] = $admin_id;
+            $data['record'] = $record;
+            $data['table'] = $table;
+            $data['table_id'] = $table_id;
+            $data['old_data'] = $old_data;
+            $data['new_data'] = $new_data;
+            $data['time'] = date('Y-m-d h:i:s');            
+            $list=$recordModel->create($data);
+            
+            //dump($list);
+            //exit;
+                if($recordModel->add() !== false){
+                //$this->success('保存成功');
+
+            }else{
+                $this->error('记录添加失败');
+            }
+
+        }
+    public function recordList(){
+
+            $model = M('record');
+            $recordList=$model->select();
+            $this->assign('goods', $recordList);
+            /*
+            for($i=0;$i<count($recordList); $i++){
+                if($recordList[$i]['table']=='goods'){
+                    dump($recordList[$i]);
+
+                    $this->assign('goods', $recordList[$i]);
+                    
+                }
+                //dump($recordList[$i]['table']);
+                //dump(unserialize($recordList[$i]['old_data']));
+
+                foreach($recordList[$i] as  $key=>$value){
+                        echo $value;
+                }
+            }*/
+           
+
+            
+            
+            $this->display();
+
+    }   
 }

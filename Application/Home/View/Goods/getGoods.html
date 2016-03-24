@@ -5,6 +5,7 @@
 <if condition="count($cats) gt 1">
 <div id="menu" class="f14">
   <div class="two">
+    <a href="{:u('/getgoods'.$cat[0])}"<if condition="$catid eq $i">class="dr"</if>>全部</a>
     <volist name='cats' id='cat'>
     <a href="{:U('/getgoods'.$cat['id'])}" <if condition="$catid eq $i">class="dr"</if>>{$cat.category_name}</a>
     </volist>
@@ -15,8 +16,10 @@
 <div id="content">
     	<table width="100%" border="1" cellpadding="0" cellspacing="0">
             <tr>
-                <th colspan=2>产品名称</th>
+                <th colspan=2>业务名称</th>
+                <th width="11%">结算类型</th>
                 <th width="11%">价格</th>
+                <th width="11%">结算单位</th>
                 <th width="12%">结算周期</th>
                 <th width="11%">出数据时间</th>
                 <th width="10%">申请推广</th>
@@ -25,14 +28,26 @@
             <volist name='rows' id='row'>
             <tr <if condition="$row.have eq true">style="background: rgb(220,220,220);"</if>>
                 <td style="text-align: right;">
-                    <img src="{$row.goods_small_img}" width="30" height="30">
+                    <img src="{$row.goods_small_img}" width="" height="50">
                 </td>
                 <td style="text-align: left;">{$row.goods_name}</td>
+                <td>
+                    <if condition="$row['cash_type']  eq 0">金额
+                    <else />分成
+                    </if>
+                </td>
                 <td>
                     <if condition="$row.cash_type eq 0">
                     ￥<span class="color1">{$row.down_price_1}</span>
                     <elseif condition="$row.cash_type eq 1"/>
                     <span class="color1">{$row.down_price_1}</span>%
+                    </if>
+                </td>
+                <td>                    
+                    <if condition="$row['measure'] eq 1">元/千ip检索
+                    <elseif condition="$row['measure'] eq 2 " />元/千ip搜索
+                    <elseif condition="$row['measure'] eq 3 " />元/激活
+                    <else />以后选择
                     </if>
                 </td>
                 <td>
@@ -69,11 +84,11 @@
             </tr>
             </volist>
         </table>
-        <!--分页工具条 开始---->
+        <!--分页工具条 开始-->
         <div id="turn-page" class="page">
             {$pageHTML}
         </div> 
-        <!--分页工具条 结束---->     
+        <!--分页工具条 结束-->     
 <include file="./Application/Home/View/Public/footer.html" />
 <script type="text/javascript"> 
    //为联系客服注册点击事件

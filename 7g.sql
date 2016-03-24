@@ -12,6 +12,8 @@ CREATE TABLE `goods` (
   `goods_big_img` varchar(255) NOT NULL DEFAULT '' COMMENT '产品的大图片',
   `goods_small_img` varchar(255) NOT NULL DEFAULT '' COMMENT '产品的大图片',
   `intro` text COMMENT '产品介绍及说明',
+  `measure` tinyint(1) NOT NULL DEFAULT '0' COMMENT '单位',
+  `percent`  decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '百分比',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8 COMMENT='产品表'
 
@@ -79,3 +81,12 @@ UNIQUE KEY `username_2` (`username`)
 )ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COMMENT='会员表' 
 
 
+CREATE TABLE `category` (
+ `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '产品分类ID',
+  `category_name` varchar(32) NOT NULL DEFAULT '' COMMENT '产品分类的名称',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='产品分类表';
+SET sql_mode='NO_AUTO_VALUE_ON_ZERO'; 
+
+alter table goods add `measure` tinyint(1) NOT NULL DEFAULT '0' COMMENT '单位';
+alter table `goods_link` drop column measure;
