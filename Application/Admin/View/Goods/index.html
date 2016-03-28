@@ -7,7 +7,8 @@
     	<include file="./Application/Admin/View/Public/top.html" />
         <div class="tit f20">
             <span>业务信息</span>
-            <a class="f12 cursor" data-toggle="modal" data-target="#myModal">增加业务</a> 
+            <a class="f12 cursor" data-toggle="modal" data-target="#myModal">增加业务</a>
+            <a class="f12 cursor" href="{:U('recordList')}">操作记录</a> 
             <!--<a href="{:U('import')}" class="f12">导入报表数据</a>-->
         </div>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -47,6 +48,15 @@
                                 <lable>业务名称：</lable>
                                 <input type="text" name='goods_name' class="form-control" placeholder="请输入业务名称">
                             </div>
+                            <div class="form-group">
+                                <lable>单位：</lable>
+                                <select name="measure" class="form-control">
+                                    <option value="0">以后选择</option>
+                                    <volist name="measure" id="measure">
+                                        <option value="{$key}">{$measure}</option>
+                                    </volist>
+                                </select>
+                            </div>                             
                             <div class="form-group">
                                 <lable>业务logo：</lable>
                                 <input type="file" name="logo" class="form-control">

@@ -1,0 +1,71 @@
+<extend name='Common/base' />
+<block name='left'>
+    <include file="./Application/Admin/View/Public/left.html" />
+</block>    
+<block name='right'>
+    <div class="right">
+    	<include file="./Application/Admin/View/Public/top.html" />
+        <div class="tit f20">
+            <span>数据表</span>
+        </div> 
+        <div class="con">
+            <table border="0" cellpadding="0" cellspacing="0" class="productTable" id="data">
+                <thead>
+                    <tr>
+                        <th style="width:50px;">操作ID</th>                        
+                        <th style="width:50px;">操作方式</th>                       
+                        <th style="width:50px;">影响行id</th>
+                        <th style="width:100px" colspan="2">数据日期<br />旧   ||   新</th>
+                        <th style="width:100px" colspan="2">产品名称<br />旧   ||   新</th>                       
+                        <th style="width:100px" colspan="2">产品数据<br />旧   ||   新</th>
+                        <th style="width:100px" colspan="2">上游价<br />旧   ||   新</th>
+                        <th style="width:100px" colspan="2">下游价<br />旧   ||   新</th> 
+                        <th style="width:100px" colspan="2">用户名<br />旧   ||   新</th>
+                        <th style="width:100px" colspan="2">归档状态<br />旧   ||   新</th>                       
+                                                                    
+                        <th style="width:50px;">操作时间</th>                       
+                    </tr>
+                </thead>
+                <tbody>
+                		 
+                  <volist name="rows" id="vo">
+                  <if condition="$vo['table'] eq 'data_list'" >
+                    <php> $old=unserialize($vo['old_data']);</php>
+                    <php> $new=unserialize($vo['new_data']);</php>
+                    <tr>
+                        <td>{$admin[$vo['admin_id']]['username']}</td>
+                        <td><if condition="$vo['record'] eq 1"> 新增 <elseif condition="$vo['record'] eq 2" />修改<else />删除</if></td>
+                        <td>{$vo.table_id}</td>
+                        <td>{$old['data_time']}</td>
+                        <td>{$new['data_time']}</td>
+                        <td>{$old['good_link_id']}</td>
+                        <td>{$new['good_link_id']}</td>
+                        <td>{$old['data_list']}</td>
+                        <td>{$new['data_list']}</td>
+                        <td>{$old['up_price_1']}</td>
+                        <td>{$new['up_price_1']}</td>
+                        <td>{$old['down_price_1']}</td>
+                        <td>{$new['down_price_1']}</td>
+                        <td>{$old['members_id']}</td>
+                        <td>{$new['members_id']}</td>
+                        <td>{$old['onfile']}</td>
+                        <td>{$new['onfile']}</td>
+                        
+                        <td>{$vo.time}</td>                        
+                    </tr>
+                    </if>               	
+               	</volist>
+                </tbody>
+            </table>
+            <br />
+           
+            
+            <div id="turn-page" class="page">
+                {$pageHTML}
+            </div> 
+        </div>
+    
+   </div>
+</block>
+
+

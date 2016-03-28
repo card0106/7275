@@ -1,0 +1,104 @@
+<extend name='Common/base' />
+<block name='left'>
+    <include file="./Application/Admin/View/Public/left.html" />
+</block>    
+<block name='right'>
+    <div class="right">
+    	<include file="./Application/Admin/View/Public/top.html" />
+        <div class="tit f20">
+            <span>业务表</span>
+        </div> 
+        <div class="con">
+            <table border="0" cellpadding="0" cellspacing="0" class="productTable" id="data">
+                <thead>
+                    <tr>
+                        <th style="width:50px;">操作ID</th>                        
+                        <th style="width:50px;">操作方式</th>                       
+                        <th style="width:50px;">影响行id</th>
+                        <th style="width:100px" colspan="2">结算名称<br />旧   ||   新</th>
+                        <th style="width:100px" colspan="2">结算类型<br />旧   ||   新</th>                       
+                        <th style="width:100px" colspan="2">业务类型<br />旧   ||   新</th> 
+                        <th style="width:100px" colspan="2">最大链接数<br />旧   ||   新</th> 
+                        <th style="width:100px" colspan="2">结算周期<br />旧   ||   新</th>
+                        <th style="width:100px" colspan="2">返回数据<br />旧   ||   新</th>                       
+                        <th style="width:100px" colspan="2">百分比<br />旧   ||   新</th> 
+                        <th style="width:100px" colspan="2">单位<br />旧   ||   新</th>                                            
+                        <th style="width:50px;">操作时间</th>                       
+                    </tr>
+                </thead>
+                <tbody>
+                		 
+                  <volist name="rows" id="vo">
+                  <!--<if condition="$vo['table'] eq 'goods'" >-->
+                    <php> $old=unserialize($vo['old_data']);</php>
+                    <php> $new=unserialize($vo['new_data']);</php>
+                    <tr>
+                        <td>{$admin[$vo['admin_id']]['username']}</td>
+
+                        <td><if condition="$vo['record'] eq 1"> 新增 <elseif condition="$vo['record'] eq 2" />修改<else />删除</if></td>                        
+                        <td>{$vo['table_id']}</td>
+                        <td>{$old['goods_name']}</td>
+                        <td>{$new['goods_name']}</td>                        
+                        <td><if condition="$vo['record'] eq 1"><else /><if condition="$old['cash_type'] eq 0">金额<else />分成</if></if></td>
+                        <td><if condition="$vo['record'] eq 3"><else /><if condition="$new['cash_type'] eq 0">金额<else />分成</if></if></td>
+                        <td>{$cat[$old['category_id']]['category_name']}</td>
+                        <td>{$cat[$new['category_id']]['category_name']}</td>
+                        <td>{$old['max_links']}</td>
+                        <td>{$new['max_links']}</td>
+                        <td><if condition="$vo['record'] eq 1"><else />
+                                <if condition="$old['invoicing_cycle'] eq 0">每日
+                                <elseif condition="$old['invoicing_cycle'] eq 1"/>每周
+                                <elseif condition="$old['invoicing_cycle'] eq 2"/>双周
+                                <elseif condition="$old['invoicing_cycle'] eq 3"/>每月
+                                </if>
+                            </if></td>
+                        <td><if condition="$vo['record'] eq 3"><else /><if condition="$new['invoicing_cycle'] eq 0">每日
+                                <elseif condition="$new['invoicing_cycle'] eq 1"/>每周
+                                <elseif condition="$new['invoicing_cycle'] eq 2"/>双周
+                                <elseif condition="$new['invoicing_cycle'] eq 3"/>每月
+                                </if>
+                            </if></td>
+                        <td><if condition="$vo['record'] eq 1"><else />
+                            <if condition="$old['data_back'] eq 0">次日
+                            <elseif condition="$old['data_back'] eq 1"/>实时
+                            <else />每周
+                            </if>
+                            </if></td>
+                        <td><if condition="$vo['record'] eq 3"><else />
+                            <if condition="$new['data_back'] eq 0">次日
+                            <elseif condition="$new['data_back'] eq 1"/>实时
+                            <else />每周
+                            </if>
+                            </if></td>
+                        <td>{$old['percent']}</td>
+                        <td>{$new['percent']}</td>
+                        <td><if condition="$vo['record'] eq 1"><else /><if condition="$old['measure'] eq 1">元/千ip检索
+                            <elseif condition="$old['measure'] eq 2 " />元/千ip搜索
+                            <elseif condition="$old['measure'] eq 3 " />元/激活
+                            <else />以后选择
+                            </if>
+                            </if></td>
+                        <td><if condition="$vo['record'] eq 3"><else /><if condition="$new['measure'] eq 1">元/千ip检索
+                            <elseif condition="$new['measure'] eq 2 " />元/千ip搜索
+                            <elseif condition="$new['measure'] eq 3 " />元/激活
+                            <else />以后选择
+                            </if>
+                            </if></td>                      
+                        <td>{$vo.time}</td>                        
+                    </tr>
+                   <!-- </if> -->              	
+               	</volist>
+                </tbody>
+            </table>
+            <br />
+           
+           
+            <div id="turn-page" class="page">
+                {$pageHTML}
+            </div> 
+        </div>
+    
+   
+</block>
+
+

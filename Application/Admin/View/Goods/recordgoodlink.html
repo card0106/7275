@@ -1,0 +1,68 @@
+<extend name='Common/base' />
+<block name='left'>
+    <include file="./Application/Admin/View/Public/left.html" />
+</block>    
+<block name='right'>
+    <div class="right">
+    	<include file="./Application/Admin/View/Public/top.html" />
+        <div class="tit f20">
+            <span>产品表</span>
+        </div> 
+        <div class="con">
+            <table border="0" cellpadding="0" cellspacing="0" class="productTable" id="data">
+                <thead>
+                    <tr>
+                        <th style="width:50px;">操作ID</th>                        
+                        <th style="width:50px;">操作方式</th>                       
+                        <th style="width:50px;">影响行id</th>
+                        <th style="width:100px" colspan="2">推广(下载)URL<br />旧   ||   新</th>
+                        <th style="width:100px" colspan="2">扣量率<br />旧   ||   新</th>                       
+                        <th style="width:100px" colspan="2">上游价格<br />旧   ||   新</th> 
+                        <th style="width:100px" colspan="2">下游价格<br />旧   ||   新</th> 
+                        <th style="width:100px" colspan="2">用户名<br />旧   ||   新</th>
+                        <th style="width:100px" colspan="2">产品名称<br />旧   ||   新</th>                       
+                                                                    
+                        <th style="width:50px;">操作时间</th>                       
+                    </tr>
+                </thead>
+                <tbody>
+                		 
+                  <volist name="rows" id="vo">
+                  <if condition="$vo['table'] eq 'goods_link'" >
+                    <php> $old=unserialize($vo['old_data']);</php>
+                    <php> $new=unserialize($vo['new_data']);</php>
+                    <tr>
+                        <td>{$admin[$vo['admin_id']]['username']}</td>
+                        <td><if condition="$vo['record'] eq 1"> 新增 <elseif condition="$vo['record'] eq 2" />修改<else />删除</if></td>
+                        <td>{$vo.table_id}</td>
+                        <td>{$old['link_url']}</td>
+                        <td>{$new['link_url']}</td>
+                        <td>{$old['discount']}</td>
+                        <td>{$new['discount']}</td>
+                        <td>{$old['up_price_1']}</td>
+                        <td>{$new['up_price_1']}</td>
+                        <td>{$old['down_price_1']}</td>
+                        <td>{$new['down_price_1']}</td>
+                        <td>{$old['members_id']}</td>
+                        <td>{$new['members_id']}</td>
+                        <td>{$old['site_name']}</td>
+                        <td>{$new['site_name']}</td>
+                        
+                        <td>{$vo.time}</td>                        
+                    </tr>
+                    </if>               	
+               	</volist>
+                </tbody>
+            </table>
+            <br />
+           
+            
+            <div id="turn-page" class="page">
+                {$pageHTML}
+            </div> 
+        </div>
+    
+   </div>
+</block>
+
+
