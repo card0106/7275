@@ -37,7 +37,8 @@ class GoodsController extends BaseController{
 
     public function getAdminId(){
                 $userinfo = I('session.userinfo',0);
-                return $userinfo['id'];
+                $userid = $userinfo['id'];
+                return $userid;
     }
     public function index(){
     	$result=$this->model->order('id desc')->page();
@@ -58,6 +59,8 @@ class GoodsController extends BaseController{
 
     public function add(){
         if(IS_POST){
+                //$userinfo = I('session.userinfo',0);
+                //$userid = $userinfo['id'];
                 $model = D('goods');
                 $model->create();
             if($model->cash_type == 0){
@@ -74,8 +77,9 @@ class GoodsController extends BaseController{
                 }
                 $res = $model->add();
                 if($res !== false){
+
                         $record2 = serialize($model->where("id=$res")->find());
-                        $this->record($this->getAdminId,1,'goods',$res,'',$record2);
+                        $this->record($this->getAdminId(),1,'goods',$res,'',$record2);
                         $this->success('保存成功', U('Admin:Goods/index'));               
                 }
             $this->error("操作失败");
@@ -105,7 +109,7 @@ class GoodsController extends BaseController{
 	    		}
 	    		if($res=$model->where("id={$id}")->save() !== false){
                   $record2=serialize($model->where("id=$id")->find());
-	    			$this->record($this->getAdminId,2,'goods',$id,$record1,$record2);
+	    			$this->record($this->getAdminId(),2,'goods',$id,$record1,$record2);
                   
                   $this->success('修改成功', U('Admin:Goods/index'));
 
@@ -145,7 +149,7 @@ class GoodsController extends BaseController{
         $res=$productModel->where("id={$id}")->delete();
         if($res!==false){
             M('goods')->where("id={$goods_id}")->setInc('effective_links', -1);
-            $this->record($this->getAdminId,3,'goods',$id,$record1,'');
+            $this->record($this->getAdminId(),3,'goods',$id,$record1,'');
             $this->ajaxReturn (1);
         }
     }   
@@ -218,7 +222,7 @@ class GoodsController extends BaseController{
     				if($res !== false){
                         M('goods')->where("id={$goods_id}")->setInc('effective_links', 1);
                       $record2=serialize($model->where("id=$res")->find()); 
-                      $this->record($this->getAdminId,1,'goods_link',$res,$old_data='0',$record2); 
+                      $this->record($this->getAdminId(),1,'goods_link',$res,$old_data='0',$record2); 
     					$this->success('保存成功');
     					exit;
 		    		}else{
@@ -247,21 +251,21 @@ class GoodsController extends BaseController{
             //$goods=M('goods')->where('{id=$goodid}')->find();
                                         
             if($data['up_price_1']>$data['down_price_1']){ 
-                $data['link_url']=I('post.link_url');
+                /*$data['link_url']=I('post.link_url');
                 $data['discount']=I('post.discount');
                 $data['site_name']=I('post.site_name');
-                $data['members_id']=I('post.members_id');                           
+                $data['members_id']=I('post.members_id'); */                          
                 // var_dump($data);
                 //exit;
                 $model=M('goodsLink');
 
                 $record1=serialize($model->where("id=$good_id")->find());
                 $model->create(); 
-                if($model->where("id=$good_id")->save($data) !== false){
+                if($model->where("id=$good_id")->save() !== false){
                     $goods_link['id']=$good_id;
                     $goods_link=M('goodsLink')->where($goods_link)->find();
                     $record2=serialize($goods_link);
-                    $this->record($this->getAdminId,2,'goods_link',$good_id,$record1,$record2);
+                    $this->record($this->getAdminId(),2,'goods_link',$good_id,$record1,$record2);
 
                     $this->success('修改成功', U('Admin:Goods/links?id='. $goods_link['goods_id']));                   
                 }else{
@@ -322,7 +326,7 @@ class GoodsController extends BaseController{
                   if($res !== false){
                        
                        $record1 = serialize($model->where("id=$res")->find());
-                       $this->record($this->getAdminId,1,'data_list',$res,$record1,'');
+                       $this->record($this->getAdminId(),1,'data_list',$res,$record1,'');
                        $this->ajaxReturn('1');
                        exit;
                   }else{
@@ -368,7 +372,7 @@ class GoodsController extends BaseController{
                 if($data->where("id=$id")->save()!== false){
 
                     $record2 = serialize($data->where("id=$id")->find());
-                    $this->record($this->getAdminId,2,'data_list',$id,$record1,$record2);
+                    $this->record($this->getAdminId(),2,'data_list',$id,$record1,$record2);
                     $this->success('修改成功', U('Admin:Goods/editData?id='.$link_id));
                 }else{
                     $this->error('修改失败');
@@ -413,8 +417,34 @@ class GoodsController extends BaseController{
     public function recordList(){
 
             $model = M('record');
-            $recordList=$model->select();
-            $this->assign('goods', $recordList);
+            //$recordList=$model->where("table=goods")->select();
+            $cat = M('category')->select();
+            $admin = M('admin')->select();
+            $admin = subscriptArray($admin, 'id');          
+            $cat = subscriptArray($cat,'id');
+            $totalRows = $model->where("`table`='goods'")->order("time desc")->count();
+            $page=new \Think\Page($totalRows, C("PAGESIZE"));
+            $start=$page->firstRow;
+            if($start>=$totalRows)
+                    $start=$page->totalRows-$page->listRows;
+            if($start<=0)
+                    $start=0;
+
+            $rows = $model->where("`table`='goods'")->order("time desc")->limit($start,$page->listRows)->select();      
+                //echo $goods->getLastSql();
+        
+
+
+            //$page->setConfig('router', strtolower('/'.ACTION_NAME.$catid).'_[PAGE]');
+            $pageHTML=$page->show();
+
+            $this->assign('admin',$admin);
+            $this->assign('cat',$cat);
+            $this->assign('rows',$rows);
+            $this->assign('pageHTML',$pageHTML);
+            $this->display();
+            //$this->assign('goods', $recordList);
+           
             /*
             for($i=0;$i<count($recordList); $i++){
                 if($recordList[$i]['table']=='goods'){
@@ -430,11 +460,66 @@ class GoodsController extends BaseController{
                         echo $value;
                 }
             }*/
-           
+             }
+    public function recordgoodlink(){
 
-            
-            
+            $model = M('record');
+            //$recordList=$model->select();
+            $cat = M('category')->select();
+            $admin = M('admin')->select();
+            $admin = subscriptArray($admin, 'id');          
+            $cat = subscriptArray($cat,'id');
+            $totalRows = $model->where("`table`='goods_link'")->order("time desc")->count();
+            $page=new \Think\Page($totalRows, C("PAGESIZE"));
+            $start=$page->firstRow;
+            if($start>=$totalRows)
+                    $start=$page->totalRows-$page->listRows;
+            if($start<=0)
+                    $start=0;
+
+            $rows = $model->where(`table`=='goods_link')->order("time desc")->limit($start,$page->listRows)->select();      
+                //echo $goods->getLastSql();
+        
+
+
+            //$page->setConfig('router', strtolower('/'.ACTION_NAME.$catid).'_[PAGE]');
+            $pageHTML=$page->show();
+
+            $this->assign('admin',$admin);
+            $this->assign('cat',$cat);
+            $this->assign('rows',$rows);
+            $this->assign('pageHTML',$pageHTML);
             $this->display();
+            } 
+    public function recorddatalist(){
 
-    }   
+            $model = M('record');
+            //$recordList=$model->select();
+            $cat = M('category')->select();
+            $admin = M('admin')->select();
+            $admin = subscriptArray($admin, 'id');          
+            $cat = subscriptArray($cat,'id');
+            $totalRows = $model->where("`table`='data_list'")->order("time desc")->count();
+            $page=new \Think\Page($totalRows, C("PAGESIZE"));
+            $start=$page->firstRow;
+            if($start>=$totalRows)
+                    $start=$page->totalRows-$page->listRows;
+            if($start<=0)
+                    $start=0;
+
+            $rows = $model->where("`table`='data_list'")->order("time desc")->limit($start,$page->listRows)->select();      
+                //echo $goods->getLastSql();
+        
+
+
+            //$page->setConfig('router', strtolower('/'.ACTION_NAME.$catid).'_[PAGE]');
+            $pageHTML=$page->show();
+
+            $this->assign('admin',$admin);
+            $this->assign('cat',$cat);
+            $this->assign('rows',$rows);
+            $this->assign('pageHTML',$pageHTML);
+            $this->display();
+            }       
+
 }
