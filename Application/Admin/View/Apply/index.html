@@ -8,88 +8,13 @@
         <div class="tit f20">
             <span>产品申请列表</span>
         </div>
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title" id="myModalLabel">增加产品</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form id="form1" name="form1" method="post" action="{:U('Goods/add')}" onsubmit="return jQuery.formValidator.PageIsValid('1')" enctype="multipart/form-data" >
-                            <div class="form-group">
-                                <lable>平台类型：</lable>
-                                <select class="form-control" name='category_id'>
-                                    <option value="0">请选择平台类型</option>
-                                    <volist name='cats' id='cat'>
-                                    <option value="{$cat.id}">{$cat.category_name}</option>
-                                    </volist>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <lable>结算类型：</lable>
-        		                <select class="form-control" name="cash_type" >
-                                    <option>请选择结算类型</option>
-        		                    <volist name="cashType" id="cash">
-                                        <option value="{$key}">{$cash}</option>
-                                    </volist>
-        		                </select>
-                            </div>
-                            <div class="form-group">
-                                <lable>产品名称：</lable>
-                                <input type="text" name='goods_name' class="form-control" placeholder="请输入产品名称">
-                            </div>
-                            <div class="form-group">
-                                <lable>产品logo：</lable>
-                                <input type="file" name="logo" class="form-control">
-                            </div>                
-                            <div class="form-group">
-                                <lable>最大接口数：</lable>
-                                <input type="text" name='max_links' class="form-control" placeholder="最大接口数">
-                            </div>       
-                            <div class="radio">
-                                <span>产品状态：</span>
-                                <volist name="states" id="state">
-                                    <label class="radio-inline">
-                                        <input type="radio" name="state" value="{$key}" <if condition="$key eq '1'">checked</if>>{$state}
-                                    </label>
-                                </volist>
-                            </div>               
-                            <div class="radio"> 
-                                <span>结算方式：</span>
-                                <volist name="invoicing_cycle" id="cycle">
-                                    <label class="radio-inline">
-                                        <input type="radio" name="invoicing_cycle" value="{$key}" <if condition="$key eq '0'">checked</if>>{$cycle}
-                                    </label>
-                                </volist>
-                            </div>       
-                            <div class="radio">
-                                <span>数据返回：</span>
-                                <volist name="data_back" id="dback">
-                                    <label class="radio-inline">
-                                        <input type="radio" name="data_back" value="{$key}" <if condition="$key eq '0'"> checked</if>>{$dback}
-                                    </label>
-                                </volist>
-                            </div>            
-                            <lable>产品说明:</lable>
-                            <textarea class="form-control" rows="3" name='intro'></textarea>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-success" id="confirm">确认提交</button>
-                                <input type="reset" value="重置" class="btn btn-info">
-                            </div>
-                        </form>                
-                    </div>
-                </div>
-            </div>
-        </div>  
+         
         <div class="con">
             <table border="0" cellpadding="0" cellspacing="0" class="productTable" id="data">
                 <thead>
                     <tr>
                         <th style="width:70px;">申请ID</th>
-                        <th >产品ID</th>
+                        <th colspan="2">产品ID</th>
                         <th>用户名</th>
                         <th style="width:250px;">操作</th>
                     </tr>
@@ -98,7 +23,8 @@
                     <volist name="goodsApplies" id="row">
                         <tr>
                             <td>{$row.id}</td>
-                            <td><a href="{:U('Admin:Goods/links?id=10009')}" target="_blank">{$row.goods_id}</a></td>
+                            <td style="text-align: right;"><a href="{:U('Admin:Goods/links?id=10009')}" target="_blank"><img src='{$goods[$row['goods_id']]['goods_small_img']}'/></a></td>
+                            <td style="text-align: left;"><a href="{:U('Admin:Goods/links?id=10009')}" target="_blank">{$goods[$row['goods_id']]['goods_name']}</a></td>
                             <td><a href="{:U('Admin:Members/index')}" target="_blank">{$members[$row['members_id']]['username']}</a></td>
                             <td>
                                 <a href="javascript:;" class="sb4 applyAgree" _id="{$row.id}">审核通过</a>

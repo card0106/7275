@@ -20,6 +20,9 @@ class ApplyController extends \Think\Controller{
         $members = M('members')->select();
         $members = subscriptArray($members, 'id');
         $this->assign('members', $members);
+        $goods = M('goods')->select();
+        $goods = subscriptArray($goods,'id');
+        $this->assign('goods',$goods);
         $this->display();
     }
 
