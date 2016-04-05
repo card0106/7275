@@ -64,9 +64,11 @@
                     </if>
                 </td>
                 <td>
-                    <if condition="$row.applying eq 1">
+                    <if condition="$row.applying eq 2">
                         <input type="submit" value="审核中" class="ibutton">
-                    <else/>
+                    <elseif condition="$row.applying eq 1" />
+                        <input type="submit" value="申请成功"  class="ibutton">
+                    <else />
                         <input type="button" value="申请" class="ibutton iapply" _goods_id="{$row.id}" _member_id="{$member_id}">
                     </if>
                 </td>

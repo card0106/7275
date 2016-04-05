@@ -29,16 +29,22 @@ class MembersController extends BaseController{
         $this->ajaxReturn($mes);
     }
     //在会员界面显示的时候，还需要查询出当前会员所对应的 产品数量
-    /*
+    
     protected function _before_index_view($result) {
         //根据result里面的id去查询出对应的 产品数量
-        $goods = M("MembersProduct")->group('members_id')->getField('members_id,count(goods_id)');
+        $goods = M("goods_apply")->where('state=1')->group('members_id')->getField('members_id,count(goods_id)');
         foreach ($result["rows"] as &$row){
             $row["num"]=$goods[$row['id']] | 0;
         }
         $this->assign($result);
+        //未审核业务数
+        $good = M("goods_apply")->where('state=0')->group('members_id')->getField('members_id,count(goods_id)');
+        foreach ($result["rows"] as &$row){
+            $row["nu"]=$good[$row['id']] | 0;
+        }
+        $this->assign($result);
     }
-     */
+     
     //改变 会员状态
     public function changeState($id,$flag){
         $this->model->where("id={$id}")->setField('state',$flag);

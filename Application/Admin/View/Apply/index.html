@@ -6,7 +6,7 @@
     <div class="right">
     	<include file="./Application/Admin/View/Public/top.html" />
         <div class="tit f20">
-            <span>产品申请列表</span>
+            <span>业务申请列表</span>
         </div>
          
         <div class="con">
@@ -14,7 +14,7 @@
                 <thead>
                     <tr>
                         <th style="width:70px;">申请ID</th>
-                        <th colspan="2">产品ID</th>
+                        <th colspan="2">业务ID</th>
                         <th>用户名</th>
                         <th style="width:250px;">操作</th>
                     </tr>
@@ -23,8 +23,8 @@
                     <volist name="goodsApplies" id="row">
                         <tr>
                             <td>{$row.id}</td>
-                            <td style="text-align: right;"><a href="{:U('Admin:Goods/links?id=10009')}" target="_blank"><img src='{$goods[$row['goods_id']]['goods_small_img']}'/></a></td>
-                            <td style="text-align: left;"><a href="{:U('Admin:Goods/links?id=10009')}" target="_blank">{$goods[$row['goods_id']]['goods_name']}</a></td>
+                            <td style="text-align: right;"><a href="{:U('Admin:Goods/links',array('id'=>$row['goods_id']))}" target="_blank"><img src='{$goods[$row['goods_id']]['goods_small_img']}'/></a></td>
+                            <td style="text-align: left;"><a href="{:U('Admin:Goods/links',array('id'=>$row['goods_id']))}" target="_blank">{$goods[$row['goods_id']]['goods_name']}</a></td>
                             <td><a href="{:U('Admin:Members/index')}" target="_blank">{$members[$row['members_id']]['username']}</a></td>
                             <td>
                                 <a href="javascript:;" class="sb4 applyAgree" _id="{$row.id}">审核通过</a>

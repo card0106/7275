@@ -14,19 +14,19 @@
             <tr class="f14">
                 <th width="8%">用户ID</th>
                 <th width="11%">用户名</th>
-                <th width="18%">已经审核产品数</th>
-                <th width="13%">未审核产品数</th>
+                <th width="18%">已经审核通过业务数</th>
+                <th width="13%">未审核业务数</th>
                 <th width="14%">加入联盟时间</th>
                 <th width="12%">状态</th>
                 <th width="24%">操作</th>
             </tr>
-            <!----循环取出会员信息 开始----->
+            <!----循环取出会员信息 开始-->
             <volist name="rows" id="row">
                 <tr>
                     <td><span>{$row.id}</span></td>
                     <td>{$row.username}</td>
-                    <td><if condition="$row['num'] eq 0">0<else/><a class="sb6" href="{:U('MembersProduct/getItems','member_id='.$row['id'])}">{$row.num}</a></if></td>
-                    <td>无此数据</td>
+                    <td><if condition="$row['num'] eq 0">0<else/><a class="sb6" href="">{$row.num}</a></if></td>
+                    <td><if condition="$row['num'] eq 0">0<else/><a class="sb6" href="">{$row.nu}</a></if></td>
                     <td>{:date("Y-m-d H:i:s",$row["enter_time"])}</td>
                     <td>
                         <if condition="$row['state'] eq 0"><a href="javascript:void(0)" class="sb6" flag="1" onclick="changeState(this)" value="{$row.id}">禁用</a>    

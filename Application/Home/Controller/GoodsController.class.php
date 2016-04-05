@@ -71,24 +71,32 @@ class GoodsController extends \Think\Controller{
 
         $condition = [
             'goods_id' => ['in', implode($ids, ",")],
-            'state' => 0,
+            //'state' => 0,
             'members_id' => $member_id
         ];
         $applyList = M('goodsApply')->where($condition)->select();
 
         $applyList = subscriptArray($applyList, 'goods_id');
-        
+        //dump($rows);
+        //exit;
+
         foreach($rows as &$val){
             if(isset($product[$val['id']])){
                 $val['down_price_1'] = $product[$val['id']]['down_price_1'];
             }
             if(isset($applyList[$val['id']])){
-                $val['applying'] = 1;
+              
+                if($applyList[$val['id']]['state'] == 1){
+                    $val['applying'] = 1;
+                }else{
+                    $val['applying'] = 2;
+                }
+                
             }
         }
 
 
-
+        
 
         
         $this->assign("pageHTML",$pageHTML);
