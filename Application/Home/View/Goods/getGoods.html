@@ -37,10 +37,12 @@
                     </if>
                 </td>
                 <td>
-                    <if condition="$row.cash_type eq 0">
-                    ￥<span class="color1">{$row.down_price_1}</span>
-                    <elseif condition="$row.cash_type eq 1"/>
-                    <span class="color1">{$row.down_price_1}</span>%
+                    <if condition="$member eq elianjie">-<else />
+                        <if condition="$row.cash_type eq 0">
+                            ￥<span class="color1">{$row.down_price_1}</span>
+                            <elseif condition="$row.cash_type eq 1"/>
+                            <span class="color1">{$row.down_price_1}</span>%
+                        </if>
                     </if>
                 </td>
                 <td>                    

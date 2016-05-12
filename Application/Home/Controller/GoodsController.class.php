@@ -98,7 +98,7 @@ class GoodsController extends \Think\Controller{
 
         
 
-        
+        $this->assign("member",$member);
         $this->assign("pageHTML",$pageHTML);
         $this->assign("rows",$rows);
         $this->assign("cats",$cats);

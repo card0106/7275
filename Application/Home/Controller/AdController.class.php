@@ -45,6 +45,7 @@ class AdController extends \Think\Controller{
 
     public function myAd(){
         $member=$_SESSION["membersinfo"]["username"];
+        $this->assign('member',$member);
         $membersModel=M("Members");
         $member_id=$membersModel->getFieldByUsername($member,"id");
         $goodsLink = M('goodsLink')->where("members_id={$member_id}")->select();
