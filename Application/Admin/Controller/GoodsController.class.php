@@ -32,7 +32,9 @@ class GoodsController extends BaseController{
     private $_measure = [
                   '1'  => '元/千ip检索',
                   '2'  => '元/千ip搜索',
-                  '3'  => '元/激活'
+                  '3'  => '元/激活',
+                  '4'  => '元/CPA',
+                  '5'  => '元/CPS'
              ];
 
     public function getAdminId(){
