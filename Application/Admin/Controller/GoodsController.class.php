@@ -34,7 +34,8 @@ class GoodsController extends BaseController{
                   '2'  => '元/千ip搜索',
                   '3'  => '元/激活',
                   '4'  => '元/CPA',
-                  '5'  => '元/CPS'
+                  '5'  => '元/CPS',
+                  '6'  => '元/CPC'
              ];
 
     public function getAdminId(){
