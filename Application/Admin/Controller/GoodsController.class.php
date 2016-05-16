@@ -295,7 +295,19 @@ class GoodsController extends BaseController{
             }
         } 
     }
-     
+     public function delGoodsLink(){
+        $linkModel=D("goodsLink");
+        $id=$_POST["id"];
+        $record1=serialize($linkModel->where("id=$id")->find());       
+        $res=$linkModel->where("id={$id}")->delete();
+        if($res!==false){
+            
+            $this->record($this->getAdminId(),3,'goods_link',$id,$record1,'');
+            $this->ajaxReturn (1);
+        }
+     }
+
+
     public function editData(){
          //date_default_timezone_set('PRC');
          if(IS_POST){
