@@ -94,8 +94,8 @@ class GoodsController extends \Think\Controller{
                 
             }
         }
-
-
+        $cats = subscriptArray($cats,'id');
+        //var_dump($cats);
         
 
         $this->assign("member",$member);
