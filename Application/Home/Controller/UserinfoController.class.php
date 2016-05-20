@@ -21,7 +21,7 @@ class UserinfoController extends \Think\Controller{
         //根据会员名得到 member_id
         $membersModel=D("Members");
         $member=$membersModel->getByUsername($member_name);
-    	$member["enter_time"] = date("Y-m-d H:i:s", $member["enter_time"]);
+    	   $member["enter_time"] = date("Y-m-d H:i:s", $member["enter_time"]);
         $member["client_ip"] = long2ip($member["client_ip"]);
         $this->assign("member",$member);
 
@@ -32,9 +32,11 @@ class UserinfoController extends \Think\Controller{
         if(empty($money['yesterday'])){
         	$money['yesterday'] = '0.00';
         }
+
         $money['notpay'] = $member['balance'];
         $money['total'] = $member['total_amount'];
         $this->assign("money",$money);
+        $this->assign("member",$member_name);
         //print_r($money);
         $this->display();
         die();
@@ -49,7 +51,7 @@ class UserinfoController extends \Think\Controller{
         //根据会员名得到 member_id
         $membersModel=D("Members");
         $member=$membersModel->getByUsername($member_name);
-    	$member["enter_time"] = date("Y-m-d H:i:s", $member["enter_time"]);
+    	   $member["enter_time"] = date("Y-m-d H:i:s", $member["enter_time"]);
         $member["client_ip"] = long2ip($member["client_ip"]);
         $this->assign("member",$member);
         

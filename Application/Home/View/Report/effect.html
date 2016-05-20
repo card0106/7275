@@ -37,7 +37,7 @@
                         </if>
                     </td>                    
                     <td>{$row.data_list}</td>
-                    <td>{$row.down_price_1}</td>
+                    <td><if condition="$member eq elianjie">-<else />{$row.down_price_1}</if></td>
                     <td>{$row.money}</td>
             </tr>
             </volist>

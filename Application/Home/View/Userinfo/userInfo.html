@@ -13,9 +13,9 @@
 	<div class="bok"><span>您好：{$member["username"]}</span><span>上次登录时间：{$member["enter_time"]}</span><span>上次登录IP：{$member["client_ip"]}</span><span>登录次数：{$member["login_num"]}次</span></div>
     <h2 class="f20">数据报告</h2>
     <div class="bok bheight80">
-    	<div class="income fl">昨日收入<br /><i class="f28 color1">￥{$money.yesterday}元</i></div>
-    	<div class="income fl">总收入<br /><i class="f28 color1">￥{$money.total}元</i></div>
-    	<div class="income fl">未支付<br /><i class="f28 color1">￥{$money.notpay}元</i></div>
+    	<div class="income fl">昨日收入<br /><i class="f28 color1">￥<if condition="$member eq elianjie">-<else />{$money.yesterday}</if>元</i></div>
+    	<div class="income fl">总收入<br /><i class="f28 color1">￥<if condition="$member eq elianjie">-<else />{$money.total}</if>元</i></div>
+    	<div class="income fl">未支付<br /><i class="f28 color1">￥<if condition="$member eq elianjie">-<else />{$money.notpay}</if>元</i></div>
     </div>
     <h2 class="f20">付款规则</h2>
     <div class="bok">

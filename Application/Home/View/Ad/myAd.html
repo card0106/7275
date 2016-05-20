@@ -45,7 +45,7 @@
             <volist name="row.links" id="link">
                 <if condition="$key gt 0">
                 <tr>
-                    <td>{$link.down_price_1}</td>
+                    <td><if condition="$member eq elianjie">-<else />{$link.down_price_1}</if></td>
                     <td>{$link.state}</td>
                     <td>
                         <if condition="($row.category_id eq 1) or ($row.category_id eq 2)">

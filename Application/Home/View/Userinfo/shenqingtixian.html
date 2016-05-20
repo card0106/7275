@@ -1,7 +1,7 @@
 <include file="./Application/Home/View/Public/header_member.html" menu='info'/>
 <script type="text/javascript" src="__JS__/jquery.min.js"></script>
 <script type="text/javascript" src="__JS__/formValidator_min.js"></script>
-<!--导航栏 结束-----> 
+<!--导航栏 结束--> 
 <div id="menu" class="f14">
 	<div class="one">
 	<a href="{:U('/userinfo')}">概况</a>
@@ -18,7 +18,7 @@
     	  <div class="con">
         	<dl>
            	  <dt>可提现金额：</dt>
-                <dd><strong id="totalmoney">{$member["notpay"]}</strong>元</dd>
+                <dd><strong id="totalmoney"><if condition="$member eq elianjie">-<else />{$member["notpay"]}</if></strong>元</dd>
             </dl>
         	
             <dl>

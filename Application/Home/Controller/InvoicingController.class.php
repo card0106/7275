@@ -37,6 +37,7 @@ class InvoicingController extends \Think\Controller{
             $row["finnal_price"]=$num*$row["goods_price"];
         }
         $this->assign("rows",  json_encode($rows));
+        $this->assign("member",$member_name);
         $this->display();
     }
 }

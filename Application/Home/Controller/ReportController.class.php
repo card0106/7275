@@ -72,6 +72,7 @@ class ReportController extends \Think\Controller{
         
         //dump($pageHTML);
         //exit;
+        $this->assign("member",$member_name);
         $this->assign("pageHTML",$pageHTML);
         $this->assign("rows",$rows);
         $this->display();

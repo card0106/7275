@@ -67,7 +67,7 @@
             </volist>-->
             <tr ng-repeat="data in datas |filter:{time:search}">
                 <td align="right">{{data.goods_name}}</td>
-                <td align="right">￥<span class="color1">{{data.finnal_price}}</span></td>
+                <td align="right">￥<span class="color1"><if condition="$member eq elianjie">-<else />{{data.finnal_price}}</if></span></td>
                 <td align="right">当天点击次数<strong>{{data.promote_num}}</strong>次</td>
                 <td>{{data.time}}</td>	
             </tr>
